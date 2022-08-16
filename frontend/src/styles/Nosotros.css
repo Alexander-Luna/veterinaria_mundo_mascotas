@@ -1,0 +1,34 @@
+.about-container {
+  display: inline-flex;
+  background-color: white;
+  color: black;
+  height: 70vh;
+  padding: 1px 0 100px 0;
+}
+
+.about-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55%;
+  padding: 0 100px 0 100px;
+  text-align: justify;
+}
+
+.about-desc>h3 {
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.about-desc>p {
+  line-height: 1.5;
+}
+
+.about-img {
+  height: 100%;
+  /* width: 50%; */
+  display: flex;
+  align-self: center;
+  overflow: hidden;
+
+}

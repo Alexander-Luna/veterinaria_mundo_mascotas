@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+.contenedor-historia{
+  width: 1170px;
+  height: 368px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  box-shadow: 0 3px 13px 1px rgb(0 0 0 /9%);
+}
+
+.imagen-historia{
+  height: 100%;
+  width: auto;
+
+}
+
+.contenedor-texto-historia{
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  text-align: center;
+  padding: 40px;
+  font-family: 'Poppins', sans-serif;  
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+.contenedor-subtitulo{
+  font-size: 1.3rem;
+  margin-top: 15px;
+  padding-bottom: 30px;
+
+}
+
+.texto-historia{
+  font-size: 1.1rem;
+  text-align: justify;
+}

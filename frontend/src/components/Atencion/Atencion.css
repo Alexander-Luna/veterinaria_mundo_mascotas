@@ -1,0 +1,40 @@
+.about {
+  text-align: center;
+  padding: 80px;
+}
+
+.subtitle {
+  color: var(--color-title);
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+
+.about__paragraph {
+  line-height: 1.7;
+  margin: 20px auto;
+}
+
+.about__main {
+
+  display: grid;
+  width: 90%;
+  margin: 0 auto;
+  gap: 1em;
+  overflow: hidden;
+  grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+}
+
+
+.about__icons {
+  display: grid;
+  gap: 1em;
+  justify-items: center;
+  width: 260px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.about__icon {
+  width: 125px;
+}

@@ -1,0 +1,14 @@
+.contenedor-principal{
+  display: flex;
+  width: 350px;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 25px;
+  column-gap: 20px;
+}
+
+.contenedor-card{
+  flex: 0 0 100%;
+  padding: 30px;
+  scroll-snap-align: start;
+  border-radius: 30px;
+}

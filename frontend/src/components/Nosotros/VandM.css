@@ -1,0 +1,41 @@
+.contenedor-VandM {
+  display: flex;
+  background-color: white;
+  color: black;
+  height: 70vh;
+  padding: 100px 0 100px 0;
+}
+
+.contenedor-texto-VandM {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55%;
+  padding: 0 100px 0 100px;
+}
+
+.contenedor-tirulo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55%;
+  padding: 0 100px 0 100px;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.contenedor-descripcion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55%;
+  padding: 0 100px 0 100px;
+  line-height: 1.5;
+}
+
+.contendeor-img {
+  width: 45%;
+  display: flex;
+  align-self: center;
+  overflow: hidden;
+}

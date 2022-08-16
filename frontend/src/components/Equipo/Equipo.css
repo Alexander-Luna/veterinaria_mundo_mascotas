@@ -1,0 +1,5 @@
+.contenedor-equipo {
+  display:flex;
+  margin: 10px auto;
+  background-color: #f8f8f8;
+}
