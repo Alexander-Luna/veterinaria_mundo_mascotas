@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('rols', function (Blueprint $table) {
             $table->bigIncrements('cod_rol');
             $table->string('tipo');
+            $table->timestamps();
         });
     }
 

@@ -24,6 +24,7 @@ return new class extends Migration
             ->references('cod_producto')->on('productos')->cascadeOnUpdate();
             $table->foreign('cod_proveedor')
             ->references('cod_proveedor')->on('proveedores')->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 

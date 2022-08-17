@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CategoriaController extends Controller
 {
@@ -15,7 +16,13 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return Categoria::all();
+        $data = Categoria::all();
+        return response()->json([
+            'errors' => false,
+            'code' => Response::HTTP_OK,
+            'status' => '200 OK',
+            'data' => $data
+        ], Response::HTTP_OK,);
     }
 
     /**
@@ -26,7 +33,13 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Categoria::create($request->all());
+        return response()->json([
+            'errors' => false,
+            'code' => Response::HTTP_CREATED,
+            'status' => '201 Created',
+            'data' => $data
+        ], Response::HTTP_CREATED);
     }
 
     /**
@@ -37,7 +50,13 @@ class CategoriaController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Categoria::findOrFail($id);
+        return response()->json([
+            'errors' => false,
+            'code' => Response::HTTP_OK,
+            'status' => '200 OK',
+            'data' => $data
+        ], Response::HTTP_OK,);
     }
 
     /**
@@ -47,9 +66,16 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+        $data = Categoria::findOrFail($id);
+        $data->update($request->all());
+        return response()->json([
+            'errors' => false,
+            'code' => Response::HTTP_OK,
+            'status' => '200 OK',
+            'data' => $data
+        ], Response::HTTP_OK);
     }
 
     /**
@@ -60,6 +86,18 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Categoria::findOrFail($id);
+        $data->delete();
+        $messages = [
+            "Se elimino correctamente"
+        ];
+        return response()->json([
+            'errors' => false,
+            'code' => Response::HTTP_OK,
+            'status' => '200 OK',
+            'data' => [
+                'msj' => $messages
+            ],
+        ], Response::HTTP_OK);
     }
 }

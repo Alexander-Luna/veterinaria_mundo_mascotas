@@ -16,6 +16,7 @@ class ProductoSeeder extends Seeder
     public function run()
     {
         DB::table('productos')->truncate();
+
         DB::table('productos')->insert([
             [
                 'codigo'=> 'P001',

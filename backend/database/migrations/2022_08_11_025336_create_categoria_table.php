@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigIncrements('cod_categoria');
             $table->string('nombre');
             $table->string('descripcion')->nullable();
+            $table->timestamps();
         });
     }
 

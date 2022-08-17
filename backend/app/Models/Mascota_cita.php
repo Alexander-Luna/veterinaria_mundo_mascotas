@@ -11,6 +11,13 @@ class Mascota_cita extends Model
 
     protected $fillable = [
         'cod_mascota',
-        'cod_cita'
+        'cod_cita',
+        'created_at',
+        'updated_at'
     ];
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
 }

@@ -19,7 +19,13 @@ class Producto extends Model
         'precio_compra',
         'precio_venta',
         'cantidad',
-        'cod_categoria'
+        'cod_categoria',
+        'created_at',
+        'updated_at'
+    ];
+    protected $hidden = [
+        'created_at',
+        'updated_at'
     ];
 
 }

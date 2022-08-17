@@ -13,6 +13,13 @@ class Cita extends Model
         'cod_cita',
         'fecha',
         'hora',
-        'tipo'
+        'tipo',
+        'created_at',
+        'updated_at'
     ];
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
 }

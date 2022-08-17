@@ -24,6 +24,7 @@ return new class extends Migration
             ->references('cedula_cliente')->on('clientes')->cascadeOnUpdate();
             $table->foreign('cod_producto')
             ->references('cod_producto')->on('productos')->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 

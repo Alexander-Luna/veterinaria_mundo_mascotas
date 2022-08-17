@@ -15,6 +15,13 @@ class Pedido extends Model
         'fecha_pedido',
         'fecha_entrega',
         'cod_proveedor',
-        'cod_producto'
+        'cod_producto',
+        'created_at',
+        'updated_at'
     ];
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
 }

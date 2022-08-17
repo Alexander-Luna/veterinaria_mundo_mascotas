@@ -15,7 +15,13 @@ class Factura extends Model
         'cedula_cliente',
         'cod_producto',
         'total_a_pagar',
-        'fecha'
+        'fecha',
+        'created_at',
+        'updated_at'
+    ];
+    protected $hidden = [
+        'created_at',
+        'updated_at'
     ];
 
 }

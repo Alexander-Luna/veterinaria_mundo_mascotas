@@ -17,6 +17,13 @@ class Historial_clinico extends Model
         'temperatura',
         'descripcion',
         'cod_mascota',
-        'cod_cita'
+        'cod_cita',
+        'created_at',
+        'updated_at'
     ];
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
 }

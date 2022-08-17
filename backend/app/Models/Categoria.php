@@ -12,6 +12,13 @@ class Categoria extends Model
     protected $fillable = [
         'cod_categoria',
         'nombre',
-        'descripcion'
+        'descripcion',
+        'created_at',
+        'updated_at'
     ];
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
 }

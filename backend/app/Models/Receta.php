@@ -14,6 +14,13 @@ class Receta extends Model
         'indicaciones',
         'medicamento',
         'cod_historial_clinico',
-        'dosis'
+        'dosis',
+        'created_at',
+        'updated_at'
     ];
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
 }
