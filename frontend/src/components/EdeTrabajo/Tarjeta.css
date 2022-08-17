@@ -54,7 +54,7 @@ button {
 
 button:hover{
   background-image:linear-gradient(to left, #00a9ba, #00D2FF);
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
   border: none;
-  color: white;
+  /* color: white; */
 } 
