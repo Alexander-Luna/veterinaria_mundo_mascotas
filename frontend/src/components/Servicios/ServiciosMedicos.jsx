@@ -1,19 +1,37 @@
 import React, { useState } from 'react'
-import vacunas from '../img/vacunas.jpg'
-import esteticaCanina from '../img/estetica_canina.jpg'
-import atencion from '../img/atencion.jpg'
+import urgencias from '../img/urgecias.jpg'
+import consulta from '../img/conculta_externa.jpg'
+import cirugia from '../img/cirugia.jpg'
+import hospitalizacion from '../img/hospitalizacion.jpg'
+import farmacia from '../img/farmacia.jpg'
+import oftalmologia from '../img/oftalmologia.jpg'
+import odontologia from '../img/odontologia.jpg'
+import dermatologia from '../img/odontologia.jpg'
 
+import './ServiciosMedicos.css'
 const ServiciosMedicos = () => {
 
-  const servicios = ["Vacunas", "Estetica Canina", "Consulta de Domingo a Domingo"];
+  const servicios = [
+    "Urgencias",
+    "Consulta externa",
+    "Cirugía general y ortopedia",
+    "Hospitalización",
+    "Farmacia Veterinaria",
+    "Oftalmología",
+    "Odontología",
+    "Dermatología"];
+
+  
+
   const [miServicio, setMiServicio] = useState('')
+  const [miInformacion, setInfromacion] = useState('')
   const ServiciosImagenes = ({ src }) => {
     return <img src={src} alt="" style={{ width: '250px', height: '250px' }} />;
   };
 
   return (
     <>
-      <div className='row w-100 text-center'>
+      <div className='contenedot-info-ser'>
         <div className='col mb-3 col-12 text-center'>
           <h2>Servicios Medicos</h2>
           <br />
@@ -24,7 +42,7 @@ const ServiciosMedicos = () => {
               <button
                 type='button'
                 key={servicio}
-                className={"btn btn-light border-dark"}
+                // className={"btn btn-light border-dark"}
                 onClick={() => setMiServicio(servicio)}
               >
                 {servicio.toLocaleUpperCase()}
@@ -36,9 +54,14 @@ const ServiciosMedicos = () => {
         <div className='col text-center'>
           <p>{miServicio}</p>
           <p>
-            {miServicio === 'Vacunas' && (<ServiciosImagenes src={vacunas} />)}
-            {miServicio === 'Estetica Canina' && (<ServiciosImagenes src={esteticaCanina} />)}
-            {miServicio === 'Consulta de Domingo a Domingo' && (<ServiciosImagenes src={atencion} />)}
+            {miServicio === 'Urgencias' && (<ServiciosImagenes src={urgencias} />)}
+            {miServicio === 'Consulta externa' && (<ServiciosImagenes src={consulta} />)}
+            {miServicio === 'Cirugía general y ortopedia' && (<ServiciosImagenes src={cirugia} />)}
+            {miServicio === 'Hospitalización' && (<ServiciosImagenes src={hospitalizacion} />)}
+            {miServicio === 'Farmacia Veterinaria' && (<ServiciosImagenes src={farmacia} />)}
+            {miServicio === 'Oftalmología' && (<ServiciosImagenes src={oftalmologia} />)}
+            {miServicio === 'Odontología' && (<ServiciosImagenes src={odontologia} />)}
+            {miServicio === 'Dermatología' && (<ServiciosImagenes src={dermatologia} />)}
           </p>
         </div>
 

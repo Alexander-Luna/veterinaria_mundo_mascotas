@@ -28,7 +28,7 @@ function Navbar(props) {
                <img src="../Nav/assets/arrow.svg" className="menu__arrow"/> 
             </a> */}
             <NavLink className="menu__link" to="/servicios"> Servicios </NavLink>
-            <ul className="menu__nesting">
+            {/* <ul className="menu__nesting">
               <li className="menu__inside">
                 <a href="#" className="menu__link menu__link--inside" >Vacunas</a>
               </li>
@@ -50,7 +50,7 @@ function Navbar(props) {
               <li className="menu__inside">
                 <a href="#" className="menu__link menu__link--inside" >Visita a domicilio</a>
               </li>
-            </ul>
+            </ul> */}
           </li>
           <li className="menu__item menu__item--show">
             {/* <a href="#" className="menu__link">Projects
@@ -58,7 +58,7 @@ function Navbar(props) {
 
             </a> */}
             <NavLink className="menu__link" to="/productos"> Productos </NavLink>
-            <ul className="menu__nesting">
+            {/* <ul className="menu__nesting">
               <li className="menu__inside">
                 <a href="#" className="menu__link menu__link--inside" >Alimentos</a>
               </li>
@@ -77,7 +77,7 @@ function Navbar(props) {
               <li className="menu__inside">
                 <a href="#" className="menu__link menu__link--inside" >Productos avicolas</a>
               </li>
-            </ul>
+            </ul> */}
           </li>
           <li className="menu_item">
             <NavLink className="menu__link" to="/contactos"> Contactos </NavLink>
