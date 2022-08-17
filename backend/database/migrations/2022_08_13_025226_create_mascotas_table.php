@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('codigo')->nullable();
             $table->string('nombre');
             $table->string('raza')->nullable();
-            $table->timestamp('fecha_nacimiento')->nullable();
+            $table->date('fecha_nacimiento')->nullable();
             $table->unsignedBigInteger('cod_especie');
             $table->string('cedula_cliente');
             $table->foreign('cod_especie')
