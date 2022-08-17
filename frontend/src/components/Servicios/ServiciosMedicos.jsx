@@ -1,3 +1,4 @@
+import React from 'react'
 import React, { useState } from 'react'
 import urgencias from '../img/urgecias.jpg'
 import consulta from '../img/conculta_externa.jpg'
@@ -21,7 +22,7 @@ const ServiciosMedicos = () => {
     "Odontología",
     "Dermatología"];
 
-  
+
 
   const [miServicio, setMiServicio] = useState('')
   const [miInformacion, setInfromacion] = useState('')
