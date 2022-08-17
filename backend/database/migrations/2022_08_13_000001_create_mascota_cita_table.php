@@ -17,9 +17,9 @@ return new class extends Migration
             $table->unsignedBigInteger('cod_mascota');
             $table->unsignedBigInteger('cod_cita');
             $table->foreign('cod_mascota')
-            ->references('mascotas')->on('cod_mascota')->cascadeOnUpdate();
+            ->references('cod_mascota')->on('mascotas')->cascadeOnUpdate();
             $table->foreign('cod_cita')
-            ->references('citas')->on('cod_cita')->cascadeOnUpdate();
+            ->references('cod_cita')->on('citas')->cascadeOnUpdate();
         });
     }
 

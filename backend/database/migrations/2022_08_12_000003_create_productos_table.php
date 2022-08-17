@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('cantidad');
             $table->unsignedBigInteger('cod_categoria');
             $table->foreign('cod_categoria')
-            ->references('categorias')->on('cod_categoria')->cascadeOnUpdate();
+            ->references('cod_categoria')->on('categorias')->cascadeOnUpdate();
         });
     }
 

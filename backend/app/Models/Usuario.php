@@ -9,7 +9,7 @@ class Usuario extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nombre',
+        'nombres',
         'apellido',
         'cedula',
         'numero_celular',

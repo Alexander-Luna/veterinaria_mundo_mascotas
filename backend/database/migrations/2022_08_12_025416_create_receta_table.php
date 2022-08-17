@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('dosis')->nullable();
             $table->unsignedBigInteger('cod_historial_clinico');
             $table->foreign('cod_historial_clinico')
-            ->references('cod_hitorial_clinico')->on('historial_clinicos')->cascadeOnUpdate();
+            ->references('cod_historial_clinico')->on('historial_clinicos')->cascadeOnUpdate();
 
 
         });

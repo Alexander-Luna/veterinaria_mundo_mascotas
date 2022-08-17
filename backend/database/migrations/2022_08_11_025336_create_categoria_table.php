@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('categorias', function (Blueprint $table) {
             $table->bigIncrements('cod_categoria');
             $table->string('nombre');
-            $table->string('descripcion');
+            $table->string('descripcion')->nullable();
         });
     }
 

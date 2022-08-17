@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamp('fecha_pedido');
             $table->timestamp('fecha_entrega')->nullable();
             $table->string('cod_proveedor');
+            $table->unsignedBigInteger('cod_producto');
             $table->foreign('cod_producto')
             ->references('cod_producto')->on('productos')->cascadeOnUpdate();
             $table->foreign('cod_proveedor')

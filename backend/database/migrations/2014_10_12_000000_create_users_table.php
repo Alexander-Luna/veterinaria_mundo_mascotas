@@ -15,19 +15,20 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nombres');
             $table->string('apellido');
             $table->string('cedula',10)->nullable()->unique();
             $table->string('numero_celular',13)->nullable();
             $table->unsignedBigInteger('cod_rol');
             $table->string('direccion')->nullable();
             $table->string('email')->unique();
+            $table->foreign('cod_rol')
+            ->references('cod_rol')->on('rols')->cascadeOnUpdate();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->foreign('cod_rol')
-            ->references('cod_rol')->on('rols')->cascadeOnUpdate();
+
 
         });
     }
