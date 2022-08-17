@@ -3,7 +3,7 @@ import React from 'react'
 const ProductItem = ({ data, addToCart }) => {
   let { id, name, image, descripcion, price } = data;
   return (
-    <div style={{ border: "thin solid gray", padding: "1rem" }}>
+    <div  className='contenedor-producto'>
       <h4>{name}</h4>
       <div className="producto__img">
         <img src={image}/>

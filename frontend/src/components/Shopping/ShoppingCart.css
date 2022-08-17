@@ -1,8 +1,8 @@
 .box {
   padding: 1rem;
   margin: 1rem;
-  border-radius: 5%;
-  box-shadow: 0 0 1rem #00000025 inset;
+  border-radius: 0.5%;
+  /* box-shadow: 0 0 1rem #00000025 inset; */
 }
 
 .grid-responsive {
@@ -11,10 +11,16 @@
   gap: 1rem;
 }
 
-.contenedor-productos {
+.contenedor-productos-vet {
   padding-top: 100px;
 }
 
 .producto__img img {
   width: 175px;
+}
+
+.contenedor-producto {
+  border-radius: 2%;
+  border: thin solid gray;
+  padding: 1rem;
 }

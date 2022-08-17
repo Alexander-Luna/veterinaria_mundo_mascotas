@@ -32,7 +32,7 @@ const ShoppingCart = () => {
 
   return (
     <>
-      <div className='contenedor-productos'>
+      <div className='contenedor-productos-vet'>
         {/* <h2>Carrito de Compras</h2> */}
         <h3>Productos</h3>
         <article className='box grid-responsive'>
