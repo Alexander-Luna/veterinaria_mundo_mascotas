@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('rols', function (Blueprint $table) {
-            $table->id();
-            $table->string('codigo');
+            $table->bigIncrements('cod_rol');
             $table->string('tipo');
         });
     }

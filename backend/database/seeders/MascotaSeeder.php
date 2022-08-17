@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class MascotaSeeder extends Seeder
 {
@@ -14,6 +15,7 @@ class MascotaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('mascotas')->truncate();
+
     }
 }

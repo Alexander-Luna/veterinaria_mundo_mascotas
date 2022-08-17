@@ -15,17 +15,15 @@ class RolSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('rols')->truncate();
         DB::table('rols')->insert([
             [
-                'codigo' => 'R001',
                 'tipo' => 'Administrador'
             ],
             [
-                'codigo' => 'R002',
                 'tipo' => 'Vendedor'
             ],
             [
-                'codigo' => 'R003',
                 'tipo' => 'Veterinario'
             ]
         ]);

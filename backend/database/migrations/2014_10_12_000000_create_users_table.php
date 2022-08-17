@@ -17,15 +17,18 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('apellido');
-            $table->string('cedula',10)->nullable();
+            $table->string('cedula',10)->nullable()->unique();
             $table->string('numero_celular',13)->nullable();
-            $table->string('codigo_rol');
+            $table->unsignedBigInteger('cod_rol');
             $table->string('direccion')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('cod_rol')
+            ->references('cod_rol')->on('rols')->cascadeOnUpdate();
+
         });
     }
 

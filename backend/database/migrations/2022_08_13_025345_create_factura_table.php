@@ -14,12 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('facturas', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('cod_factura');
             $table->string('codigo');
-            $table->string('cedula_cliente')->nullable();
-            $table->string('codigo_producto');
+            $table->string('cedula_cliente');
+            $table->unsignedBigInteger('cod_producto');
             $table->double('total_a_pagar',10,2);
             $table->timestamp('fecha');
+            $table->foreign('cedula_cliente')
+            ->references('cedula_cliente')->on('cliente')->cascadeOnUpdate();
+            $table->foreign('cod_producto')
+            ->references('cod_producto')->on('productos')->cascadeOnUpdate();
         });
     }
 

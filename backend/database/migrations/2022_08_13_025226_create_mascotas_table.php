@@ -14,13 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('mascotas', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('cod_mascota');
             $table->string('codigo')->nullable();
             $table->string('nombre');
             $table->string('raza')->nullable();
             $table->timestamp('fecha_nacimiento')->nullable();
-            $table->string('cod_especie');
+            $table->unsignedBigInteger('cod_especie');
             $table->string('cedula_cliente');
+            $table->foreign('cod_especie')
+            ->references('cod_especie')->on('especies')->cascadeOnUpdate();
+            $table->foreign('cedula_cliente')
+            ->references('cedula_cliente')->on('clientes')->cascadeOnUpdate();
         });
     }
 
