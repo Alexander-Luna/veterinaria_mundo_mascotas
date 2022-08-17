@@ -13,13 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('producto_clientes', function (Blueprint $table) {
-            $table->unsignedBigInteger('cod_producto');
+        Schema::create('mascotas', function (Blueprint $table) {
+            $table->bigIncrements('cod_mascota');
+            $table->string('codigo')->nullable();
+            $table->string('nombre');
+            $table->string('raza')->nullable();
+            $table->date('fecha_nacimiento')->nullable();
+            $table->unsignedBigInteger('cod_especie');
             $table->string('cedula_cliente');
+            $table->foreign('cod_especie')
+            ->references('cod_especie')->on('especies')->cascadeOnUpdate();
             $table->foreign('cedula_cliente')
             ->references('cedula_cliente')->on('clientes')->cascadeOnUpdate();
-            $table->foreign('cod_producto')
-            ->references('cod_producto')->on('productos')->cascadeOnUpdate();
             $table->timestamps();
         });
     }
@@ -31,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('producto_clientes');
+        Schema::dropIfExists('mascotas');
     }
 };

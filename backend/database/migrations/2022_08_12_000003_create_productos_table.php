@@ -23,7 +23,10 @@ return new class extends Migration
             $table->double('precio_compra', 10, 2);
             $table->double('precio_venta', 10, 2);
             $table->integer('cantidad');
-            $table->string('codigo_categoria')->nullable();
+            $table->unsignedBigInteger('cod_categoria');
+            $table->timestamps();
+            $table->foreign('cod_categoria')
+            ->references('cod_categoria')->on('categorias')->cascadeOnUpdate();
         });
     }
 

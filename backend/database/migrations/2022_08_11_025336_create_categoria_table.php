@@ -13,16 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('proveedores', function (Blueprint $table) {
-            $table->id();
-            $table->string('cedula');
+        Schema::create('categorias', function (Blueprint $table) {
+            $table->bigIncrements('cod_categoria');
             $table->string('nombre');
-            $table->string('apellido');
-            $table->string('direccion')->nullable();
-            $table->string('numero_celular')->nullable();
+            $table->string('descripcion')->nullable();
+            $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proveedores');
+       Schema::dropIfExists('categorias');
     }
 };

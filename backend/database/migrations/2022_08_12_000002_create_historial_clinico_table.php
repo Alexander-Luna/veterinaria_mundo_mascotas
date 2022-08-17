@@ -26,6 +26,7 @@ return new class extends Migration
             ->references('cod_mascota')->on('mascotas')->cascadeOnUpdate();
             $table->foreign('cod_cita')
             ->references('cod_cita')->on('citas')->cascadeOnUpdate();
+            $table->timestamps();
 
         });
     }

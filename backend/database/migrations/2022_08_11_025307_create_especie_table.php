@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('citas', function (Blueprint $table) {
-            $table->bigIncrements('cod_cita');
-            $table->timestamp('fecha')->nullable();
-            $table->timestamp('hora')->nullable();
-            $table->string('tipo');
+        Schema::create('especies', function (Blueprint $table) {
+            $table->bigIncrements('cod_especie');
+            $table->string('nombre_especie');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-     Schema::dropIfExists('citas');
+        Schema::dropIfExists('especies');
     }
 };

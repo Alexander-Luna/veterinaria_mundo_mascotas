@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Model
+class Rol extends Model
 {
     use HasFactory;
-    protected $primaryKey='cedula_cliente';
+    protected $primaryKey='cod_rol';
     protected $fillable = [
-        'cedula_cliente',
-        'nombre',
-        'apellido',
-        'direccion',
-        'numero_celular',
+        'cod_rol',
+        'tipo',
         'created_at',
         'updated_at'
     ];

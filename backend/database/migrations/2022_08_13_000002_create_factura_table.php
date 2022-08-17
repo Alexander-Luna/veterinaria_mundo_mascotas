@@ -13,18 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mascotas', function (Blueprint $table) {
-            $table->bigIncrements('cod_mascota');
-            $table->string('codigo')->nullable();
-            $table->string('nombre');
-            $table->string('raza')->nullable();
-            $table->timestamp('fecha_nacimiento')->nullable();
-            $table->unsignedBigInteger('cod_especie');
+        Schema::create('facturas', function (Blueprint $table) {
+            $table->bigIncrements('cod_factura');
+            $table->string('codigo');
             $table->string('cedula_cliente');
-            $table->foreign('cod_especie')
-            ->references('cod_especie')->on('especies')->cascadeOnUpdate();
+            $table->unsignedBigInteger('cod_producto');
+            $table->double('total_a_pagar',10,2);
+            $table->date('fecha');
             $table->foreign('cedula_cliente')
             ->references('cedula_cliente')->on('clientes')->cascadeOnUpdate();
+            $table->foreign('cod_producto')
+            ->references('cod_producto')->on('productos')->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mascotas');
+        Schema::dropIfExists('facturas');
     }
 };

@@ -5,16 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Model
+class Historial_clinico extends Model
 {
     use HasFactory;
-    protected $primaryKey='cedula_cliente';
+    protected $primaryKey='cod_historial_clinico';
     protected $fillable = [
-        'cedula_cliente',
-        'nombre',
-        'apellido',
-        'direccion',
-        'numero_celular',
+        'cod_historial_clinico',
+        'peso',
+        'frecuencia_cardiaca',
+        'frecuencia_respiratoria',
+        'temperatura',
+        'descripcion',
+        'cod_mascota',
+        'cod_cita',
         'created_at',
         'updated_at'
     ];

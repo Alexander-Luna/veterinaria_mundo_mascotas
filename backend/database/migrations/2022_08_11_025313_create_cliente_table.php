@@ -14,11 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('clientes', function (Blueprint $table) {
-            $table->string('cedula_cliente');
+            $table->string('cedula_cliente')->primary();
             $table->string('nombre');
             $table->string('apellido');
             $table->string('direccion')->nullable();
             $table->string('numero_celular')->nullable();
+            $table->timestamps();
         });
     }
 
