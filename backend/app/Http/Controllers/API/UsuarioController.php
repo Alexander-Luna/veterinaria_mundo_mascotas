@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class UsuarioController extends Controller
 {
@@ -15,7 +16,13 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        return Usuario::all();
+        $data = Usuario::all();
+        return response()->json([
+            'errors' => false,
+            'code' => Response::HTTP_OK,
+            'status' => '200 OK',
+            'data' => $data
+        ], Response::HTTP_OK,);
     }
 
     /**
@@ -26,7 +33,13 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Usuario::create($request->all());
+        return response()->json([
+            'errors' => false,
+            'code' => Response::HTTP_CREATED,
+            'status' => '201 Created',
+            'data' => $data
+        ], Response::HTTP_CREATED);
     }
 
     /**
@@ -37,7 +50,13 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Usuario::findOrFail($id);
+        return response()->json([
+            'errors' => false,
+            'code' => Response::HTTP_OK,
+            'status' => '200 OK',
+            'data' => $data
+        ], Response::HTTP_OK,);
     }
 
     /**
@@ -47,9 +66,16 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+        $data = Usuario::findOrFail($id);
+        $data->update($request->all());
+        return response()->json([
+            'errors' => false,
+            'code' => Response::HTTP_OK,
+            'status' => '200 OK',
+            'data' => $data
+        ], Response::HTTP_OK);
     }
 
     /**
@@ -60,6 +86,18 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Usuario::findOrFail($id);
+        $data->delete();
+        $messages = [
+            "Se elimino correctamente"
+        ];
+        return response()->json([
+            'errors' => false,
+            'code' => Response::HTTP_OK,
+            'status' => '200 OK',
+            'data' => [
+                'msj' => $messages
+            ],
+        ], Response::HTTP_OK);
     }
 }

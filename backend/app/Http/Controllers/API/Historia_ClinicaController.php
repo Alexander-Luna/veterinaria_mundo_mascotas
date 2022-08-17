@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Producto;
-use App\Models\Producto_cliente;
+use App\Models\Historial_clinico;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class ProductoController extends Controller
+class Historia_ClinicaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $data = Producto::all();
+        $data = Historial_clinico::all();
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_OK,
@@ -34,13 +33,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        $data = Producto::create($request->all());
-/*        $M=[
-            "cod_producto"=>$data->cod_producto,
-            "cod_proveedor"=>$data->cod_proveedor
-        ];
-        Producto_cliente::create($M);
-*/
+        $data = Historial_clinico::create($request->all());
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_CREATED,
@@ -57,7 +50,7 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-        $data = Producto::findOrFail($id);
+        $data = Historial_clinico::findOrFail($id);
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_OK,
@@ -75,7 +68,7 @@ class ProductoController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $data = Producto::findOrFail($id);
+        $data = Historial_clinico::findOrFail($id);
         $data->update($request->all());
         return response()->json([
             'errors' => false,
@@ -93,7 +86,7 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        $data = Producto::findOrFail($id);
+        $data = Historial_clinico::findOrFail($id);
         $data->delete();
         $messages = [
             "Se elimino correctamente"

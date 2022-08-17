@@ -16,6 +16,13 @@ class Mascota extends Model
         'raza',
         'fecha_nacimiento',
         'cod_especie',
-        'cedula_cliente'
+        'cedula_cliente',
+        'created_at',
+        'updated_at'
     ];
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
 }

@@ -19,11 +19,12 @@ return new class extends Migration
             $table->string('cedula_cliente');
             $table->unsignedBigInteger('cod_producto');
             $table->double('total_a_pagar',10,2);
-            $table->timestamp('fecha');
+            $table->date('fecha');
             $table->foreign('cedula_cliente')
-            ->references('cedula_cliente')->on('cliente')->cascadeOnUpdate();
+            ->references('cedula_cliente')->on('clientes')->cascadeOnUpdate();
             $table->foreign('cod_producto')
             ->references('cod_producto')->on('productos')->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 

@@ -25,6 +25,7 @@ return new class extends Migration
             ->references('cod_especie')->on('especies')->cascadeOnUpdate();
             $table->foreign('cedula_cliente')
             ->references('cedula_cliente')->on('clientes')->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 

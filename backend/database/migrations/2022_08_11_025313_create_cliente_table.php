@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('apellido');
             $table->string('direccion')->nullable();
             $table->string('numero_celular')->nullable();
+            $table->timestamps();
         });
     }
 

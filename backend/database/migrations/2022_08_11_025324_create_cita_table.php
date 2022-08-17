@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rols', function (Blueprint $table) {
-            $table->bigIncrements('cod_rol');
+        Schema::create('citas', function (Blueprint $table) {
+            $table->bigIncrements('cod_cita');
+            $table->timestamp('fecha')->nullable();
+            $table->timestamp('hora')->nullable();
             $table->string('tipo');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rols');
+     Schema::dropIfExists('citas');
     }
 };

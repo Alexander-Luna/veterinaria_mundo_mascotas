@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('indicaciones');
             $table->string('medicamento')->nullable();
             $table->string('dosis')->nullable();
-            $table->unsignedBigInteger('codigo_historial_clinico');
-            $table->foreign('codigo_historial_clinico')
-            ->references('cod_hitorial_clinico')->on('historial_clinicos')->cascadeOnUpdate();
-
+            $table->unsignedBigInteger('cod_historial_clinico');
+            $table->foreign('cod_historial_clinico')
+            ->references('cod_historial_clinico')->on('historial_clinicos')->cascadeOnUpdate();
+            $table->timestamps();
 
         });
     }

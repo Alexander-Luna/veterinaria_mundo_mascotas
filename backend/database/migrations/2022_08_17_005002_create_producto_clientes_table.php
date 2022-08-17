@@ -17,9 +17,10 @@ return new class extends Migration
             $table->unsignedBigInteger('cod_producto');
             $table->string('cedula_cliente');
             $table->foreign('cedula_cliente')
-            ->references('clientes')->on('cedula_cliente')->cascadeOnUpdate();
+            ->references('cedula_cliente')->on('clientes')->cascadeOnUpdate();
             $table->foreign('cod_producto')
-            ->references('productos')->on('cod_producto')->cascadeOnUpdate();
+            ->references('cod_producto')->on('productos')->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 

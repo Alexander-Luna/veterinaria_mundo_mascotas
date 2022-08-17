@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('producto_proveedores', function (Blueprint $table) {
             $table->unsignedBigInteger('cod_producto');
-            $table->unsignedBigInteger('cod_proveedor');
+            $table->string('cod_proveedor');
             $table->foreign('cod_producto')
-            ->references('productos')->on('cod_producto')->cascadeOnUpdate();
+            ->references('cod_producto')->on('productos')->cascadeOnUpdate();
             $table->foreign('cod_proveedor')
-            ->references('proveedores')->on('cod_proveedor')->cascadeOnUpdate();
+            ->references('cod_proveedor')->on('proveedores')->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 

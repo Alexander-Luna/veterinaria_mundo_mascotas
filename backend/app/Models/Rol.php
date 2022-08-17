@@ -11,6 +11,13 @@ class Rol extends Model
     protected $primaryKey='cod_rol';
     protected $fillable = [
         'cod_rol',
-        'tipo'
+        'tipo',
+        'created_at',
+        'updated_at'
     ];
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
 }

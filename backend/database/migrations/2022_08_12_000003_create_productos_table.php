@@ -24,8 +24,9 @@ return new class extends Migration
             $table->double('precio_venta', 10, 2);
             $table->integer('cantidad');
             $table->unsignedBigInteger('cod_categoria');
+            $table->timestamps();
             $table->foreign('cod_categoria')
-            ->references('categorias')->on('cod_categoria')->cascadeOnUpdate();
+            ->references('cod_categoria')->on('categorias')->cascadeOnUpdate();
         });
     }
 

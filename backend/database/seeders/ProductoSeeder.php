@@ -16,6 +16,7 @@ class ProductoSeeder extends Seeder
     public function run()
     {
         DB::table('productos')->truncate();
+
         DB::table('productos')->insert([
             [
                 'codigo'=> 'P001',
@@ -26,7 +27,7 @@ class ProductoSeeder extends Seeder
                 'precio_compra'=> 26.00,
                 'precio_venta'=> 30.00,
                 'cantidad'=> 5,
-                'codigo_categoria'=> 1
+                'cod_categoria'=> 1
             ],
             [
                 'codigo'=> 'P002',
@@ -37,7 +38,7 @@ class ProductoSeeder extends Seeder
                 'precio_compra'=> 6.50,
                 'precio_venta'=> 7.00,
                 'cantidad'=> 9,
-                'codigo_categoria'=> 2
+                'cod_categoria'=> 2
             ],
             [
                 'codigo'=> 'P003',
@@ -48,7 +49,7 @@ class ProductoSeeder extends Seeder
                 'precio_compra'=> 42.00,
                 'precio_venta'=> 50.00,
                 'cantidad'=> 13,
-                'codigo_categoria'=> 1
+                'cod_categoria'=> 1
             ]
         ]);
     }

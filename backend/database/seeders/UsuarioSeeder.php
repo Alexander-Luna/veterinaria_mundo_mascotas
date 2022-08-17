@@ -19,20 +19,20 @@ class UsuarioSeeder extends Seeder
         DB::table('usuarios')->truncate();
         DB::table('usuarios')->insert([
             [
-                'nombre' => 'Alexander',
+                'nombres' => 'Alexander',
                 'apellido' => 'Luna',
                 'cedula' => '0202433918',
-                'codigo_rol' => 'R001',
+                'cod_rol' => 1,
                 'numero_celular' => '0985726434',
                 'email' => 'paulluna99@gmail.com',
                 'direccion' => 'San Miguel de Bolivar',
                 'password' => bcrypt('admin')
             ],
             [
-                'nombre' => 'Wilson',
+                'nombres' => 'Wilson',
                 'apellido' => 'Paredes',
                 'cedula' => '',
-                'codigo_rol' => 'R001',
+                'cod_rol' => 1,
                 'numero_celular' => '',
                 'email' => 'wilsonparedes@gmail.com',
                 'direccion' => 'Guaranda',
