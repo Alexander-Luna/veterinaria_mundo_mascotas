@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Mascota_cita extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'cod_mascota',
+        'cod_cita'
+    ];
 }

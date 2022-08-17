@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Pedido extends Model
 {
     use HasFactory;
+    protected $primaryKey='cod_pedido';
+    protected $fillable = [
+        'cod_pedido',
+        'total_a_pagar',
+        'fecha_pedido',
+        'fecha_entrega',
+        'cod_proveedor',
+        'cod_producto'
+    ];
 }

@@ -18,12 +18,11 @@ return new class extends Migration
             $table->double('total_a_pagar',10,2);
             $table->timestamp('fecha_pedido');
             $table->timestamp('fecha_entrega')->nullable();
-            $table->string('codigo_producto');
-            $table->string('cedula_proveedor');
-            $table->foreign('cedula_producto')
-            ->references('cedula_producto')->on('productos')->cascadeOnUpdate();
-            $table->foreign('cedula_proveedor')
-            ->references('cedula_proveedor')->on('proveedores')->cascadeOnUpdate();
+            $table->string('cod_proveedor');
+            $table->foreign('cod_producto')
+            ->references('cod_producto')->on('productos')->cascadeOnUpdate();
+            $table->foreign('cod_proveedor')
+            ->references('cod_proveedor')->on('proveedores')->cascadeOnUpdate();
         });
     }
 

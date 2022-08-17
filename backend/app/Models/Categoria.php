@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     use HasFactory;
-    protected $primaryKey='cod_rol';
+    protected $primaryKey='cod_categoria';
     protected $fillable = [
-        'cod_rol',
-        'tipo'
+        'cod_categoria',
+        'nombre',
+        'descripcion'
     ];
 }

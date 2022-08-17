@@ -12,7 +12,8 @@ class Receta extends Model
     protected $fillable = [
         'cod_receta',
         'indicaciones',
-        'nombre_medicamento',
-        'cantidad'
+        'medicamento',
+        'cod_historial_clinico',
+        'dosis'
     ];
 }

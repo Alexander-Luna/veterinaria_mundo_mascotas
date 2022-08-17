@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Especie extends Model
 {
     use HasFactory;
-    protected $primaryKey='cod_rol';
+    protected $primaryKey='cod_especie';
     protected $fillable = [
-        'cod_rol',
-        'tipo'
+        'cod_especie',
+        'nombre_especie'
     ];
 }
