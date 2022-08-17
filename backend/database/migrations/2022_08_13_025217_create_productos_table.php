@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('codigo');
             $table->string('nombre');
-            $table->timestamp('fecha_caducidad')->nullable();
+            $table->string('imagen')->nullable();
+            $table->string('fecha_caducidad')->nullable();
             $table->string('descripcion')->nullable();
             $table->double('precio_compra', 10, 2);
             $table->double('precio_venta', 10, 2);

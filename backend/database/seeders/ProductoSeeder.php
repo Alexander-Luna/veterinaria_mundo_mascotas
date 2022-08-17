@@ -15,11 +15,13 @@ class ProductoSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('productos')->truncate();
         DB::table('productos')->insert([
             [
                 'codigo'=> 'P001',
                 'nombre'=> 'Buen Can',
-                'fecha_caducidad'=> '15/02/2023',
+                'imagen'=> '',
+                'fecha_caducidad'=> '2023-02-15',
                 'descripcion'=> 'Sabor a pollo',
                 'precio_compra'=> 26.00,
                 'precio_venta'=> 30.00,
@@ -29,6 +31,7 @@ class ProductoSeeder extends Seeder
             [
                 'codigo'=> 'P002',
                 'nombre'=> 'Collar acolchado',
+                'imagen'=> '',
                 'fecha_caducidad'=> '',
                 'descripcion'=> 'Collar acolchado',
                 'precio_compra'=> 6.50,
@@ -39,7 +42,8 @@ class ProductoSeeder extends Seeder
             [
                 'codigo'=> 'P003',
                 'nombre'=> 'Pro Can',
-                'fecha_caducidad'=> '20/03/2023',
+                'imagen'=> '',
+                'fecha_caducidad'=> '2023-03-20',
                 'descripcion'=> 'Receta original pollo',
                 'precio_compra'=> 42.00,
                 'precio_venta'=> 50.00,

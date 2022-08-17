@@ -15,6 +15,7 @@ class RolSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('rols')->truncate();
         DB::table('rols')->insert([
             [
                 'codigo' => 'R001',

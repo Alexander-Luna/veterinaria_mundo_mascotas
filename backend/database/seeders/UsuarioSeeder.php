@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class UsuarioSeeder extends Seeder
      */
     public function run()
     {
-
+        DB::table('usuarios')->truncate();
         DB::table('usuarios')->insert([
             [
                 'nombre' => 'Alexander',
@@ -25,7 +26,7 @@ class UsuarioSeeder extends Seeder
                 'numero_celular' => '0985726434',
                 'email' => 'paulluna99@gmail.com',
                 'direccion' => 'San Miguel de Bolivar',
-                'password' => 'admin'
+                'password' => bcrypt('admin')
             ],
             [
                 'nombre' => 'Wilson',
@@ -35,7 +36,7 @@ class UsuarioSeeder extends Seeder
                 'numero_celular' => '',
                 'email' => 'wilsonparedes@gmail.com',
                 'direccion' => 'Guaranda',
-                'password' => 'admin'
+                'password' => bcrypt('admin')
             ]
         ]);
     }

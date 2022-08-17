@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->string('cedula');
+            $table->string('cedula_cliente');
             $table->string('nombre');
             $table->string('apellido');
             $table->string('direccion')->nullable();

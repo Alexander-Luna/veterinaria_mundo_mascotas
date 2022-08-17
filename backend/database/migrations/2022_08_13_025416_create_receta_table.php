@@ -14,13 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('recetas', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('cod_receta');
             $table->string('codigo');
-
             $table->string('indicaciones');
             $table->string('medicamento')->nullable();
             $table->string('dosis')->nullable();
-            $table->string('codigo_historial_clinico');
+            $table->unsignedBigInteger('codigo_historial_clinico');
+            $table->foreign('codigo_historial_clinico')
+            ->references('cod_hitorial_clinico')->on('historial_clinicos')->cascadeOnUpdate();
 
 
         });

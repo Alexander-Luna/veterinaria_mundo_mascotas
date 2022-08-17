@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('citas', function (Blueprint $table) {
-            $table->id();
-            $table->string('codigo');
+            $table->bigIncrements('cod_cita');
             $table->timestamp('fecha')->nullable();
             $table->timestamp('hora')->nullable();
             $table->string('tipo');
