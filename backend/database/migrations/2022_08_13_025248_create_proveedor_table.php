@@ -14,10 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('proveedores', function (Blueprint $table) {
-            $table->id();
-            $table->string('cedula');
+            $table->string('cod_proveedor')->primary();
             $table->string('nombre');
-            $table->string('apellido');
+            $table->string('descripcion')->nullable();
             $table->string('direccion')->nullable();
             $table->string('numero_celular')->nullable();
         });
