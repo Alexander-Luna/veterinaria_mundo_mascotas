@@ -70,6 +70,8 @@ class ProveedorController extends Controller
     {
         $data = Proveedor::findOrFail($id);
         $data->update($request->all());
+
+
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_OK,
