@@ -64,7 +64,7 @@ const ServiciosMedicos = () => {
         <div className='col text-center'>
           <p>{miServicio}</p>
           <p>
-            {miServicio === 'Urgencias' && (<ServiciosImagenes src={urgencias} />, <ServicioIformacion info='El servicio de urgencias de nuestro hospital brinda atención inmediata a los pacientes que se encuentran en estados críticos o con enfermedades agudas que requieren hospitalización y tratamiento inmediato. En caso de requerir procedimientos especiales como cirugías de urgencia, un equipo de cirujanos y anestesistas está a disposición las 24 horas del día, para brindar la mejor atención a la mascota.' />)}
+            {miServicio === 'Urgencias' && (<ServiciosImagenes src={urgencias} />)}
             {miServicio === 'Consulta externa' && (<ServiciosImagenes src={consulta} />) && (<ServicioIformacion info='hoooooooooooo' />)}
             {miServicio === 'Cirugía general y ortopedia' && (<ServiciosImagenes src={cirugia} />)}
             {miServicio === 'Hospitalización' && (<ServiciosImagenes src={hospitalizacion} />)}
