@@ -58,6 +58,7 @@ class ProductoController extends Controller
     public function show($id)
     {
         $data = Producto::findOrFail($id);
+        //$dat=
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_OK,

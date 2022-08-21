@@ -14,6 +14,7 @@ class Proveedor extends Model
         'nombre',
         'descripcion',
         'direccion',
+        'email',
         'numero_celular',
         'created_at',
         'updated_at'
