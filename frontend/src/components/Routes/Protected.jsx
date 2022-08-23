@@ -1,17 +1,12 @@
-import React from 'react'
-import { Route, Link, Routes, BrowserRouter, Navigate, NavLink, Redirect } from 'react-router-dom'
+import Dashboard from "../Pages/dashboard/Dashboard";
 
-const Protected = ({ component: Component, ...rest }) => {
+const Protected=({children,title})=>{
 
-  const userLogged = false
-
-  if (!userLogged) {
-
-    return <Navigate to="/login" />
-  }
-
-  return <Route {...rest} render={Component} />
-
+  return (
+   <Dashboard title={title}>
+      {children}
+   </Dashboard>
+  )
 }
 
-export default Protected
+export default Protected;

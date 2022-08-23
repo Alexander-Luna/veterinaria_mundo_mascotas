@@ -8,28 +8,28 @@ import Contactos from "./Pages/Contactos"
 import Page404 from "./Pages/Page404"
 import Login from "./Pages/Login";
 import Register from './Pages/Register'
-import Navbar from "./Nav/Navbar";
+import Public from "./Routes/Public";
+import Dashboard from "./Pages/dashboard/Dashboard";
+import Protected from "./Routes/Protected";
+import Inicio from "./Pages/dashboard/modules/inicio/Inicio";
+import Cliente from "./Pages/dashboard/modules/Cliente/Cliente";
+
 const App = () => {
   return (
-    <div>
-      <div>
         <BrowserRouter>
-          <Navbar
-            imagen='logo'></Navbar>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/nosotros" element={<Nosotros />} />
-            <Route path="/servicios" element={<Servicios />} />
-            <Route path="/productos" element={< Productos />} />
-            <Route path="/contactos" element={<Contactos />} />
+            <Route path="/" element={<Public><Home /></Public>} />
+            <Route path="/nosotros" element={<Public><Nosotros /></Public>} />
+            <Route path="/servicios" element={<Public><Servicios /></Public>} />
+            <Route path="/productos" element={<Public>< Productos /></Public>} />
+            <Route path="/contactos" element={<Public><Contactos /></Public>} />
             <Route component={Page404} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Public><Login /></Public>} />
+            <Route path="/register" element={<Public><Register /></Public>} />
+            <Route exact path="/dashboard" element={<Protected  title="Dashboard"><Inicio/></Protected>}/>
+            <Route exact path="/clientes" element={<Protected  title="Dashboard"><Cliente/></Protected>}/>
           </Routes>
         </BrowserRouter>
-      </div>
-    </div>
-
   )
 }
 

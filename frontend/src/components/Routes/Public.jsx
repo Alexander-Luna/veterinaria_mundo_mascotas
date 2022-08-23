@@ -1,14 +1,16 @@
-import React from 'react'
-import { Route, Link, Navigate } from 'react-router-dom'
-const Public = ({ component: Component, ...rest }) => {
-  const userLogged = false
+import {Navigate} from "react-router-dom";
+import Navbar from "../Nav/Navbar";
+import React from "react";
 
-  if (userLogged) {
-    return < Navigate to="/" />
-  }
-
-  return <Route {...rest} render={Component} />
-
+export const Public = ({children}) => {
+  /*if (localStorage.getItem("access-token")) {
+    return <Navigate to="/" />
+  }*/
+  return <>
+    <Navbar
+      imagen='logo'></Navbar>
+    {children}
+    </>
 }
 
-export default Public
+export default Public;

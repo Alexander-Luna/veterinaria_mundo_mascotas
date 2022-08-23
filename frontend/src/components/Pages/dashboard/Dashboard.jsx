@@ -1,20 +1,29 @@
-import Navbar from "./Nav/Navbar";
+import React, { useState } from "react";
+import Header from "./Header";
+import Aside from "./Aside";
+import "bootstrap/dist/css/bootstrap.min.css";
 import './style.scss'
-import style from './style.module.scss'
 
+function Dashboard(props) {
+  const [toggled, setToggled] = useState(false);
 
-const Dashboard=({children})=>{
-  return(
-    <div className={style.container}>
-      <Navbar />
+  const handleToggleSidebar = (value) => {
+    setToggled(value);
+  };
+
+  return (
+    <div className={`app ${toggled ? "toggled" : ""}`}>
+      <Aside
+        toggled={toggled}
+        handleToggleSidebar={handleToggleSidebar}
+      />
       <main>
-        {children}
+        <Header handleToggleSidebar={handleToggleSidebar} title={props.title} />
+        <div className="app-content">{props.children}</div>
       </main>
-      <footer>
-
-      </footer>
     </div>
   );
 }
 
 export default Dashboard;
+
