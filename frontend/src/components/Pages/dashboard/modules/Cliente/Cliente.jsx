@@ -1,4 +1,3 @@
-import global from '../style.module.scss'
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import {Link} from "react-router-dom";
 
