@@ -12,6 +12,7 @@ class Especie extends Model
     protected $fillable = [
         'cod_especie',
         'nombre_especie',
+        'detalle',
         'created_at',
         'updated_at'
     ];
