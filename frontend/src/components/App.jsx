@@ -32,8 +32,8 @@ const App = () => {
             <Route exact path="/dashboard" element={<Protected  title="Dashboard"><Inicio/></Protected>}/>
             <Route exact path="/clientes" element={<Protected  title="Clientes"><Cliente/></Protected>}/>
             <Route exact path="/clientes/:id" element={<Protected  title="Clientes"><FormCliente/></Protected>}/>
-            <Route exact path="/mascotas/especies" element={<Protected  title="Clientes"><Especies/></Protected>}/>
-            <Route exact path="/mascotas/especies/:id" element={<Protected  title="Clientes"><FormEspecies/></Protected>}/>
+            <Route exact path="/mascotas/especies" element={<Protected  title="Especies"><Especies/></Protected>}/>
+            <Route exact path="/mascotas/especies/:id" element={<Protected  title="Especies"><FormEspecies/></Protected>}/>
           </Routes>
         </BrowserRouter>
   )
