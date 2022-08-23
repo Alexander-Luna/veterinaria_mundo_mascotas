@@ -2,9 +2,10 @@ import React from 'react'
 import "../../../src/styles/Nosotros.css"
 import Historia from "../Nosotros/Historia";
 import Fondo from '../Fondo/Fondo';
-
-import Info from "../Info/Info";
 import Equipo from '../Equipo/Equipo'
+import EnvioInfo from '../Servicios/EnvioInfo'
+import Info from '../Info/Info'
+import Footer from '../Footer/Footer'
 const Nosotros = () => {
 
   return (
@@ -55,6 +56,14 @@ const Nosotros = () => {
         titulo='Nuestro Equipo'
       />
       <Equipo />
+
+      <EnvioInfo />
+      <Info
+        titulo='PARA SERVIR CON AMOR'
+      />
+      <Footer
+        imagen='logo'
+      />
     </>
 
 
