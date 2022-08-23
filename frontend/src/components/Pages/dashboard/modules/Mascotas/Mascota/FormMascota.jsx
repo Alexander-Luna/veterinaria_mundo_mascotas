@@ -1,17 +1,18 @@
 import {Link} from "react-router-dom";
 import {useState} from 'react'
 import style from './style.module.scss'
-import Input from "../molecules/input/Input";
+import Input from "../../molecules/input/Input";
 
 
-const FormCliente=({data})=>{
+
+const FormMascota=({data})=>{
   const [btnSubmit, setBtnSubmit] = useState(false)
-  const [cedula, setCedula] = useState('');
+  const [codigo, setCodigo] = useState('');
   const [nombre, setNombre] = useState('');
-  const [apellido, setApellido] = useState();
-  const [email, setEmail] = useState('');
-  const [direccion, setDireccion] = useState('');
-  const [celular, setCelular] = useState('');
+  const [raza, setRaza] = useState('');
+  const [fecha_nacimiento, setFecha_nacimiento] = useState('');
+  const [cod_especie, setCod_especie] = useState('');
+  const [cedula_cliente, setCedula_cliente] = useState('');
 
 
   const handleSubmit=(e)=>{
@@ -25,7 +26,7 @@ const FormCliente=({data})=>{
   return (<>
   <div className="card-header py-3 ">
     <div>
-      <h6 className="col-11 m-0 font-weight-bold text-primary">Editar Cliente {/*data.name*/}</h6>
+      <h6 className="col-11 m-0 font-weight-bold text-primary">Editar Mascota {/*data.name*/}</h6>
     </div>
   </div>
   <div className="row m-2">
@@ -35,18 +36,18 @@ const FormCliente=({data})=>{
           <div className="row">
             <Input
               sty="col-md-12 col-lg-6"
-              id="cedula_cliente"
-              name="cedula_cliente"
+              id="codigo"
+              name="codigo"
               type="text"
-              label="Cédula"
+              label="Código"
               required
-              onChange={(e)=>setCedula(e.target.value)}
-              defaultValue={cedula}
+              onChange={(e)=>setCodigo(e.target.value)}
+              defaultValue={codigo}
             />
             <Input
               sty="col-md-12 col-lg-6"
-              id="name"
-              name="name"
+              id="nombre"
+              name="nombre"
               type="text"
               label="Nombre"
               required
@@ -55,47 +56,46 @@ const FormCliente=({data})=>{
             />
             <Input
               sty="col-md-12 col-lg-6"
-              id="lastname"
-              name="lastname"
+              id="raza"
+              name="raza"
               type="text"
-              label="Apellido"
-              onChange={(e)=>setApellido(e.target.value)}
-              defaultValue={apellido}
+              label="Raza"
+              required
+              onChange={(e)=>setRaza(e.target.value)}
+              defaultValue={raza}
             />
             <Input
               sty="col-md-12 col-lg-6"
-              id="email"
-              name="email"
-              type="email"
-              label="Correo Electronico"
+              id="fecha_nacimiento"
+              name="fecha_nacimiento"
+              type="date"
+              label="Fecha Nacimiento"
               required
-              onChange={(e)=>setEmail(e.target.value)}
-              defaultValue={email}
+              onChange={(e)=>setFecha_nacimiento(e.target.value)}
+              defaultValue={fecha_nacimiento}
             />
-
             <Input
               sty="col-md-12 col-lg-6"
-              id="direccion"
-              name="direccion"
+              id="especie"
+              name="especie"
               type="text"
-              label="Dirección"
+              label="Especie"
               required
-              onChange={(e)=>setDireccion(e.target.value)}
-              defaultValue={direccion}
+              onChange={(e)=>setCod_especie(e.target.value)}
+              defaultValue={cod_especie}
             />
-
             <Input
               sty="col-md-12 col-lg-6"
-              id="numero_celular"
-              name="numero_celular"
+              id="cliente"
+              name="cliente"
               type="text"
-              label="Celular"
+              label="Cliente"
               required
-              onChange={(e)=>setCelular(e.target.value)}
-              defaultValue={celular}
+              onChange={(e)=>setCedula_cliente(e.target.value)}
+              defaultValue={cedula_cliente}
             />
             <button type="submit" className="btn btn-primary col-md-8 col-lg-3">{btnSubmit ? 'Guardando...' : 'Guardar'}</button>
-            <Link to={'/clientes'} className="btn btn-secondary col-md-8 col-lg-3 ms-3">Cancelar</Link>
+            <Link to={'/mascotas/mascota'} className="btn btn-secondary col-md-8 col-lg-3 ms-3">Cancelar</Link>
           </div>
         </form>
       </div>
@@ -104,4 +104,4 @@ const FormCliente=({data})=>{
 </>)
 }
 
-export default FormCliente;
+export default FormMascota;

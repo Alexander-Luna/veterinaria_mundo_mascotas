@@ -13,6 +13,11 @@ import Dashboard from "./Pages/dashboard/Dashboard";
 import Protected from "./Routes/Protected";
 import Inicio from "./Pages/dashboard/modules/inicio/Inicio";
 import Cliente from "./Pages/dashboard/modules/Cliente/Cliente";
+import FormCliente from "./Pages/dashboard/modules/Cliente/FormCliente";
+import Especies from "./Pages/dashboard/modules/Mascotas/Especies/Especies";
+import FormEspecies from "./Pages/dashboard/modules/Mascotas/Especies/FormEspecies";
+import Mascota from "./Pages/dashboard/modules/Mascotas/Mascota/Mascota";
+import FormMascota from "./Pages/dashboard/modules/Mascotas/Mascota/FormMascota";
 
 const App = () => {
   return (
@@ -27,7 +32,15 @@ const App = () => {
             <Route path="/login" element={<Public><Login /></Public>} />
             <Route path="/register" element={<Public><Register /></Public>} />
             <Route exact path="/dashboard" element={<Protected  title="Dashboard"><Inicio/></Protected>}/>
-            <Route exact path="/clientes" element={<Protected  title="Dashboard"><Cliente/></Protected>}/>
+
+            <Route exact path="/clientes" element={<Protected  title="Clientes"><Cliente/></Protected>}/>
+            <Route exact path="/clientes/:id" element={<Protected  title="Clientes"><FormCliente/></Protected>}/>
+
+            <Route exact path="/mascotas/especies" element={<Protected  title="Especies"><Especies/></Protected>}/>
+            <Route exact path="/mascotas/especies/:id" element={<Protected  title="Especies"><FormEspecies/></Protected>}/>
+
+            <Route exact path="/mascotas/mascota" element={<Protected  title="Mascotas"><Mascota/></Protected>}/>
+            <Route exact path="/mascotas/mascota/:id" element={<Protected  title="Mascotas"><FormMascota/></Protected>}/>
           </Routes>
         </BrowserRouter>
   )

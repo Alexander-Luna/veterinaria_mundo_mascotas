@@ -15,7 +15,7 @@ import {
   FaList,
   FaGithub,
   FaRegLaughWink,
-  FaHeart
+  FaHeart, FaUsers, FaAndroid
 } from "react-icons/fa";
 import "react-pro-sidebar/dist/css/styles.css";
 import { useLocation } from "react-router-dom";
@@ -60,13 +60,18 @@ const Aside = ({toggled, handleToggleSidebar }) => {
         <Menu iconShape="circle">
           <SubMenu
             suffix={<span className="badge yellow">3</span>}
-            title="withSuffix"
-            icon={<FaRegLaughWink />}
+            title="Mascotas"
+            icon={<FaAndroid />}
             data-element={location.pathname}
           >
             <MenuItem>
-              <NavLink exact to={"/about"}>
-                submenu
+              <NavLink exact to={"/mascotas/especies"}>
+                Especies
+              </NavLink>
+            </MenuItem>
+            <MenuItem>
+              <NavLink exact to={"/mascotas/mascota"}>
+                Mascota
               </NavLink>
             </MenuItem>
             <MenuItem>
@@ -122,14 +127,7 @@ const Aside = ({toggled, handleToggleSidebar }) => {
             padding: "20px 24px"
           }}
         >
-          <a
-            href="https://github.com/azouaoui-med/react-pro-sidebar"
-            target="_blank"
-            className="sidebar-btn"
-            rel="noopener noreferrer"
-          >
-            <span> Mundo Mascotas </span>
-          </a>
+         <span> Mundo Mascotas </span>
         </div>
       </SidebarFooter>
     </ProSidebar>

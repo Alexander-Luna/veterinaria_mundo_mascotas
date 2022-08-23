@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Aside from "./Aside";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "alertifyjs/build/css/alertify.min.css";
+import "alertifyjs/build/css/themes/default.min.css";
+import "alertifyjs/build/css/themes/bootstrap.min.css";
 import './style.scss'
 
 function Dashboard(props) {

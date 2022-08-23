@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('especies', function (Blueprint $table) {
             $table->bigIncrements('cod_especie');
             $table->string('nombre_especie');
+            $table->string('detalle');
             $table->timestamps();
         });
     }
