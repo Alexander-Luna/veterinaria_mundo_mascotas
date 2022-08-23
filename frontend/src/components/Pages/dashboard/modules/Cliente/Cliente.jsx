@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {Button, Modal} from "react-bootstrap";
 import {useState} from "react";
 import Input from "../molecules/input/Input";
+import alertify from "alertifyjs";
 
 const Cliente=()=>{
   const [show, setShow] = useState(false);
@@ -23,6 +24,12 @@ const Cliente=()=>{
 
   const handleSubmit=(e)=>{
     e.preventDefault()
+  }
+
+  const handleDelete=(data)=>{
+    alertify.confirm('Eliminar Clientes', `¿Seguro de eliminar el cliente: ${data.name}?`,()=> { }
+      , function () {
+      }).set('labels', {ok:'Aceptar', cancel:'Cancelar'});
   }
 
   return <>
@@ -60,7 +67,7 @@ const Cliente=()=>{
               <Link to={`/clientes/1`} className={global.icon} title="Editar">
                  <i className="fas fa-user-edit"></i>
                </Link>
-               <a style={{cursor:'pointer'}}  className={`delete ${global.icon}`}  title="Eliminar">
+               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':'Juan Perez','id':1})} className="delete"  title="Eliminar">
                  <i className="fas fa-trash-alt"></i>
                </a>
              </td>

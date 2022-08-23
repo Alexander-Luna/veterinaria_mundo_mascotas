@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {Button, Modal} from "react-bootstrap";
 import {useState} from "react";
 import Input from "../../molecules/input/Input";
+import alertify from "alertifyjs";
 
 
 const Especies=()=>{
@@ -21,6 +22,13 @@ const Especies=()=>{
   const handleSubmit=(e)=>{
     e.preventDefault()
   }
+
+  const handleDelete=(data)=>{
+    alertify.confirm('Eliminar Especie', `¿Seguro de eliminar la especie: ${data.name}?`,()=> { }
+      , function () {
+      }).set('labels', {ok:'Aceptar', cancel:'Cancelar'});
+  }
+
 
   return <>
    <div className="container-fluid">
@@ -49,7 +57,7 @@ const Especies=()=>{
               <Link to={`/mascotas/especies/1`} className={global.icon} title="Editar">
                  <i className="fas fa-user-edit"></i>
                </Link>
-               <a style={{cursor:'pointer'}}  className={`delete ${global.icon}`}  title="Eliminar">
+               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':'Dalmata','id':1})} className="delete"  title="Eliminar">
                  <i className="fas fa-trash-alt"></i>
                </a>
              </td>
