@@ -1,19 +1,14 @@
 import React from 'react';
 import Slider from '../layouts/Slider';
-
 import Fondo from '../Fondo/Fondo';
 import '../../styles/Home.css'
 import Testimonio from '../Testimonios/Testimonio';
 import Atencion from '../Atencion/Atencion';
-
+import EnvioInfo from '../Servicios/EnvioInfo'
+import Info from '../Info/Info'
+import Footer from '../Footer/Footer'
 const Home = () => {
   return (
-    // <div className='inicio-container'>
-    //   <img clasName="imagen" src={clinica} alt="" /> 
-    //    {/* <h1>Veterinaria Mundo Mascotas</h1>
-    //     <p>para servir con amor</p>  */}
-
-    // </div>
     <>
       <Fondo
         imagen='clinica'
@@ -24,6 +19,13 @@ const Home = () => {
       <Slider />
       <Atencion />
       <Testimonio />
+      <EnvioInfo />
+      <Info
+        titulo='PARA SERVIR CON AMOR'
+      />
+      <Footer
+        imagen='logo'
+      />
     </>
   );
 }

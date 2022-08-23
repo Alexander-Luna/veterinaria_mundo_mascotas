@@ -1,10 +1,18 @@
 import React from 'react';
-
-const Contactos= () => {
+import EnvioInfo from '../Servicios/EnvioInfo'
+import Info from '../Info/Info'
+import Footer from '../Footer/Footer'
+const Contactos = () => {
   return (
-    <div className='ed-grid'>
-      <h1>  Contactos</h1>
-    </div>
+    <>
+      <EnvioInfo />
+      <Info
+        titulo='PARA SERVIR CON AMOR'
+      />
+      <Footer
+        imagen='logo'
+      />
+    </>
   );
 }
 

@@ -1,12 +1,23 @@
 import React from 'react';
-import { ProductosList } from '../ProductosV/ProductosVet/ProductoVet'
 import ShoppingCart from '../Shopping/ShoppingCart';
+import EnvioInfo from '../Servicios/EnvioInfo'
+import Info from '../Info/Info'
+import Footer from '../Footer/Footer'
 const Productos = () => {
   return (
-    <div>
-      {/* <ProductosList /> */}
+    <>
       <ShoppingCart />
-    </div>
+
+      <EnvioInfo />
+      <Info
+        titulo='PARA SERVIR CON AMOR'
+      />
+      <Footer
+        imagen='logo'
+      />
+    </>
+
+
   );
 }
 

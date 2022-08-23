@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Servicios/Formulario.css'
 import { useForm } from 'react-hook-form';
-import Row from 'react-bootstrap/Row';
+import '../../styles/LoginAndRegister.css'
 const Formulario = () => {
 
   const { register, formState: { errors }, handleSubmit } = useForm();

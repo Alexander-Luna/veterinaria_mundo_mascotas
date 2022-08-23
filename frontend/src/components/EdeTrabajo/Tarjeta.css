@@ -1,5 +1,5 @@
 .contenedor-tarjeta {
-  width: 380px;
+  width: 350px;
   height: 470px;
   overflow: hidden;
   border-radius: 15px 15px 15px 15px;
@@ -14,7 +14,7 @@
 }
 
 .codenedor-imagen>img {
-  width: 400px;
+  width: 350px;
   overflow: hidden;
   height: 300px;
 }
@@ -52,9 +52,9 @@ button {
   animation: ease-in-out;
 }
 
-button:hover{
-  background-image:linear-gradient(to left, #00a9ba, #00D2FF);
+button:hover {
+  background-image: linear-gradient(to left, #00a9ba, #00D2FF);
   /* transform: scale(1.2); */
   border: none;
   /* color: white; */
-} 
+}

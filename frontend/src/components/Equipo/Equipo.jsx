@@ -27,8 +27,7 @@ const Equipo = () => {
         <Tarjeta
           darClick={openModal3}
           imagen='https://www.dogtorscat.com/wp-content/uploads/2019/09/foto_dsk_Esteban_Mier.png'
-
-          nombre='XXXXX '
+          nombre='Marco López '
           cargo='Doctor en Medicina Veterinaria y Zootecnia'
         />
       </div>
@@ -53,8 +52,8 @@ const Equipo = () => {
         <p>Medicina Interna.</p>
       </Modal>
       <Modal isOpen={isOpen3} closeModal={closeModal3}>
-      <img src='https://www.dogtorscat.com/wp-content/uploads/2019/09/foto_dsk_Esteban_Mier.png' />
-        <h3>'XXXXX '</h3>
+        <img src='https://www.dogtorscat.com/wp-content/uploads/2019/09/foto_dsk_Esteban_Mier.png' />
+        <h3>'Marco López'</h3>
         <p>««Desde pequeño me gustaron los animales y la medicina»</p>
         <h4><strong>Certificaciones</strong></h4>
         <p>Universidad...</p>

@@ -48,7 +48,7 @@ export const shoppingInitialState = {
       id: 7,
       name: 'Pollo, carne y cereales',
       image: require('../img/procan9.png'),
-      descripcion: 'Alimento balanceado que le aporta a tu perro mayor de 7 años, una nutrición adecuada que le ayuda al mantenimiento de sus músculos y articulaciones.',
+      descripcion: 'Alimento balanceado que le aporta a tu perro mayor de 7 años, una nutrición adecuada que le ayuda al mantenimiento de sus músculos.',
       price: 700
     },
     {

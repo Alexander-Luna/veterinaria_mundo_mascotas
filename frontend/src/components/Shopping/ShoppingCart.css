@@ -12,15 +12,146 @@
 }
 
 .contenedor-productos-vet {
-  padding-top: 100px;
+  padding-top: 70px;
 }
 
 .producto__img img {
   width: 175px;
 }
 
-.contenedor-producto {
+
+.card {
   border-radius: 2%;
   border: thin solid gray;
   padding: 1rem;
+  height: 340px;
+}
+
+
+.card {
+  border-radius: 10px;
+  background: linear-gradient(180deg, #F0F8FF 0%, #F8F8FF 52.08%, #CFDEF3 100%);
+}
+
+
+.card {
+  /* width: 350px;
+  height: 450px; */
+  background-position: center top;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+}
+
+.card img {
+  width: 175px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-details {
+  position: absolute;
+  bottom: -450px;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.7) 0%, rgba(240, 248, 255, 0.7) 48.44%, rgba(248, 248, 255, 0.7) 100%);
+  box-shadow: inset -4px -4px 20px rgba(255, 255, 255, 0.35), inset 4px 4px 20px rgba(255, 255, 255, 0.35);
+  transition: 0.3s ease-in-out;
+}
+
+.card-title {
+  position: absolute;
+  left: 0;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 18%;
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+  background: transparent;
+}
+
+.card-title>h4 {
+  padding-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+}
+
+.card:hover .card-title {
+  bottom: -75px;
+}
+
+.card:hover .card-details {
+  bottom: 0%;
+}
+
+.card button {
+  position: absolute;
+  top: 90%;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card button:nth-child(1) {
+  margin: 0px 65px 0px;
+  position: sticky;
+  width: 85px;
+  height: 35px;
+  float: left;
+  background: #FF00B8;
+  border-radius: 20px;
+  border: none;
+  transition: transform .5s;
+}
+
+
+.card button:nth-child(1):hover {
+  color: #FF00B8;
+  background: #fff;
+  transition: 0.4s;
+  transform: scale(1.1);
+}
+
+.card:hover .card-details {
+  bottom: 0;
+}
+
+.details h4 {
+  position: absolute;
+  width: 100%;
+  top: 5%;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 16px;
+  color: #000;
+}
+
+.details p {
+  position: absolute;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  top: 20%;
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+  font-family: Roboto;
+  font-size: 16px;
+}
+
+.details h3 {
+  position: absolute;
+  top: 73%;
+  text-align: center;
+  width: 100%;
+  color: #000;
+}
+
+.details h2 span {
+  font-size: 30px;
 }
