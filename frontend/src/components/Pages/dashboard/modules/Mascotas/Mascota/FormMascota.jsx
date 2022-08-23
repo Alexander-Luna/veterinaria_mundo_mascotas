@@ -5,10 +5,14 @@ import Input from "../../molecules/input/Input";
 
 
 
-const FormEspecies=({data})=>{
+const FormMascota=({data})=>{
   const [btnSubmit, setBtnSubmit] = useState(false)
-  const [nombre_especie, setNombre_especie] = useState('');
-  const [detalle, setDetalle] = useState('');
+  const [codigo, setCodigo] = useState('');
+  const [nombre, setNombre] = useState('');
+  const [raza, setRaza] = useState('');
+  const [fecha_nacimiento, setFecha_nacimiento] = useState('');
+  const [cod_especie, setCod_especie] = useState('');
+  const [cedula_cliente, setCedula_cliente] = useState('');
 
 
   const handleSubmit=(e)=>{
@@ -22,7 +26,7 @@ const FormEspecies=({data})=>{
   return (<>
   <div className="card-header py-3 ">
     <div>
-      <h6 className="col-11 m-0 font-weight-bold text-primary">Editar Especie {/*data.name*/}</h6>
+      <h6 className="col-11 m-0 font-weight-bold text-primary">Editar Mascota {/*data.name*/}</h6>
     </div>
   </div>
   <div className="row m-2">
@@ -32,26 +36,66 @@ const FormEspecies=({data})=>{
           <div className="row">
             <Input
               sty="col-md-12 col-lg-6"
-              id="nombre_especie"
-              name="nombre_especie"
+              id="codigo"
+              name="codigo"
               type="text"
-              label="Especie"
+              label="Código"
               required
-              onChange={(e)=>setNombre_especie(e.target.value)}
-              defaultValue={nombre_especie}
+              onChange={(e)=>setCodigo(e.target.value)}
+              defaultValue={codigo}
             />
             <Input
               sty="col-md-12 col-lg-6"
-              id="detalle"
-              name="detalle"
+              id="nombre"
+              name="nombre"
               type="text"
-              label="Detalle"
+              label="Nombre"
               required
-              onChange={(e)=>setNombre_especie(e.target.value)}
-              defaultValue={detalle}
+              onChange={(e)=>setNombre(e.target.value)}
+              defaultValue={nombre}
+            />
+            <Input
+              sty="col-md-12 col-lg-6"
+              id="raza"
+              name="raza"
+              type="text"
+              label="Raza"
+              required
+              onChange={(e)=>setRaza(e.target.value)}
+              defaultValue={raza}
+            />
+            <Input
+              sty="col-md-12 col-lg-6"
+              id="fecha_nacimiento"
+              name="fecha_nacimiento"
+              type="date"
+              label="Fecha Nacimiento"
+              required
+              onChange={(e)=>setFecha_nacimiento(e.target.value)}
+              defaultValue={fecha_nacimiento}
+            />
+            <Input
+              sty="col-md-12 col-lg-6"
+              id="especie"
+              name="especie"
+              type="text"
+              label="Especie"
+              required
+              onChange={(e)=>setCod_especie(e.target.value)}
+              defaultValue={cod_especie}
+            />
+            <Input
+              sty="col-md-12 col-lg-6"
+              id="cliente"
+              name="cliente"
+              type="text"
+              label="Cliente"
+              required
+              onChange={(e)=>setCedula_cliente(e.target.value)}
+              defaultValue={cedula_cliente}
             />
             <button type="submit" className="btn btn-primary col-md-8 col-lg-3">{btnSubmit ? 'Guardando...' : 'Guardar'}</button>
-            <Link to={'/mascotas/especies'} className="btn btn-secondary col-md-8 col-lg-3 ms-3">Cancelar</Link>
+            <Link to={'/mascotas/mascota'} className="btn btn-secondary col-md-8 col-lg-3 ms-3">Cancelar</Link>
           </div>
         </form>
       </div>
@@ -60,4 +104,4 @@ const FormEspecies=({data})=>{
 </>)
 }
 
-export default FormEspecies;
+export default FormMascota;

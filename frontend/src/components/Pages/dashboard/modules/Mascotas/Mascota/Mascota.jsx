@@ -6,12 +6,16 @@ import Input from "../../molecules/input/Input";
 import alertify from "alertifyjs";
 
 
-const Especies=()=>{
+const Mascota=()=>{
   const [show, setShow] = useState(false);
   const [btnSubmit, setBtnSubmit] = useState(false);
 
-  const [nombre_especie, setNombre_especie] = useState('');
-  const [detalle, setDetalle] = useState('');
+  const [codigo, setCodigo] = useState('');
+  const [nombre, setNombre] = useState('');
+  const [raza, setRaza] = useState('');
+  const [fecha_nacimiento, setFecha_nacimiento] = useState('');
+  const [cod_especie, setCod_especie] = useState('');
+  const [cedula_cliente, setCedula_cliente] = useState('');
 
 
   const handleClose = () => setShow(false)
@@ -24,7 +28,7 @@ const Especies=()=>{
   }
 
   const handleDelete=(data)=>{
-    alertify.confirm('Eliminar Especie', `¿Seguro de eliminar la especie: ${data.name}?`,()=> { }
+    alertify.confirm('Eliminar Mascota', `¿Seguro de eliminar la mascota: ${data.name}?`,()=> { }
       , function () {
       }).set('labels', {ok:'Aceptar', cancel:'Cancelar'});
   }
@@ -33,7 +37,7 @@ const Especies=()=>{
   return <>
    <div className="container-fluid">
        <div className="card-header py-3 d-flex">
-           <h6 className="align-self-center col-11 m-0 font-weight-bold text-primary">Administrar Especies</h6>
+           <h6 className="align-self-center col-11 m-0 font-weight-bold text-primary">Administrar Mascotas</h6>
            <Button className="btn btn-primary" variant="primary" onClick={handleShow}>
              Nuevo
            </Button>
@@ -43,21 +47,29 @@ const Especies=()=>{
            <thead>
            <tr>
              <th scope="col">#</th>
+             <th scope="col">Código</th>
+             <th scope="col">Nombre</th>
+             <th scope="col">Raza</th>
+             <th scope="col">Fecha Nacimiento</th>
              <th scope="col">Especie</th>
-             <th scope="col">Detalle</th>
+             <th scope="col">Cliente</th>
              <th scope="col">Acciones</th>
            </tr>
            </thead>
            <tbody>
            <tr>
              <th scope="row">1</th>
-             <td>Dalmata</td>
-             <td>ALgun detalle</td>
+             <td>PER-001-1</td>
+             <td>Toby</td>
+             <td>Dalmada</td>
+             <td>02/02/2022</td>
+             <td>Perro</td>
+             <td>Juan Peres</td>
              <td>
-              <Link to={`/mascotas/especies/1`} className={global.icon} title="Editar">
+              <Link to={`/mascotas/mascota/1`} className={global.icon} title="Editar">
                  <i className="fas fa-user-edit"></i>
                </Link>
-               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':'Dalmata','id':1})} className="delete"  title="Eliminar">
+               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':'Toby','id':1})} className="delete"  title="Eliminar">
                  <i className="fas fa-trash-alt"></i>
                </a>
              </td>
@@ -79,23 +91,63 @@ const Especies=()=>{
         <Modal.Body>
           <Input
             sty="col-md-12"
-            id="nombre_especie"
-            name="nombre_especie"
+            id="codigo"
+            name="codigo"
             type="text"
-            label="Especie"
+            label="Código"
             required
-            onChange={(e)=>setNombre_especie(e.target.value)}
-            defaultValue={nombre_especie}
+            onChange={(e)=>setCodigo(e.target.value)}
+            defaultValue={codigo}
           />
           <Input
             sty="col-md-12"
-            id="detalle"
-            name="detalle"
+            id="nombre"
+            name="nombre"
             type="text"
-            label="Detalle"
+            label="Nombre"
             required
-            onChange={(e)=>setDetalle(e.target.value)}
-            defaultValue={detalle}
+            onChange={(e)=>setNombre(e.target.value)}
+            defaultValue={nombre}
+          />
+          <Input
+            sty="col-md-12"
+            id="raza"
+            name="raza"
+            type="text"
+            label="Raza"
+            required
+            onChange={(e)=>setRaza(e.target.value)}
+            defaultValue={raza}
+          />
+          <Input
+            sty="col-md-12"
+            id="fecha_nacimiento"
+            name="fecha_nacimiento"
+            type="date"
+            label="Fecha Nacimiento"
+            required
+            onChange={(e)=>setFecha_nacimiento(e.target.value)}
+            defaultValue={fecha_nacimiento}
+          />
+          <Input
+            sty="col-md-12"
+            id="especie"
+            name="especie"
+            type="text"
+            label="Especie"
+            required
+            onChange={(e)=>setCod_especie(e.target.value)}
+            defaultValue={cod_especie}
+          />
+          <Input
+            sty="col-md-12"
+            id="cliente"
+            name="cliente"
+            type="text"
+            label="Cliente"
+            required
+            onChange={(e)=>setCedula_cliente(e.target.value)}
+            defaultValue={cedula_cliente}
           />
 
         </Modal.Body>
@@ -110,4 +162,4 @@ const Especies=()=>{
   </>
 }
 
-export default Especies;
+export default Mascota;

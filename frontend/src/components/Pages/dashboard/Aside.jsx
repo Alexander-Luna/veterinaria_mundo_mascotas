@@ -70,6 +70,11 @@ const Aside = ({toggled, handleToggleSidebar }) => {
               </NavLink>
             </MenuItem>
             <MenuItem>
+              <NavLink exact to={"/mascotas/mascota"}>
+                Mascota
+              </NavLink>
+            </MenuItem>
+            <MenuItem>
               <NavLink exact to={"/"}>
                 submenu Home 2
               </NavLink>
