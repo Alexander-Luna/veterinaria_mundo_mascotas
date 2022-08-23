@@ -22,7 +22,7 @@ const Login = () => {
         <form class="formulario">
           <h2 class="create-account">Iniciar Sesion</h2>
 
-          <p class="cuenta-gratis">¿Aun no tienes una cuenta?</p>
+          {/* <p class="cuenta-gratis">¿Aun no tienes una cuenta?</p> */}
           <div>
             <input type="email" placeholder='E-Mail' {...register('email', {
               pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
@@ -39,7 +39,7 @@ const Login = () => {
               <p >Registrarse</p>
             </NavLink>
           </div>
-          <h3>siguien en</h3>
+          <h3>siguenos en</h3>
           <div class="iconos">
             <div class="border-icon">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" class='fab fa-instagram'></a>
