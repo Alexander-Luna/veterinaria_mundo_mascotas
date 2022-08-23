@@ -1,0 +1,53 @@
+.input{
+  position: relative;
+  margin-bottom: 1rem;
+  height: 56px;
+  padding-top: 0;
+  .icon {
+    position: absolute;
+    right: 25px;
+    z-index: 10;
+    top: 100px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  input{
+    position: relative;
+    height: 50px;
+    padding: 13px 15px;
+    margin-bottom: 1rem;
+    &:focus {
+      border: 2px solid #0b283f !important;
+      box-shadow: none;
+    }
+  }
+  label{
+    position: absolute;
+    left: 1rem;
+    top: .9rem;
+    padding: 0 0.25rem;
+    background-color: #fff;
+    transition: 0.3s;
+    color: #5f6368;
+  }
+
+  /*Input focus move up label*/
+  input:focus + label {
+    left: 0;
+    top: 0;
+    font-weight: 500;
+    z-index: 10;
+    color: #0b283f;
+    transform: scale(.80) translateY(-12px);
+  }
+
+  /*Input focus sticky top label*/
+
+  input:not(:placeholder-shown) +label{
+    left: 0;
+    top: 0;
+    font-weight: 500;
+    z-index: 10;
+    transform: scale(.80) translateY(-12px);
+  }
+}

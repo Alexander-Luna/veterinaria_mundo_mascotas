@@ -1,66 +1,107 @@
 import {Link} from "react-router-dom";
-import global from "../style.module.scss";
+import {useState} from 'react'
+import style from './style.module.scss'
+import Input from "../molecules/input/Input";
 
-const FormCliente=()=>{
-  return(<>
-    <div className="container-fluid">
-      <div className="card shadow mb-4">
-        <div className="card-header py-3">
+
+const FormCliente=({data})=>{
+  const [btnSubmit, setBtnSubmit] = useState(false)
+  const [cedula, setCedula] = useState('');
+  const [nombre, setNombre] = useState('');
+  const [apellido, setApellido] = useState();
+  const [email, setEmail] = useState('');
+  const [direccion, setDireccion] = useState('');
+  const [celular, setCelular] = useState('');
+
+
+  const handleSubmit=(e)=>{
+    e.preventDefault()
+    setBtnSubmit(true)
+    const form = e.target
+    console.log(form)
+    //props.putUser(id,data)
+  }
+
+  return (<>
+  <div className="card-header py-3 ">
+    <div>
+      <h6 className="col-11 m-0 font-weight-bold text-primary">Editar Cliente {/*data.name*/}</h6>
+    </div>
+  </div>
+  <div className="row m-2">
+    <div className="col-md-11">
+      <div className="row">
+        <form className={style.uform} onSubmit={handleSubmit.bind()}>
           <div className="row">
-            <h6 className="align-self-center col-11 m-0 font-weight-bold text-primary">Administrar Clientes</h6>
+            <Input
+              sty="col-md-12 col-lg-6"
+              id="cedula_cliente"
+              name="cedula_cliente"
+              type="text"
+              label="Cédula"
+              required
+              onChange={(e)=>setCedula(e.target.value)}
+              defaultValue={cedula}
+            />
+            <Input
+              sty="col-md-12 col-lg-6"
+              id="name"
+              name="name"
+              type="text"
+              label="Nombre"
+              required
+              onChange={(e)=>setNombre(e.target.value)}
+              defaultValue={nombre}
+            />
+            <Input
+              sty="col-md-12 col-lg-6"
+              id="lastname"
+              name="lastname"
+              type="text"
+              label="Apellido"
+              onChange={(e)=>setApellido(e.target.value)}
+              defaultValue={apellido}
+            />
+            <Input
+              sty="col-md-12 col-lg-6"
+              id="email"
+              name="email"
+              type="email"
+              label="Correo Electronico"
+              required
+              onChange={(e)=>setEmail(e.target.value)}
+              defaultValue={email}
+            />
+
+            <Input
+              sty="col-md-12 col-lg-6"
+              id="direccion"
+              name="direccion"
+              type="text"
+              label="Dirección"
+              required
+              onChange={(e)=>setDireccion(e.target.value)}
+              defaultValue={direccion}
+            />
+
+            <Input
+              sty="col-md-12 col-lg-6"
+              id="numero_celular"
+              name="numero_celular"
+              type="text"
+              label="Celular"
+              required
+              onChange={(e)=>setCelular(e.target.value)}
+              defaultValue={celular}
+            />
+            <button type="submit" className="btn btn-primary col-md-8 col-lg-3">{btnSubmit ? 'Guardando...' : 'Guardar'}</button>
+            <Link to={'/clientes'} className="btn btn-secondary col-md-8 col-lg-3 ms-3">Cancelar</Link>
           </div>
-        </div>
-        <div className="card-body">
-          <form>
-            <div className="row mb-4">
-              <div className="col">
-                <div className="form-outline">
-                  <label className="form-label" htmlFor="cedula">Cédula</label>
-                  <input type="text" id="cedula" className="form-control" name="cedula" />
-                </div>
-              </div>
-              <div className="col">
-                <div className="form-outline">
-                  <label className="form-label" htmlFor="nombre">Nombre</label>
-                  <input type="text" id="nombre" className="form-control" name="nombre" />
-                </div>
-              </div>
-              <div className="col">
-                <div className="form-outline">
-                  <label className="form-label" htmlFor="apellido">Apellido</label>
-                  <input type="text" id="apellido" className="form-control" name="apellido" />
-                </div>
-              </div>
-            </div>
-            <div className="row mb-4">
-              <div className="col">
-                 <div className="form-outline">
-                   <label className="form-label" htmlFor="apellido">Correo Electronico</label>
-                   <input type="text" id="email" className="form-control" name="email" />
-                 </div>
-              </div>
-              <div className="col">
-                <div className="form-outline">
-                  <label className="form-label" htmlFor="direccion">Dirección</label>
-                  <input type="text" id="direccion" className="form-control" name="direccion" />
-                </div>
-              </div>
-              <div className="col">
-                <div className="form-outline">
-                  <label className="form-label" htmlFor="celular">Celular</label>
-                  <input type="text" id="celular" className="form-control" name="celular" />
-                </div>
-              </div>
-            </div>
-            <div className="row mb-4">
-              <button type="submit" className={`btn btn-primary ${global.btn100px } ${global.m_left_10}`}>Guardar</button>
-              <button type="submit" className={`btn btn-secondary ${global.btn100px} ${global.m_left_10}`}>Cancelar</button>
-            </div>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
-  </>)
+  </div>
+</>)
 }
 
 export default FormCliente;

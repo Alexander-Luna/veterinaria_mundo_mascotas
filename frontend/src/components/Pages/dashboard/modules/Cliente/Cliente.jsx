@@ -1,15 +1,37 @@
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import {Link} from "react-router-dom";
+import {Button, Modal} from "react-bootstrap";
+import {useState} from "react";
+import Input from "../molecules/input/Input";
 
 const Cliente=()=>{
+  const [show, setShow] = useState(false);
+  const [btnSubmit, setBtnSubmit] = useState(false);
+  const [cedula, setCedula] = useState('');
+  const [nombre, setNombre] = useState('');
+  const [apellido, setApellido] = useState();
+  const [email, setEmail] = useState('');
+  const [direccion, setDireccion] = useState('');
+  const [celular, setCelular] = useState('');
+
+
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => {
+    setShow(true)
+  }
+
+  const handleSubmit=(e)=>{
+    e.preventDefault()
+  }
+
   return <>
    <div className="container-fluid">
-     <div className="card shadow mb-4">
-       <div className="card-header py-3">
-         <div className="row">
+       <div className="card-header py-3 d-flex">
            <h6 className="align-self-center col-11 m-0 font-weight-bold text-primary">Administrar Clientes</h6>
-           <Link to={'/clientes/nuevo'} className={`btn btn-primary ${global.btn100px}`}>Nuevo</Link>
-         </div>
+           <Button className="btn btn-primary" variant="primary" onClick={handleShow}>
+             Nuevo
+           </Button>
        </div>
        <div className="card-body">
          <table className="table">
@@ -35,7 +57,7 @@ const Cliente=()=>{
              <td>Algun Lado</td>
              <td>0980150689</td>
              <td>
-              <Link to={`/users/1`} className={global.icon} title="Editar">
+              <Link to={`/clientes/1`} className={global.icon} title="Editar">
                  <i className="fas fa-user-edit"></i>
                </Link>
                <a style={{cursor:'pointer'}}  className={`delete ${global.icon}`}  title="Eliminar">
@@ -52,7 +74,7 @@ const Cliente=()=>{
              <td>Algun Lado</td>
              <td>0980150688</td>
              <td>
-               <Link to={`/users/1`} className={global.icon} title="Editar">
+               <Link to={`/clientes/1`} className={global.icon} title="Editar">
                  <i className="fas fa-user-edit"></i>
                </Link>
                <a style={{cursor:'pointer'}}  className={`delete ${global.icon}`}  title="Eliminar">
@@ -69,7 +91,7 @@ const Cliente=()=>{
              <td>Algun Lado</td>
              <td>0980150623</td>
              <td>
-               <Link to={`/users/1`} className={global.icon} title="Editar">
+               <Link to={`/clientes/1`} className={global.icon} title="Editar">
                  <i className="fas fa-user-edit"></i>
                </Link>
                <a style={{cursor:'pointer'}}  className={`delete ${global.icon}`}  title="Eliminar">
@@ -86,7 +108,7 @@ const Cliente=()=>{
              <td>Algun Lado</td>
              <td>0980150685</td>
              <td>
-               <Link to={`/users/1`} className={global.icon} title="Editar">
+               <Link to={`/clientes/1`} className={global.icon} title="Editar">
                  <i className="fas fa-user-edit"></i>
                </Link>
                <a style={{cursor:'pointer'}}  className={`delete ${global.icon}`}  title="Eliminar">
@@ -97,8 +119,88 @@ const Cliente=()=>{
            </tbody>
          </table>
        </div>
-      </div>
    </div>
+    <Modal
+      show={show}
+      onHide={handleClose}
+      backdrop="static"
+      keyboard={false}
+    >
+      <Modal.Header closeButton>
+        <Modal.Title>Nuevo Cliente</Modal.Title>
+      </Modal.Header>
+      <form onSubmit={handleSubmit.bind()}>
+        <Modal.Body>
+          <Input
+            sty="col-md-12"
+            id="cedula_cliente"
+            name="cedula_cliente"
+            type="text"
+            label="Cédula"
+            required
+            onChange={(e)=>setCedula(e.target.value)}
+            defaultValue={cedula}
+          />
+          <Input
+            sty="col-md-12"
+            id="name"
+            name="name"
+            type="text"
+            label="Nombre"
+            required
+            onChange={(e)=>setNombre(e.target.value)}
+            defaultValue={nombre}
+          />
+          <Input
+            sty="col-md-12"
+            id="lastname"
+            name="lastname"
+            type="text"
+            label="Apellido"
+            onChange={(e)=>setApellido(e.target.value)}
+            defaultValue={apellido}
+          />
+          <Input
+            sty="col-md-12"
+            id="email"
+            name="email"
+            type="email"
+            label="Correo Electronico"
+            required
+            onChange={(e)=>setEmail(e.target.value)}
+            defaultValue={email}
+          />
+
+          <Input
+            sty="col-md-12"
+            id="direccion"
+            name="direccion"
+            type="text"
+            label="Dirección"
+            required
+            onChange={(e)=>setDireccion(e.target.value)}
+            defaultValue={direccion}
+          />
+
+          <Input
+            sty="col-md-12"
+            id="numero_celular"
+            name="numero_celular"
+            type="text"
+            label="Celular"
+            required
+            onChange={(e)=>setCelular(e.target.value)}
+            defaultValue={celular}
+          />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cerrar
+          </Button>
+          <Button type="submit" variant="primary">{btnSubmit ? 'Guardando...' : 'Guardar'}</Button>
+        </Modal.Footer>
+      </form>
+    </Modal>
   </>
 }
 
