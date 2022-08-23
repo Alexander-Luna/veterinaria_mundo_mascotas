@@ -1,36 +1,58 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../../styles/LoginAndRegister.css'
 import { useForm } from 'react-hook-form';
 import mascotas from '../img/mascotas.png'
 import { NavLink } from 'react-router-dom'
+import Axios from "axios";
 const Login = () => {
-  const { register, formState: { errors }, handleSubmit } = useForm();
+  const { register, formState: { errors }} = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const [error, setError] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit=(e)=>{
+    e.preventDefault()
+    const form = e.target
+    const API_URL=process.env.REACT_APP_API_URL
+
+    const data = {
+      "email":email,
+      "password":password
+    }
+
+    Axios.post(`${API_URL}/api/auth`, data)
+      .then(r => {
+        localStorage.clear()
+        localStorage.setItem('user',JSON.stringify(r.data.data.user))
+        localStorage.setItem('access-token',JSON.stringify(r.data.data.access_token))
+        window.location.href = '/'
+      })
+      .catch(er => {
+        setError(true)
+      })
   }
+
   return (
     <>
-      <div class="container-form sign-up">
-        <div class="welcome-back">
-          <div class="message">
+      <div className="container-form sign-up">
+        <div className="welcome-back">
+          <div className="message">
             <h2>Bienvenido a Veterinaria Mundo Mascotas</h2>
             <p>Si ya tienes una cuenta por favor inicia sesion</p>
             <img src={mascotas} alt="" />
           </div>
         </div>
-        <form class="formulario">
-          <h2 class="create-account">Iniciar Sesion</h2>
-
-          {/* <p class="cuenta-gratis">¿Aun no tienes una cuenta?</p> */}
+        <form onSubmit={handleSubmit.bind()} className="formulario">
+          <h2 className="create-account">Iniciar Sesion</h2>
+          {error?<div >Usuario o Contraseña Incorrectos</div>:<></>}
+          {/* <p className="cuenta-gratis">¿Aun no tienes una cuenta?</p> */}
           <div>
-            <input type="email" placeholder='E-Mail' {...register('email', {
-              pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
-            })} />
+            <input  onChange={(e)=>setEmail(e.target.value)} defaultValue={email} type="email" placeholder='E-Mail' required/>
             {errors.email?.type === 'pattern' && <p>El formato del email es incorrecto</p>}
           </div>
           <div>
-            <input type="password" placeholder="Contraseña"{...register('Contraseña', { required: true })} />
+            <input  onChange={(e)=>setPassword(e.target.value)} defaultValue={password} type="password" placeholder="Contraseña" required />
             {errors.Contraseña?.type === 'required' && <p>El compo es requerido</p>}
           </div>
           <button className='envio-informacion' type='submit'>Iniciar Sesion</button>
@@ -40,15 +62,15 @@ const Login = () => {
             </NavLink>
           </div>
           <h3>siguenos en</h3>
-          <div class="iconos">
-            <div class="border-icon">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" class='fab fa-instagram'></a>
+          <div className="iconos">
+            <div className="border-icon">
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className='fab fa-instagram'></a>
             </div>
-            <div class="border-icon">
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" class='fab fa-twitter' ></a>
+            <div className="border-icon">
+              <a href="https://twitter.com" target="_blank" rel="noreferrer" className='fab fa-twitter' ></a>
             </div>
-            <div class="border-icon">
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" class='fab fa-facebook-f' ></a>
+            <div className="border-icon">
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" className='fab fa-facebook-f' ></a>
             </div>
           </div>
 
