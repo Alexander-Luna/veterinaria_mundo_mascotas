@@ -1,5 +1,7 @@
+import ReactBigCalendar from "./ReactBigCalendar";
+
 const Inicio=()=>{
-  return<p>inicio</p>
+  return<ReactBigCalendar />
 }
 
 export default Inicio
