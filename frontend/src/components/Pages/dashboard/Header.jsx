@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import {NavLink} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,8 +68,11 @@ const Header = (props) => {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem>
+                  <NavLink exact to={"/salir"}>
+                    Salir
+                  </NavLink>
+                </MenuItem>
               </Menu>
             </div>
           </Toolbar>
