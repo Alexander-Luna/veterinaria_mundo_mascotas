@@ -90,7 +90,10 @@ function Navbar(props) {
         </div>
 
         <div className='contenedor-cart'>
-          <FaCartPlus />
+          <NavLink to="/cart">
+            <FaCartPlus />
+          </NavLink>
+
           <span className='item-total'>0</span>
         </div>
 
