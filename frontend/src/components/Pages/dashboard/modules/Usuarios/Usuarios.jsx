@@ -1,13 +1,18 @@
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import {Link} from "react-router-dom";
 import {Button, Modal} from "react-bootstrap";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Input from "../molecules/input/Input";
 import alertify from "alertifyjs";
+import {deleteUsuario, getUsuarios, postUser} from "../../../../../redux/actionCreators";
+import {connect} from "react-redux";
+import store from "../../../../../redux/store";
+import Select from "../molecules/Select";
 
-const Usuarios=()=>{
+const Usuarios=(props)=>{
   const [show, setShow] = useState(false);
   const [btnSubmit, setBtnSubmit] = useState(false);
+  const {usuarios,match,usuario,deleteusuario}=props
 
   const [cedula, setCedula] = useState('');
   const [nombre, setNombre] = useState('');
@@ -16,7 +21,11 @@ const Usuarios=()=>{
   const [direccion, setDireccion] = useState('');
   const [celular, setCelular] = useState('');
   const [rol, setRol] = useState('');
+  const [password, setPassword] = useState('');
 
+  useEffect(() => {
+    store.dispatch(getUsuarios())
+  }, [match])
 
 
   const handleClose = () => setShow(false)
@@ -24,15 +33,63 @@ const Usuarios=()=>{
     setShow(true)
   }
 
+  useEffect(() => {
+    alertify.set("notifier", "position", "bottom-rigth");
+    if(typeof usuario.error!='undefined'){
+      usuario.error===false?alertify.success("Se creó correctamente"):alertify.error("Ocurrió un error al intentar Guardar")
+      setBtnSubmit(false)
+      setShow(false)
+      store.dispatch(getUsuarios())
+      props.postUser()
+    }
+  }, [usuario])
+
+  useEffect(() => {
+    alertify.set("notifier", "position", "bottom-rigth");
+    if(typeof deleteusuario.error!='undefined'){
+      deleteusuario.error===false?alertify.success("Se eliminó correctamente"):alertify.error("No se puede eliminar")
+      store.dispatch(getUsuarios())
+      props.deleteUsuario()
+    }
+  }, [deleteusuario])
+
   const handleSubmit=(e)=>{
     e.preventDefault()
+    const data = {
+      cedula:cedula,
+      nombres:nombre,
+      apellido:apellido,
+      email:email,
+      direccion:direccion,
+      celular:celular,
+      cod_rol:rol,
+      password:password
+    }
+    console.log(data)
+    props.postUser(data)
   }
 
-  const handleDelete=(data)=>{
-    alertify.confirm('Eliminar Usuario', `¿Seguro de eliminar el usuario: ${data.name}?`,()=> { }
+  const handleDelete=(data)=> {
+    alertify.confirm('Eliminar Usuario', `¿Seguro de eliminar el usuario: ${data.name}?`, () => {
+        props.deleteUsuario(data.id)
+      }
       , function () {
-      }).set('labels', {ok:'Aceptar', cancel:'Cancelar'});
+      }).set('labels', {ok: 'Aceptar', cancel: 'Cancelar'});
   }
+  const rols= [
+    {
+      label: "Administrador",
+      value: "1",
+    },
+    {
+      label: "Vendedor/Veterinario",
+      value: "2",
+    },
+    {
+      label: "Cliente",
+      value: "3",
+    },
+  ]
 
   return <>
    <div className="container-fluid">
@@ -58,24 +115,29 @@ const Usuarios=()=>{
            </tr>
            </thead>
            <tbody>
-           <tr>
-             <th scope="row">1</th>
-             <td>0250366515</td>
-             <td>Juan</td>
-             <td>Peres</td>
-             <td>jperes@mailes.es</td>
-             <td>Algun Lado</td>
-             <td>0980150689</td>
-             <td>Administrador</td>
-             <td>
-              <Link to={`/usuarios/1`} className={global.icon} title="Editar">
-                 <i className="fas fa-user-edit"></i>
+           {Array.isArray(usuarios.usuarios) ? usuarios.usuarios.map((e, index) => {
+             return(
+               <tr key={e.id}>
+                 <th scope="row">{e.id}</th>
+               <td>{e.cedula}</td>
+               <td>{e.nombres}</td>
+               <td>{e.apellido}</td>
+               <td>{e.email}</td>
+               <td>{e.direccion}</td>
+               <td>{e.numero_celular}</td>
+               <td>{e.cod_rol}</td>
+               <td>
+               <Link to={`/usuarios/1`} className={global.icon} title="Editar">
+               <i className="fas fa-user-edit"></i>
                </Link>
-               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':'Juan Perez','id':1})} className="delete"  title="Eliminar">
-                 <i className="fas fa-trash-alt"></i>
+               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':e.nombres,'id':e.ud})} className="delete"  title="Eliminar">
+               <i className="fas fa-trash-alt"></i>
                </a>
-             </td>
-           </tr>
+               </td>
+             </tr>
+             )
+           }) : <></>
+           }
            </tbody>
          </table>
        </div>
@@ -154,12 +216,21 @@ const Usuarios=()=>{
           />
           <Input
             sty="col-md-12"
-            id="codigo_rol"
-            name="codigo_rol"
-            type="text"
+            id="password"
+            name="password"
+            type="password"
+            label="Contraseña"
+            required
+            onChange={(e)=>setPassword(e.target.value)}
+            defaultValue={password}
+          />
+          <Select
             label="Rol"
             required
-            onChange={(e)=>setRol(e.target.value)}
+            options={rols}
+            id="cod_rol"
+            name="cod_rol"
+            handleChange={(e)=>setRol(e.target.value)}
             defaultValue={rol}
           />
         </Modal.Body>
@@ -174,4 +245,16 @@ const Usuarios=()=>{
   </>
 }
 
-export default Usuarios;
+const mapStateToProps = (state) => ({
+  usuarios:state.UsuariosState,
+  usuario:state.postUserState,
+  deleteusuario:state.deleteUsuarioState,
+})
+
+const mapDispatchToProps = {
+  postUser, deleteUsuario
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Usuarios)
+

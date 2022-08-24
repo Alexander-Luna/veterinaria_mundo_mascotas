@@ -6,7 +6,12 @@ import {
   nosotrosReducer,
   serviciosReducer,
   productosReducer,
-  contactosReducer
+  contactosReducer,
+  postUser as postUserState,
+  getUsuarios as UsuariosState,
+  deleteUsuario as deleteUsuarioState,
+  putUsuario as putUsuarioState,
+  getUsuario as UsuarioState,
 } from "./reducers"
 
 export default createStore(
@@ -15,7 +20,12 @@ export default createStore(
     nosotrosReducer,
     serviciosReducer,
     productosReducer,
-    contactosReducer
+    contactosReducer,
+    postUserState,
+    UsuariosState,
+    deleteUsuarioState,
+    putUsuarioState,
+    UsuarioState,
   }),
   composeWithDevTools(applyMiddleware(thunk))
 

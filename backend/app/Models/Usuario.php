@@ -16,7 +16,7 @@ class Usuario extends Authenticatable
         'apellido',
         'cedula',
         'numero_celular',
-        'codigo_rol',
+        'cod_rol',
         'direccion',
         'email'
     ];
