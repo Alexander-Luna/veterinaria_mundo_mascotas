@@ -16,8 +16,19 @@ const ShoppingCart = () => {
 
   const addToCart = (id) => {
     // console.log(id)
-    dispatch({ type: TYPES.ADD_TO_CART, payload: id })
-
+    const data= {
+      id
+    };
+    const resp =  localStorage.getItem('@key')
+    if(resp===null){
+      const d=Array();
+      d.push(data)
+       localStorage.setItem('@key', JSON.stringify(d))
+    }else{
+      const d=JSON.parse(resp)
+      d.push(data)
+       localStorage.setItem('@key', JSON.stringify(d))
+    }
   }
 
   const delFromCart = (id, all = false) => {
