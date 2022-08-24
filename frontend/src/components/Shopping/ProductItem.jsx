@@ -3,10 +3,11 @@ import { useLocalStorage } from './useLocalStorage'
 const ProductItem = ({ data, addToCart }) => {
   let { id, name, image, descripcion, price } = data;
 
-  const [info, setInfo] = useLocalStorage('id', '')
+  const [info, setInfo] = useLocalStorage('info', '')
 
   return (
-    <div className='card'>
+    <div className='card'
+    >
 
       <img src={image} />
 
@@ -17,9 +18,6 @@ const ProductItem = ({ data, addToCart }) => {
       <div className='card-details'>
 
         <button onClick={() => addToCart(id)}
-          value={id}
-          onChange={e => setInfo(e.target.value)}
-
         >Agregar</button>
 
         <div className='details'>

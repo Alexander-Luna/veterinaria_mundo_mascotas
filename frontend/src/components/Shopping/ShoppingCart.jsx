@@ -8,8 +8,7 @@ import { TYPES } from './ShoppingAction'
 import { useLocalStorage } from './useLocalStorage'
 
 const ShoppingCart = () => {
-
-
+  
   const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState)
 
   const { products, cart } = state;
