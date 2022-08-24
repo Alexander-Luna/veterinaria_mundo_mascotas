@@ -1,4 +1,16 @@
-import { GET_ALL_CONTACTOS, GET_ALL_NOSOTROS, GET_ALL_POSTS, GET_ALL_PRODUCTOS, GET_ALL_SERVICIOS, GET_CONTACTO, GET_POST, GET_PRODUCTO, GET_SERVICIO } from "./actions"
+import {
+  DEL_USUARIO,
+  GET_ALL_CONTACTOS,
+  GET_ALL_NOSOTROS,
+  GET_ALL_POSTS,
+  GET_ALL_PRODUCTOS,
+  GET_ALL_SERVICIOS,
+  GET_CONTACTO,
+  GET_POST,
+  GET_PRODUCTO,
+  GET_SERVICIO, GET_USUARIO, GET_USUARIOS,
+  POST_USUARIO, PUT_USUARIO
+} from "./actions"
 
 export const postReducer = (state ={}, action) =>{
   if (action.type === GET_ALL_POSTS){
@@ -73,6 +85,92 @@ export const contactosReducer = (state ={}, action) =>{
     return{
       ...state,
       contac: action.contac
+    }
+  }
+  return state
+}
+
+export const postUser=(state={}, action)=>{
+  if(action.type===POST_USUARIO){
+    if(action.error===true){
+      return{
+        error:true,
+        errors:action.errors
+      }
+    }else if(action.clean===true){
+      return {}
+    }
+    return {
+      error:false
+    }
+  }
+  return state
+}
+
+export const getUsuarios=(state={}, action)=>{
+  if(action.type===GET_USUARIOS){
+    if(action.error===true){
+      return{
+        error:true,
+        errors:action.errors
+      }
+    }
+    return {
+      error:false,
+      usuarios:action.usuarios
+    }
+  }
+
+  return state
+}
+
+export const deleteUsuario=(state={}, action)=>{
+  if(action.type===DEL_USUARIO){
+    if(action.error===true){
+      return{
+        error:true,
+        errors:action.errors
+      }
+    }else if(action.clean===true){
+      return {}
+    }
+    return {
+      error:false
+    }
+  }
+  return state
+}
+
+export const putUsuario=(state={}, action)=>{
+  if(action.type===PUT_USUARIO){
+    if(action.error===true){
+      return{
+        error:true,
+        errors:action.errors
+      }
+    }else if(action.clean===true){
+      return {}
+    }
+    return {
+      error:false
+    }
+  }
+  return state
+}
+
+export const getUsuario=(state={}, action)=>{
+  if(action.type===GET_USUARIO){
+    if(action.error===true){
+      return{
+        error:true,
+        errors:action.errors
+      }
+    }else if(action.clean===true){
+      return {}
+    }
+    return {
+      error:false,
+      usuario:action.user
     }
   }
   return state
