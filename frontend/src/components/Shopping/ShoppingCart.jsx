@@ -1,20 +1,24 @@
 import React from 'react'
-import { useReducer } from 'react'
+import { useReducer, useState } from 'react'
 import ProductItem from './ProductItem'
 import { shoppingInitialState, shoppingReducer } from './ShoppingReducer'
 import './ShoppingCart.css'
 import CartItem from './CartItem'
 import { TYPES } from './ShoppingAction'
+import { useLocalStorage } from './useLocalStorage'
 
 const ShoppingCart = () => {
+
 
   const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState)
 
   const { products, cart } = state;
 
+
   const addToCart = (id) => {
     // console.log(id)
     dispatch({ type: TYPES.ADD_TO_CART, payload: id })
+
   }
 
   const delFromCart = (id, all = false) => {
@@ -32,6 +36,7 @@ const ShoppingCart = () => {
 
   return (
     <>
+
       <div className='contenedor-productos-vet'>
         {/* <h2>Carrito de Compras</h2> */}
         {/* <h3>Productos</h3> */}
@@ -50,6 +55,8 @@ const ShoppingCart = () => {
         </article>
 
       </div>
+
+
     </>
   )
 }
