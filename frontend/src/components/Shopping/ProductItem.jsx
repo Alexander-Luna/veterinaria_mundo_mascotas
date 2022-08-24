@@ -21,7 +21,7 @@ const ProductItem = ({ data, addToCart }) => {
         >Agregar</button>
 
         <div className='details'>
-          <h4 >{name}</h4>
+          <h4>{name}</h4>
           <p>{descripcion}</p>
           <h3>${price}.00</h3>
         </div>

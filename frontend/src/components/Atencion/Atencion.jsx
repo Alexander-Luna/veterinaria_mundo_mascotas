@@ -32,8 +32,8 @@ const Atencion = () => {
         </article>
       </div>
       <p className="about__paragraph">*
-        Estas tarifas no incluyen costos de hospitalización, cirugías y medicinas.
-        Aceptamos todas las tarjetas de crédito y débito.
+      Estas tarifas no incluyen costos de hospitalización, cirugía y medicamentos. 
+      Aceptamos todas las tarjetas de crédito y débito.
       </p>
     </section>
   )

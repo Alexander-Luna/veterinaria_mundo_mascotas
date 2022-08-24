@@ -51,13 +51,39 @@ const Especies=()=>{
            <tbody>
            <tr>
              <th scope="row">1</th>
-             <td>Dalmata</td>
-             <td>ALgun detalle</td>
+             <td>Gato</td>
+             <td>Cautela en la crianza</td>
              <td>
               <Link to={`/mascotas/especies/1`} className={global.icon} title="Editar">
                  <i className="fas fa-user-edit"></i>
                </Link>
-               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':'Dalmata','id':1})} className="delete"  title="Eliminar">
+               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':'Gato','id':1})} className="delete"  title="Eliminar">
+                 <i className="fas fa-trash-alt"></i>
+               </a>
+             </td>
+           </tr>
+           <tr>
+             <th scope="row">2</th>
+             <td>Perro</td>
+             <td>Cuidado comun</td>
+             <td>
+              <Link to={`/mascotas/especies/1`} className={global.icon} title="Editar">
+                 <i className="fas fa-user-edit"></i>
+               </Link>
+               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':'Perro','id':2})} className="delete"  title="Eliminar">
+                 <i className="fas fa-trash-alt"></i>
+               </a>
+             </td>
+           </tr>
+           <tr>
+             <th scope="row">3</th>
+             <td>Conejo</td>
+             <td>Conejo de criadero</td>
+             <td>
+              <Link to={`/mascotas/especies/1`} className={global.icon} title="Editar">
+                 <i className="fas fa-user-edit"></i>
+               </Link>
+               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':'Conejo','id':3})} className="delete"  title="Eliminar">
                  <i className="fas fa-trash-alt"></i>
                </a>
              </td>

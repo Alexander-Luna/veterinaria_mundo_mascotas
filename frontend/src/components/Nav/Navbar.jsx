@@ -18,7 +18,7 @@ function Navbar(props) {
 
         <ul className="menu__links">
           <li className="menu_item">
-            <NavLink className="menu__link" to="/"> Inicio </NavLink>
+            <NavLink className="menu__link" to="/">Inicio</NavLink>
           </li>
           <li className="menu_item">
             <NavLink className="menu__link" to="/nosotros">Nosotros</NavLink>
@@ -57,7 +57,7 @@ function Navbar(props) {
               <img src="assets/arrow.svg" className="menu__arrow">
 
             </a> */}
-            <NavLink className="menu__link" to="/productos"> Productos </NavLink>
+            <NavLink className="menu__link" to="/productos">Productos</NavLink>
             {/* <ul className="menu__nesting">
               <li className="menu__inside">
                 <a href="#" className="menu__link menu__link--inside" >Alimentos</a>
@@ -80,7 +80,7 @@ function Navbar(props) {
             </ul> */}
           </li>
           <li className="menu_item">
-            <NavLink className="menu__link" to="/contactos"> Contactos </NavLink>
+            <NavLink className="menu__link" to="/contactos">Contactos</NavLink>
           </li>
         </ul>
         <div className='contenedor-login'>
