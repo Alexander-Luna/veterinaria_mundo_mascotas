@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import logo from '../../img/logopeque.png';
+
 import {
   ProSidebar,
   Menu,
@@ -15,9 +17,9 @@ import {
   FaList,
   FaGithub,
   FaRegLaughWink,
-  FaHeart, FaUsers, FaAndroid
+  FaHeart, FaUsers, FaAndroid, FaUser, FaSort, FaUserTie
 } from "react-icons/fa";
-import "react-pro-sidebar/dist/css/styles.css";
+
 import { useLocation } from "react-router-dom";
 
 const Aside = ({toggled, handleToggleSidebar }) => {
@@ -31,6 +33,8 @@ const Aside = ({toggled, handleToggleSidebar }) => {
     >
       <SidebarHeader>
         <div className="sidebar-header">
+          <img className="logo" src={logo}
+          />
           <p className="user-name text-white mb-2">Administrador</p>
           <p className="user-email">admin@mundomascoas.com</p>
         </div>
@@ -40,26 +44,38 @@ const Aside = ({toggled, handleToggleSidebar }) => {
         <Menu iconShape="circle">
           <MenuItem
             icon={<FaTachometerAlt />}
-            suffix={
-              <span className="badge red">
-                new
-              </span>
-            }
           >
             <NavLink exact to={"/dashboard"}>
               dashboard
             </NavLink>
           </MenuItem>
-          <MenuItem icon={<FaGem />}>
+          <MenuItem icon={<FaUserTie />}>
+            {" "}
+            <NavLink to="/clientes">
+              Usuarios
+            </NavLink>
+          </MenuItem>
+          <MenuItem icon={<FaUser />}>
             {" "}
             <NavLink to="/clientes">
               Clientes
             </NavLink>
           </MenuItem>
+          <MenuItem icon={<FaUsers />}>
+            {" "}
+            <NavLink to="/clientes">
+              Proveedores
+            </NavLink>
+          </MenuItem>
+          <MenuItem icon={<FaSort />}>
+            {" "}
+            <NavLink to="/clientes">
+              Productos
+            </NavLink>
+          </MenuItem>
         </Menu>
         <Menu iconShape="circle">
           <SubMenu
-            suffix={<span className="badge yellow">3</span>}
             title="Mascotas"
             icon={<FaAndroid />}
             data-element={location.pathname}
@@ -76,12 +92,11 @@ const Aside = ({toggled, handleToggleSidebar }) => {
             </MenuItem>
             <MenuItem>
               <NavLink exact to={"/"}>
-                submenu Home 2
+                Historia Clinica
               </NavLink>
             </MenuItem>
-            <MenuItem>submenu 3</MenuItem>
           </SubMenu>
-          <SubMenu
+{/*          <SubMenu
             prefix={<span className="badge gray">3</span>}
             title="withPrefix"
             icon={<FaHeart />}
@@ -94,8 +109,8 @@ const Aside = ({toggled, handleToggleSidebar }) => {
             </MenuItem>
             <MenuItem>submenu 2</MenuItem>
             <MenuItem>submenu 3</MenuItem>
-          </SubMenu>
-          <SubMenu
+          </SubMenu>*/}
+{/*          <SubMenu
             title="multiLevel"
             icon={<FaList />}
           >
@@ -116,8 +131,9 @@ const Aside = ({toggled, handleToggleSidebar }) => {
                 </MenuItem>
               </SubMenu>
             </SubMenu>
-          </SubMenu>
+          </SubMenu>*/}
         </Menu>
+
       </SidebarContent>
 
       <SidebarFooter style={{ textAlign: "center" }}>

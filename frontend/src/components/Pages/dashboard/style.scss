@@ -1,3 +1,37 @@
+
+
+$sidebar-bg-color: #1e586c !default;
+$sidebar-color: #ffffff !default;
+$sidebar-width: 270px !default;
+$sidebar-collapsed-width: 80px !default;
+$highlight-color: #ffffff !default;
+$submenu-bg-color: #1c5e75 !default;
+$submenu-bg-color-collapsed: #1e586c !default;
+$icon-bg-color: rgba(2, 2, 2, 0) !default;
+$icon-size: 35px !default;
+$submenu-indent: 24px !default;
+$highlight-color: #fff;
+
+$breakpoint-xs: 480px !default;
+$breakpoint-sm: 576px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-lg: 992px !default;
+$breakpoint-xl: 1200px !default;
+$breakpoint-xxl: 1600px !default;
+
+@import "~react-pro-sidebar/dist/scss/styles.scss";
+
+.pro-inner-item:hover{
+  background: rgba(27, 114, 143, 0.85);
+}
+.MuiAppBar-colorPrimary{
+  background-color: #459fbe !important;
+}
+.logo{
+  margin: 0;
+  padding: 0;
+  width: 100px;
+}
 body {
   margin: 0;
   height: 100vh;
@@ -16,7 +50,7 @@ body {
   cursor: pointer;
   width: 35px;
   height: 35px;
-  background: #353535;
+  background: #1e586c;
   color: #fff;
   text-align: center;
   border-radius: 50%;
@@ -138,19 +172,19 @@ body {
 }
 .badge.yellow {
   color: #000;
-  background: #ffd331;
+  background: #93ACFA;
 }
 
 .sidebar-header {
   padding-top: 2.4rem;
   padding-bottom: 1.4rem;
   font-weight: bold;
-  background: #1b2330;
+  background: #1e586c;
   text-align: center;
 }
 .sidebar-header .user-email {
   font-size: 14px;
-  color: darkgray;
+  color: white;
 }
 .pro-sidebar {
   width: 280px;
@@ -183,15 +217,7 @@ body {
   border: 7px solid #252f3e;
 }
 
-.pro-sidebar-content,
-.pro-sidebar > .pro-sidebar-inner,
-.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {
-  background-color: #252f3e;
-}
 
-.pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout .pro-sidebar-header {
-  border-bottom: 0px;
-}
 
 .pro-sidebar-header {
   position: relative;
@@ -199,12 +225,4 @@ body {
 
 .bottom-0 {
   bottom: 0;
-}
-
-.pro-sidebar
-.pro-menu.shaped
-.pro-menu-item
-> .pro-inner-item
-> .pro-icon-wrapper {
-  background-color: transparent;
 }
