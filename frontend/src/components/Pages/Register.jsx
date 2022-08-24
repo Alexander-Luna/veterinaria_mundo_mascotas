@@ -28,6 +28,13 @@ const Register = () => {
               placeholder="Nombre" />
             {errors.nombre?.type === 'required' && <p>El campo nombre es requerido</p>}
           </div>
+          <div >
+            <input
+              type="text"
+              {...register('apellido', { required: true })}
+              placeholder="Apellido" />
+            {errors.apellido?.type === 'required' && <p>El campo nombre es requerido</p>}
+          </div>
           <div>
             <input type="email" placeholder='E-Mail' {...register('email', {
               pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
