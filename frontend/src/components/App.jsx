@@ -19,6 +19,12 @@ import FormEspecies from "./Pages/dashboard/modules/Mascotas/Especies/FormEspeci
 import Mascota from "./Pages/dashboard/modules/Mascotas/Mascota/Mascota";
 import FormMascota from "./Pages/dashboard/modules/Mascotas/Mascota/FormMascota";
 import Cart from "./Pages/Cart";
+import Usuarios from "./Pages/dashboard/modules/Usuarios/Usuarios";
+import FormUsuarios from "./Pages/dashboard/modules/Usuarios/FormUsuarios";
+import Proveedores from "./Pages/dashboard/modules/Proveedores/Proveedores";
+import FormProveedores from "./Pages/dashboard/modules/Proveedores/FormProveedores";
+import Citas from "./Pages/dashboard/modules/Mascotas/Citas/Citas";
+import FormHistoriaClinica from "./Pages/dashboard/modules/Mascotas/HistoriaClinica/FormHistoriaClinica";
 
 const App = () => {
   return (
@@ -38,8 +44,17 @@ const App = () => {
         <Route exact path="/clientes" element={<Protected title="Clientes"><Cliente /></Protected>} />
         <Route exact path="/clientes/:id" element={<Protected title="Clientes"><FormCliente /></Protected>} />
 
+        <Route exact path="/usuarios" element={<Protected title="Usuarios"><Usuarios /></Protected>} />
+        <Route exact path="/usuarios/:id" element={<Protected title="Usuarios"><FormUsuarios /></Protected>} />
+
+        <Route exact path="/proveedores" element={<Protected title="Proveedores"><Proveedores /></Protected>} />
+        <Route exact path="/proveedores/:id" element={<Protected title="Proveedores"><FormProveedores /></Protected>} />
+
         <Route exact path="/mascotas/especies" element={<Protected title="Especies"><Especies /></Protected>} />
+        <Route exact path="/mascotas/:id/citas/historia" element={<Protected title="Historia Clinica"><FormHistoriaClinica /></Protected>} />
         <Route exact path="/mascotas/especies/:id" element={<Protected title="Especies"><FormEspecies /></Protected>} />
+        <Route exact path="/mascotas/:id/citas" element={<Protected title="Citas Mascota"><Citas /></Protected>} />
+
 
         <Route exact path="/mascotas/mascota" element={<Protected title="Mascotas"><Mascota /></Protected>} />
         <Route exact path="/mascotas/mascota/:id" element={<Protected title="Mascotas"><FormMascota /></Protected>} />

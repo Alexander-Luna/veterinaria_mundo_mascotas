@@ -94,8 +94,10 @@ const FormMascota=({data})=>{
               onChange={(e)=>setCedula_cliente(e.target.value)}
               defaultValue={cedula_cliente}
             />
-            <button type="submit" className="btn btn-primary col-md-8 col-lg-3">{btnSubmit ? 'Guardando...' : 'Guardar'}</button>
-            <Link to={'/mascotas/mascota'} className="btn btn-secondary col-md-8 col-lg-3 ms-3">Cancelar</Link>
+            <div>
+              <button type="submit" className="btn btn-primary col-md-8 col-lg-3">{btnSubmit ? 'Guardando...' : 'Guardar'}</button>
+              <Link to={'/mascotas/mascota'} className="btn btn-secondary col-md-8 col-lg-3 ms-3">Cancelar</Link>
+            </div>
           </div>
         </form>
       </div>

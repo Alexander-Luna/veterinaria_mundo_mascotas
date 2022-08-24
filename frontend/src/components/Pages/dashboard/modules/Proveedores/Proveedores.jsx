@@ -2,20 +2,20 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import {Link} from "react-router-dom";
 import {Button, Modal} from "react-bootstrap";
 import {useState} from "react";
-import Input from "../../molecules/input/Input";
+import Input from "../molecules/input/Input";
 import alertify from "alertifyjs";
 
-
-const Mascota=()=>{
+const Proveedores=()=>{
   const [show, setShow] = useState(false);
   const [btnSubmit, setBtnSubmit] = useState(false);
 
-  const [codigo, setCodigo] = useState('');
   const [nombre, setNombre] = useState('');
-  const [raza, setRaza] = useState('');
-  const [fecha_nacimiento, setFecha_nacimiento] = useState('');
-  const [cod_especie, setCod_especie] = useState('');
-  const [cedula_cliente, setCedula_cliente] = useState('');
+  const [descripcion, setDescripcion] = useState();
+  const [email, setEmail] = useState('');
+  const [direccion, setDireccion] = useState('');
+  const [celular, setCelular] = useState('');
+
+
 
 
   const handleClose = () => setShow(false)
@@ -28,16 +28,15 @@ const Mascota=()=>{
   }
 
   const handleDelete=(data)=>{
-    alertify.confirm('Eliminar Mascota', `¿Seguro de eliminar la mascota: ${data.name}?`,()=> { }
+    alertify.confirm('Eliminar Proveedor', `¿Seguro de eliminar el proveedor: ${data.name}?`,()=> { }
       , function () {
       }).set('labels', {ok:'Aceptar', cancel:'Cancelar'});
   }
 
-
   return <>
    <div className="container-fluid">
        <div className="card-header py-3 d-flex">
-           <h6 className="align-self-center col-11 m-0 font-weight-bold text-primary">Administrar Mascotas</h6>
+           <h6 className="align-self-center col-11 m-0 font-weight-bold text-primary">Administrar Proveedores</h6>
            <Button className="btn btn-primary" variant="primary" onClick={handleShow}>
              Nuevo
            </Button>
@@ -47,32 +46,27 @@ const Mascota=()=>{
            <thead>
            <tr>
              <th scope="col">#</th>
-             <th scope="col">Código</th>
              <th scope="col">Nombre</th>
-             <th scope="col">Raza</th>
-             <th scope="col">Fecha Nacimiento</th>
-             <th scope="col">Especie</th>
-             <th scope="col">Cliente</th>
+             <th scope="col">Descripción</th>
+             <th scope="col">Email</th>
+             <th scope="col">Dirección</th>
+             <th scope="col">Celular</th>
              <th scope="col">Acciones</th>
            </tr>
            </thead>
            <tbody>
            <tr>
              <th scope="row">1</th>
-             <td>PER-001-1</td>
-             <td>Toby</td>
-             <td>Dalmada</td>
-             <td>02/02/2022</td>
-             <td>Perro</td>
-             <td>Juan Peres</td>
+             <td>Juan</td>
+             <td>El de las kroquetas</td>
+             <td>jperes@mailes.es</td>
+             <td>Algun Lado</td>
+             <td>0980150689</td>
              <td>
-              <Link to={`/mascotas/mascota/1`} className={global.icon} title="Editar">
+              <Link to={`/proveedores/1`} className={global.icon} title="Editar">
                  <i className="fas fa-user-edit"></i>
                </Link>
-               <Link to={`/mascotas/1/citas`} className={global.icon} title="Citas">
-                 <i className="fas fa-notes-medical"></i>
-               </Link>
-               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':'Toby','id':1})} className="delete"  title="Eliminar">
+               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':'Juan Perez','id':1})} className="delete"  title="Eliminar">
                  <i className="fas fa-trash-alt"></i>
                </a>
              </td>
@@ -88,24 +82,14 @@ const Mascota=()=>{
       keyboard={false}
     >
       <Modal.Header closeButton>
-        <Modal.Title>Nueva Mascota</Modal.Title>
+        <Modal.Title>Nuevo Proveedor</Modal.Title>
       </Modal.Header>
       <form onSubmit={handleSubmit.bind()}>
         <Modal.Body>
           <Input
             sty="col-md-12"
-            id="codigo"
-            name="codigo"
-            type="text"
-            label="Código de identificacion"
-            required
-            onChange={(e)=>setCodigo(e.target.value)}
-            defaultValue={codigo}
-          />
-          <Input
-            sty="col-md-12"
-            id="nombre"
-            name="nombre"
+            id="name"
+            name="name"
             type="text"
             label="Nombre"
             required
@@ -114,45 +98,45 @@ const Mascota=()=>{
           />
           <Input
             sty="col-md-12"
-            id="raza"
-            name="raza"
+            id="descripcion"
+            name="lastname"
             type="text"
-            label="Raza"
-            required
-            onChange={(e)=>setRaza(e.target.value)}
-            defaultValue={raza}
+            label="Apellido"
+            onChange={(e)=>setDescripcion(e.target.value)}
+            defaultValue={descripcion}
           />
           <Input
             sty="col-md-12"
-            id="fecha_nacimiento"
-            name="fecha_nacimiento"
-            type="date"
-            label="Fecha Nacimiento"
+            id="email"
+            name="email"
+            type="email"
+            label="Correo Electronico"
             required
-            onChange={(e)=>setFecha_nacimiento(e.target.value)}
-            defaultValue={fecha_nacimiento}
-          />
-          <Input
-            sty="col-md-12"
-            id="especie"
-            name="especie"
-            type="text"
-            label="Especie"
-            required
-            onChange={(e)=>setCod_especie(e.target.value)}
-            defaultValue={cod_especie}
-          />
-          <Input
-            sty="col-md-12"
-            id="cliente"
-            name="cliente"
-            type="text"
-            label="Cliente"
-            required
-            onChange={(e)=>setCedula_cliente(e.target.value)}
-            defaultValue={cedula_cliente}
+            onChange={(e)=>setEmail(e.target.value)}
+            defaultValue={email}
           />
 
+          <Input
+            sty="col-md-12"
+            id="direccion"
+            name="direccion"
+            type="text"
+            label="Dirección"
+            required
+            onChange={(e)=>setDireccion(e.target.value)}
+            defaultValue={direccion}
+          />
+
+          <Input
+            sty="col-md-12"
+            id="numero_celular"
+            name="numero_celular"
+            type="text"
+            label="Celular"
+            required
+            onChange={(e)=>setCelular(e.target.value)}
+            defaultValue={celular}
+          />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -165,4 +149,4 @@ const Mascota=()=>{
   </>
 }
 
-export default Mascota;
+export default Proveedores;
