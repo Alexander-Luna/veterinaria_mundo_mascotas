@@ -21,10 +21,10 @@ class RolSeeder extends Seeder
                 'tipo' => 'Administrador'
             ],
             [
-                'tipo' => 'Vendedor'
+                'tipo' => 'Vendedor/Veterinario'
             ],
             [
-                'tipo' => 'Veterinario'
+                'tipo' => 'Cliente'
             ]
         ]);
     }
