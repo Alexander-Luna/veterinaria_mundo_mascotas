@@ -4,15 +4,13 @@ import style from './style.module.scss'
 import Input from "../molecules/input/Input";
 
 
-const FormCliente=({data})=>{
+const FormProveedores=({data})=>{
   const [btnSubmit, setBtnSubmit] = useState(false)
-  const [cedula, setCedula] = useState('');
   const [nombre, setNombre] = useState('');
-  const [apellido, setApellido] = useState();
+  const [descripcion, setDescripcion] = useState();
   const [email, setEmail] = useState('');
   const [direccion, setDireccion] = useState('');
   const [celular, setCelular] = useState('');
-
 
   const handleSubmit=(e)=>{
     e.preventDefault()
@@ -25,7 +23,7 @@ const FormCliente=({data})=>{
   return (<>
   <div className="card-header py-3 ">
     <div>
-      <h6 className="col-11 m-0 font-weight-bold text-primary">Editar Cliente {/*data.name*/}</h6>
+      <h6 className="col-11 m-0 font-weight-bold text-primary">Editar Proveedor {/*data.name*/}</h6>
     </div>
   </div>
   <div className="row m-2">
@@ -33,16 +31,6 @@ const FormCliente=({data})=>{
       <div className="row">
         <form className={style.uform} onSubmit={handleSubmit.bind()}>
           <div className="row">
-            <Input
-              sty="col-md-12 col-lg-6"
-              id="cedula_cliente"
-              name="cedula_cliente"
-              type="text"
-              label="Cédula"
-              required
-              onChange={(e)=>setCedula(e.target.value)}
-              defaultValue={cedula}
-            />
             <Input
               sty="col-md-12 col-lg-6"
               id="name"
@@ -55,12 +43,12 @@ const FormCliente=({data})=>{
             />
             <Input
               sty="col-md-12 col-lg-6"
-              id="lastname"
-              name="lastname"
+              id="descripcion"
+              name="descripcion"
               type="text"
               label="Apellido"
-              onChange={(e)=>setApellido(e.target.value)}
-              defaultValue={apellido}
+              onChange={(e)=>setDescripcion(e.target.value)}
+              defaultValue={descripcion}
             />
             <Input
               sty="col-md-12 col-lg-6"
@@ -96,9 +84,9 @@ const FormCliente=({data})=>{
             />
             <div>
               <button type="submit" className="btn btn-primary col-md-8 col-lg-3">{btnSubmit ? 'Guardando...' : 'Guardar'}</button>
-              <Link to={'/clientes'} className="btn btn-secondary col-md-8 col-lg-3 ms-3">Cancelar</Link>
+              <Link to={'/proveedores'} className="btn btn-secondary col-md-8 col-lg-3 ms-3">Cancelar</Link>
             </div>
-          </div>
+            </div>
         </form>
       </div>
     </div>
@@ -106,4 +94,4 @@ const FormCliente=({data})=>{
 </>)
 }
 
-export default FormCliente;
+export default FormProveedores;

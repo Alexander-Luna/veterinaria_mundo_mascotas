@@ -50,8 +50,10 @@ const FormEspecies=({data})=>{
               onChange={(e)=>setNombre_especie(e.target.value)}
               defaultValue={detalle}
             />
-            <button type="submit" className="btn btn-primary col-md-8 col-lg-3">{btnSubmit ? 'Guardando...' : 'Guardar'}</button>
-            <Link to={'/mascotas/especies'} className="btn btn-secondary col-md-8 col-lg-3 ms-3">Cancelar</Link>
+            <div>
+              <button type="submit" className="btn btn-primary col-md-8 col-lg-3">{btnSubmit ? 'Guardando...' : 'Guardar'}</button>
+              <Link to={'/mascotas/especies'} className="btn btn-secondary col-md-8 col-lg-3 ms-3">Cancelar</Link>
+            </div>
           </div>
         </form>
       </div>

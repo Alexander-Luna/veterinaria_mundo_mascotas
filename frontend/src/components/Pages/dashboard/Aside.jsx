@@ -51,7 +51,7 @@ const Aside = ({toggled, handleToggleSidebar }) => {
           </MenuItem>
           <MenuItem icon={<FaUserTie />}>
             {" "}
-            <NavLink to="/clientes">
+            <NavLink to="/usuarios">
               Usuarios
             </NavLink>
           </MenuItem>
@@ -63,7 +63,7 @@ const Aside = ({toggled, handleToggleSidebar }) => {
           </MenuItem>
           <MenuItem icon={<FaUsers />}>
             {" "}
-            <NavLink to="/clientes">
+            <NavLink to="/proveedores">
               Proveedores
             </NavLink>
           </MenuItem>
@@ -88,11 +88,6 @@ const Aside = ({toggled, handleToggleSidebar }) => {
             <MenuItem>
               <NavLink exact to={"/mascotas/mascota"}>
                 Mascota
-              </NavLink>
-            </MenuItem>
-            <MenuItem>
-              <NavLink exact to={"/"}>
-                Historia Clinica
               </NavLink>
             </MenuItem>
           </SubMenu>

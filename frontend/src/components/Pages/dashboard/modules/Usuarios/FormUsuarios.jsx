@@ -4,7 +4,7 @@ import style from './style.module.scss'
 import Input from "../molecules/input/Input";
 
 
-const FormCliente=({data})=>{
+const FormUsuarios=({data})=>{
   const [btnSubmit, setBtnSubmit] = useState(false)
   const [cedula, setCedula] = useState('');
   const [nombre, setNombre] = useState('');
@@ -12,7 +12,7 @@ const FormCliente=({data})=>{
   const [email, setEmail] = useState('');
   const [direccion, setDireccion] = useState('');
   const [celular, setCelular] = useState('');
-
+  const [rol, setRol] = useState('');
 
   const handleSubmit=(e)=>{
     e.preventDefault()
@@ -25,7 +25,7 @@ const FormCliente=({data})=>{
   return (<>
   <div className="card-header py-3 ">
     <div>
-      <h6 className="col-11 m-0 font-weight-bold text-primary">Editar Cliente {/*data.name*/}</h6>
+      <h6 className="col-11 m-0 font-weight-bold text-primary">Editar Usuario {/*data.name*/}</h6>
     </div>
   </div>
   <div className="row m-2">
@@ -35,8 +35,8 @@ const FormCliente=({data})=>{
           <div className="row">
             <Input
               sty="col-md-12 col-lg-6"
-              id="cedula_cliente"
-              name="cedula_cliente"
+              id="cedula"
+              name="cedula"
               type="text"
               label="Cédula"
               required
@@ -94,9 +94,19 @@ const FormCliente=({data})=>{
               onChange={(e)=>setCelular(e.target.value)}
               defaultValue={celular}
             />
+            <Input
+              sty="col-md-12"
+              id="codigo_rol"
+              name="codigo_rol"
+              type="text"
+              label="Rol"
+              required
+              onChange={(e)=>setRol(e.target.value)}
+              defaultValue={rol}
+            />
             <div>
               <button type="submit" className="btn btn-primary col-md-8 col-lg-3">{btnSubmit ? 'Guardando...' : 'Guardar'}</button>
-              <Link to={'/clientes'} className="btn btn-secondary col-md-8 col-lg-3 ms-3">Cancelar</Link>
+              <Link to={'/usuarios'} className="btn btn-secondary col-md-8 col-lg-3 ms-3">Cancelar</Link>
             </div>
           </div>
         </form>
@@ -106,4 +116,4 @@ const FormCliente=({data})=>{
 </>)
 }
 
-export default FormCliente;
+export default FormUsuarios;
