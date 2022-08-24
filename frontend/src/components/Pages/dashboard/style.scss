@@ -10,7 +10,7 @@ $submenu-bg-color-collapsed: #1e586c !default;
 $icon-bg-color: rgba(2, 2, 2, 0) !default;
 $icon-size: 35px !default;
 $submenu-indent: 24px !default;
-$highlight-color: #001b38;
+$highlight-color: #fff;
 
 $breakpoint-xs: 480px !default;
 $breakpoint-sm: 576px !default;
@@ -21,6 +21,9 @@ $breakpoint-xxl: 1600px !default;
 
 @import "~react-pro-sidebar/dist/scss/styles.scss";
 
+.pro-inner-item:hover{
+  background: rgba(27, 114, 143, 0.85);
+}
 .MuiAppBar-colorPrimary{
   background-color: #459fbe !important;
 }

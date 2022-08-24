@@ -17,7 +17,7 @@ import {
   FaList,
   FaGithub,
   FaRegLaughWink,
-  FaHeart, FaUsers, FaAndroid, FaUser, FaSort
+  FaHeart, FaUsers, FaAndroid, FaUser, FaSort, FaUserTie
 } from "react-icons/fa";
 
 import { useLocation } from "react-router-dom";
@@ -47,6 +47,12 @@ const Aside = ({toggled, handleToggleSidebar }) => {
           >
             <NavLink exact to={"/dashboard"}>
               dashboard
+            </NavLink>
+          </MenuItem>
+          <MenuItem icon={<FaUserTie />}>
+            {" "}
+            <NavLink to="/clientes">
+              Usuarios
             </NavLink>
           </MenuItem>
           <MenuItem icon={<FaUser />}>
