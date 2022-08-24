@@ -27,6 +27,7 @@ import Citas from "./Pages/dashboard/modules/Mascotas/Citas/Citas";
 import FormHistoriaClinica from "./Pages/dashboard/modules/Mascotas/HistoriaClinica/FormHistoriaClinica";
 import FormProductos from "./Pages/dashboard/modules/Productos/FormProductos";
 import AdminProductos from "./Pages/dashboard/modules/Productos/AdminProductos";
+import ResetPassword from "./Pages/ResetPassword";
 
 
 
@@ -42,6 +43,7 @@ const App = () => {
         <Route path="/cart" element={<Public><Cart /></Public>} />
         <Route component={Page404} />
         <Route path="/login" element={<Public><Login /></Public>} />
+        <Route path="/resetpassword" element={<Public><ResetPassword /></Public>} />
         <Route path="/register" element={<Public><Register /></Public>} />
         <Route exact path="/dashboard" element={<Protected title="Dashboard"><Inicio /></Protected>} />
 

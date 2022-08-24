@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import mascotas from '../img/mascotas.png'
 import { NavLink } from 'react-router-dom'
 import Axios from "axios";
-const Login = () => {
+const ResetPassword = () => {
   const { register, formState: { errors }} = useForm();
 
   const [error, setError] = useState(false);
@@ -39,31 +39,24 @@ const Login = () => {
         <div className="welcome-back">
           <div className="message">
             <h2>Bienvenido a Veterinaria Mundo Mascotas</h2>
-            <p>Si ya tienes una cuenta por favor inicia sesión</p>
             <img src={mascotas} alt="" />
           </div>
         </div>
         <form onSubmit={handleSubmit.bind()} className="formulario">
-          <h2 className="create-account">Iniciar Sesión</h2>
-          {error?<div >Usuario o Contraseña Incorrectos</div>:<></>}
-          {/* <p className="cuenta-gratis">¿Aun no tienes una cuenta?</p> */}
+          <h2 className="create-account">Restaurar Contraseña</h2>
           <div>
             <input  onChange={(e)=>setEmail(e.target.value)} defaultValue={email} type="email" placeholder='E-Mail' required/>
             {errors.email?.type === 'pattern' && <p>El formato del email es incorrecto</p>}
           </div>
-          <div>
-            <input  onChange={(e)=>setPassword(e.target.value)} defaultValue={password} type="password" placeholder="Contraseña" required />
-            {errors.Contraseña?.type === 'required' && <p>El campo es requerido</p>}
-          </div>
-          <button className='envio-informacion' type='submit'>Iniciar Sesión</button>
+          <button className='envio-informacion' type='submit'>Recuperar</button>
           <div className='envia-registro'>
             <NavLink to="/register">
               <p >Registrarse</p>
             </NavLink>
           </div>
           <div className='olvida-password'>
-            <NavLink to="/resetpassword">
-              <p >¿Ha olvidado su contraseña?</p>
+            <NavLink to="/login">
+              <p >Iniciar Sesión</p>
             </NavLink>
           </div>
           <h3>Siguenos en</h3>
@@ -85,4 +78,4 @@ const Login = () => {
   );
 }
 
-export default Login;
+export default ResetPassword;
