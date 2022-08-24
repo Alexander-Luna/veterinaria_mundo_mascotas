@@ -11,3 +11,11 @@ export const GET_POST = "GET_POST"
 export const GET_SERVICIO = 'GET_SERVICIO'
 export const GET_PRODUCTO = "GET_PRODUCTO"
 export const GET_CONTACTO = "GET_CONTACTO"
+
+//DASHBOARD
+
+export const GET_USUARIOS="GET_USUARIOS"
+export const GET_USUARIO="GET_USUARIO"
+export const POST_USUARIO="POST_USUARIO"
+export const PUT_USUARIO="PUT_USUARIO"
+export const DEL_USUARIO="DEL_USUARIO"

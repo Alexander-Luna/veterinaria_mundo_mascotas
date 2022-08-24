@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import '../../styles/LoginAndRegister.css'
 import { useForm } from 'react-hook-form';
 import mascotas from '../img/mascotas.png'
@@ -10,6 +10,14 @@ const Login = () => {
   const [error, setError] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+   console.log("recargo")
+    if(localStorage.getItem('access-token')){
+      window.location='/dashboard'
+    }
+  }, []);
+
 
   const handleSubmit=(e)=>{
     e.preventDefault()
@@ -26,7 +34,7 @@ const Login = () => {
         localStorage.clear()
         localStorage.setItem('user',JSON.stringify(r.data.data.user))
         localStorage.setItem('access-token',JSON.stringify(r.data.data.access_token))
-        window.location.href = '/'
+        window.location.href = '/dashboard'
       })
       .catch(er => {
         setError(true)

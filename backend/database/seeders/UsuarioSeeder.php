@@ -48,6 +48,16 @@ class UsuarioSeeder extends Seeder
                 'email' => 'jperez@gmail.com',
                 'direccion' => 'Guaranda',
                 'password' => bcrypt('cliente')
+            ],
+            [
+                'nombres' => 'Admin',
+                'apellido' => 'Admin',
+                'cedula' => '0250366989',
+                'cod_rol' => 1,
+                'numero_celular' => '',
+                'email' => 'admin@gmail.com',
+                'direccion' => 'Guaranda',
+                'password' => bcrypt('admin')
             ]
         ]);
     }
