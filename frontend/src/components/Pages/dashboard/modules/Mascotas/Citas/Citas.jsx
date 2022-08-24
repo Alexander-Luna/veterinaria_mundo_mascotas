@@ -83,7 +83,7 @@ const Citas=()=>{
             sty="col-md-12"
             id="fecha"
             name="fecha"
-            type="text"
+            type="date"
             label="Fecha"
             required
             onChange={(e)=>setFecha(e.target.value)}
@@ -93,7 +93,7 @@ const Citas=()=>{
             sty="col-md-12"
             id="hora"
             name="hora"
-            type="text"
+            type="time"
             label="Hora"
             required
             onChange={(e)=>setHora(e.target.value)}

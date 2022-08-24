@@ -69,7 +69,7 @@ const FormHistoriaClinica=({data})=>{
               sty="col-md-12 col-lg-6"
               id="temperatura"
               name="temperatura"
-              type="date"
+              type="text"
               label="Temperatura °C"
               required
               onChange={(e)=>setTemperatura(e.target.value)}
