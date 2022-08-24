@@ -70,7 +70,8 @@ body {
 }
 
 .menu__link:hover {
-  background-color: #5e7094;
+  background-color: #459fbe;
+  color:#fff;
 }
 
 .menu__arrow {
