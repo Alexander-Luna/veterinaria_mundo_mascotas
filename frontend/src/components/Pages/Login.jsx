@@ -44,7 +44,7 @@ const Login = () => {
           </div>
         </div>
         <form onSubmit={handleSubmit.bind()} className="formulario">
-          <h2 className="create-account">Iniciar Sesion</h2>
+          <h2 className="create-account">Iniciar Sesión</h2>
           {error?<div >Usuario o Contraseña Incorrectos</div>:<></>}
           {/* <p className="cuenta-gratis">¿Aun no tienes una cuenta?</p> */}
           <div>
@@ -53,12 +53,17 @@ const Login = () => {
           </div>
           <div>
             <input  onChange={(e)=>setPassword(e.target.value)} defaultValue={password} type="password" placeholder="Contraseña" required />
-            {errors.Contraseña?.type === 'required' && <p>El compo es requerido</p>}
+            {errors.Contraseña?.type === 'required' && <p>El campo es requerido</p>}
           </div>
           <button className='envio-informacion' type='submit'>Iniciar Sesión</button>
           <div className='envia-registro'>
             <NavLink to="/register">
               <p >Registrarse</p>
+            </NavLink>
+          </div>
+          <div className='olvida-password'>
+            <NavLink to="/olv_pass">
+              <p >¿Ha olvidado su contraseña?</p>
             </NavLink>
           </div>
           <h3>Siguenos en</h3>

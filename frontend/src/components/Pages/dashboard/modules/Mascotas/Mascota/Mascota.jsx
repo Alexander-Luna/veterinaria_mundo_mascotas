@@ -85,7 +85,7 @@ const Mascota=()=>{
       keyboard={false}
     >
       <Modal.Header closeButton>
-        <Modal.Title>Nueva Especie</Modal.Title>
+        <Modal.Title>Nueva Mascota</Modal.Title>
       </Modal.Header>
       <form onSubmit={handleSubmit.bind()}>
         <Modal.Body>
@@ -94,7 +94,7 @@ const Mascota=()=>{
             id="codigo"
             name="codigo"
             type="text"
-            label="Código"
+            label="Código de identificacion"
             required
             onChange={(e)=>setCodigo(e.target.value)}
             defaultValue={codigo}
