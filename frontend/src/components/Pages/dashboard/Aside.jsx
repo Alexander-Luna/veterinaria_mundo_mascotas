@@ -17,7 +17,7 @@ import {
   FaRegLaughWink,
   FaHeart, FaUsers, FaAndroid
 } from "react-icons/fa";
-import "react-pro-sidebar/dist/css/styles.css";
+
 import { useLocation } from "react-router-dom";
 
 const Aside = ({toggled, handleToggleSidebar }) => {
