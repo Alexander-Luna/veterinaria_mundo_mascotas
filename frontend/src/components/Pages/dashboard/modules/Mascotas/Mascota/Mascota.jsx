@@ -77,6 +77,46 @@ const Mascota=()=>{
                </a>
              </td>
            </tr>
+           <tr>
+             <th scope="row">2</th>
+             <td>GAT-001-1</td>
+             <td>Chispita</td>
+             <td>Siames</td>
+             <td>10/05/2021</td>
+             <td>Gato</td>
+             <td>Camila Torres</td>
+             <td>
+              <Link to={`/mascotas/mascota/1`} className={global.icon} title="Editar">
+                 <i className="fas fa-user-edit"></i>
+               </Link>
+               <Link to={`/mascotas/1/citas`} className={global.icon} title="Citas">
+                 <i className="fas fa-notes-medical"></i>
+               </Link>
+               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':'Chispita','id':2})} className="delete"  title="Eliminar">
+                 <i className="fas fa-trash-alt"></i>
+               </a>
+             </td>
+           </tr>
+           <tr>
+             <th scope="row">3</th>
+             <td>CON-001-1</td>
+             <td>Billy</td>
+             <td>Cabeza de Leon</td>
+             <td>26/12/2020</td>
+             <td>Conejo</td>
+             <td>Mishel Lopez</td>
+             <td>
+              <Link to={`/mascotas/mascota/1`} className={global.icon} title="Editar">
+                 <i className="fas fa-user-edit"></i>
+               </Link>
+               <Link to={`/mascotas/1/citas`} className={global.icon} title="Citas">
+                 <i className="fas fa-notes-medical"></i>
+               </Link>
+               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':'Billy','id':3})} className="delete"  title="Eliminar">
+                 <i className="fas fa-trash-alt"></i>
+               </a>
+             </td>
+           </tr>
            </tbody>
          </table>
        </div>
