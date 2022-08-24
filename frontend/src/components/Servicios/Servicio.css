@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  /* box-shadow: 0 3px 13px 1px rgb(0 0 0 /9%); */
+  box-shadow: 0 3px 13px 1px rgb(0 0 0 /9%);
 }
 
 .imagen-servicio {
