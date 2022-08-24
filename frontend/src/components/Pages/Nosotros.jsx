@@ -14,7 +14,7 @@ const Nosotros = () => {
         imagen='nosotros'
         titulo='Veterinaria Mundo Mascotas'
         subtitulo='para servir con amor'
-        descripcion='Conoce mas sobre nosotros'
+        descripcion='Conoce más sobre nosotros'
       />
 
       <Historia
@@ -28,7 +28,7 @@ const Nosotros = () => {
 
                           En los últimos años, Dogtor’s Cat se ha consolidado como un centro líder en la prestación de servicios
                           veterinarios. Varios médicos del país nos refieren a sus pacientes, porque confían en la calidad de nuestra
-                          atención. Creemos firmemente que tu mascota se merece un trato de calidad y la última tecnología disponible."
+                          atención. Creemos firmemente que tu mascota se merece un trato de calidad y la última tecnología disponible." 
       />
       <div className="about-container">
         <div className="about-desc">

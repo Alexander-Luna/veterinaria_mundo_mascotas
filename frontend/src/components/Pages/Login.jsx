@@ -39,7 +39,7 @@ const Login = () => {
         <div className="welcome-back">
           <div className="message">
             <h2>Bienvenido a Veterinaria Mundo Mascotas</h2>
-            <p>Si ya tienes una cuenta por favor inicia sesion</p>
+            <p>Si ya tienes una cuenta por favor inicia sesión</p>
             <img src={mascotas} alt="" />
           </div>
         </div>
@@ -55,13 +55,13 @@ const Login = () => {
             <input  onChange={(e)=>setPassword(e.target.value)} defaultValue={password} type="password" placeholder="Contraseña" required />
             {errors.Contraseña?.type === 'required' && <p>El compo es requerido</p>}
           </div>
-          <button className='envio-informacion' type='submit'>Iniciar Sesion</button>
+          <button className='envio-informacion' type='submit'>Iniciar Sesión</button>
           <div className='envia-registro'>
             <NavLink to="/register">
               <p >Registrarse</p>
             </NavLink>
           </div>
-          <h3>siguenos en</h3>
+          <h3>Siguenos en</h3>
           <div className="iconos">
             <div className="border-icon">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className='fab fa-instagram'></a>
