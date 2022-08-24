@@ -25,6 +25,10 @@ import Proveedores from "./Pages/dashboard/modules/Proveedores/Proveedores";
 import FormProveedores from "./Pages/dashboard/modules/Proveedores/FormProveedores";
 import Citas from "./Pages/dashboard/modules/Mascotas/Citas/Citas";
 import FormHistoriaClinica from "./Pages/dashboard/modules/Mascotas/HistoriaClinica/FormHistoriaClinica";
+import FormProductos from "./Pages/dashboard/modules/Productos/FormProductos";
+import AdminProductos from "./Pages/dashboard/modules/Productos/AdminProductos";
+
+
 
 const App = () => {
   return (
@@ -49,6 +53,10 @@ const App = () => {
 
         <Route exact path="/proveedores" element={<Protected title="Proveedores"><Proveedores /></Protected>} />
         <Route exact path="/proveedores/:id" element={<Protected title="Proveedores"><FormProveedores /></Protected>} />
+
+        <Route exact path="/admin/productos" element={<Protected title="Productos"><AdminProductos /></Protected>} />
+        <Route exact path="/admin/productos/:id" element={<Protected title="Productos"><FormProductos /></Protected>} />
+
 
         <Route exact path="/mascotas/especies" element={<Protected title="Especies"><Especies /></Protected>} />
         <Route exact path="/mascotas/:id/citas/historia" element={<Protected title="Historia Clinica"><FormHistoriaClinica /></Protected>} />

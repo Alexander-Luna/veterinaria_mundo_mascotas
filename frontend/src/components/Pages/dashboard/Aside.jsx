@@ -69,7 +69,7 @@ const Aside = ({toggled, handleToggleSidebar }) => {
           </MenuItem>
           <MenuItem icon={<FaSort />}>
             {" "}
-            <NavLink to="/clientes">
+            <NavLink to="/admin/productos">
               Productos
             </NavLink>
           </MenuItem>
