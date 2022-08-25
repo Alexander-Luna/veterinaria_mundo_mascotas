@@ -27,7 +27,6 @@ return new class extends Migration
             $table->foreign('cod_cita')
             ->references('cod_cita')->on('citas')->cascadeOnUpdate();
             $table->timestamps();
-
         });
     }
 

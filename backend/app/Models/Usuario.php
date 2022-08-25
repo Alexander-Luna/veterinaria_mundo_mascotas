@@ -20,13 +20,9 @@ class Usuario extends Authenticatable
         'numero_celular',
         'cod_rol',
         'direccion',
-<<<<<<< HEAD
         'email',
-        'password'
-=======
-        'is_register',
-        'email'
->>>>>>> 3635401 (Mejora de back-end)
+        'password',
+        'is_register'
     ];
     protected $hidden = [
         'created_at',
