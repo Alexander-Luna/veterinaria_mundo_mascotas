@@ -136,7 +136,7 @@ const Usuarios=(props)=>{
                </td>
              </tr>
              )
-           }) : <></>
+           }) : <tr><td colSpan="8"><center>CARGANDO..</center></td></tr>
            }
            </tbody>
          </table>

@@ -36,7 +36,7 @@ const Aside = ({toggled, handleToggleSidebar }) => {
           <img className="logo" src={logo}
           />
           <p className="user-name text-white mb-2">Administrador</p>
-          <p className="user-email">admin@mundomascoas.com</p>
+          <p className="user-email">{JSON.parse(localStorage.getItem('user')).email}</p>
         </div>
       </SidebarHeader>
 

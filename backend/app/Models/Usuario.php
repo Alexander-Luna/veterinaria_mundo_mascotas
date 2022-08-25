@@ -18,7 +18,8 @@ class Usuario extends Authenticatable
         'numero_celular',
         'cod_rol',
         'direccion',
-        'email'
+        'email',
+        'password'
     ];
     protected $hidden = [
         'created_at',
