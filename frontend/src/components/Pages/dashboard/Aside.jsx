@@ -1,9 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from '../../img/logopeque.png';
-import {MdCategory,
-  MdPointOfSale} from "react-icons/md";
-  import {GiSittingDog,GiSniffingDog,GiWolfHead} from "react-icons/gi";
+import {
+  MdCategory,
+  MdPointOfSale
+} from "react-icons/md";
+import { GiSittingDog, GiSniffingDog, GiWolfHead, GiBoxUnpacking } from "react-icons/gi";
 import {
   ProSidebar,
   Menu,
@@ -26,7 +28,7 @@ import {
 
 import { useLocation } from "react-router-dom";
 
-const Aside = ({toggled, handleToggleSidebar }) => {
+const Aside = ({ toggled, handleToggleSidebar }) => {
   const location = useLocation();
 
   return (
@@ -65,15 +67,15 @@ const Aside = ({toggled, handleToggleSidebar }) => {
               Clientes
             </NavLink>
           </MenuItem>
-         
+
         </Menu>
         <Menu iconShape="circle">
-        <SubMenu
+          <SubMenu
             title="Inventario"
             icon={<FaBoxOpen />}
             data-element={location.pathname}
           >
-              <MenuItem icon={<FaBox />}>
+            <MenuItem icon={<FaBox />}>
               <NavLink exact to={"/admin/productos"}>
                 Productos
               </NavLink>
@@ -88,12 +90,17 @@ const Aside = ({toggled, handleToggleSidebar }) => {
                 Proveedores
               </NavLink>
             </MenuItem>
+            <MenuItem icon={<GiBoxUnpacking />}>
+              <NavLink exact to={"/pedidos"}>
+                Pedidos
+              </NavLink>
+            </MenuItem>
           </SubMenu>
 
 
           <SubMenu
             title="Mascotas"
-            icon={<GiSittingDog/>}
+            icon={<GiSittingDog />}
             data-element={location.pathname}
           >
             <MenuItem icon={<GiWolfHead />}>
@@ -107,14 +114,14 @@ const Aside = ({toggled, handleToggleSidebar }) => {
               </NavLink>
             </MenuItem>
           </SubMenu>
-          <MenuItem icon={<MdPointOfSale/>}>
+          <MenuItem icon={<MdPointOfSale />}>
             {" "}
             <NavLink to="/vender">
               Realizar Venta
             </NavLink>
           </MenuItem>
 
-{/*          <SubMenu
+          {/*          <SubMenu
             prefix={<span className="badge gray">3</span>}
             title="withPrefix"
             icon={<FaHeart />}
@@ -128,7 +135,7 @@ const Aside = ({toggled, handleToggleSidebar }) => {
             <MenuItem>submenu 2</MenuItem>
             <MenuItem>submenu 3</MenuItem>
           </SubMenu>*/}
-{/*          <SubMenu
+          {/*          <SubMenu
             title="multiLevel"
             icon={<FaList />}
           >
@@ -161,7 +168,7 @@ const Aside = ({toggled, handleToggleSidebar }) => {
             padding: "20px 24px"
           }}
         >
-         <span> Mundo Mascotas </span>
+          <span> Mundo Mascotas </span>
         </div>
       </SidebarFooter>
     </ProSidebar>
