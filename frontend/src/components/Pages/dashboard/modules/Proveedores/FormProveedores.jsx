@@ -1,10 +1,14 @@
-import {Link} from "react-router-dom";
-import {useState} from 'react'
+import {Link, useParams} from "react-router-dom";
+import {useEffect, useState} from 'react'
 import style from './style.module.scss'
 import Input from "../molecules/input/Input";
+import {getProveedor, putProveedor} from "../../../../../redux/actionCreators";
+import {connect} from "react-redux";
+import store from "../../../../../redux/store";
+import alertify from "alertifyjs";
 
 
-const FormProveedores=({data})=>{
+const FormProveedores=(props)=>{
   const [btnSubmit, setBtnSubmit] = useState(false)
   const [nombre, setNombre] = useState('');
   const [descripcion, setDescripcion] = useState();
@@ -12,13 +16,46 @@ const FormProveedores=({data})=>{
   const [direccion, setDireccion] = useState('');
   const [celular, setCelular] = useState('');
   const [cod_proveedor, setCod_proveedor] = useState('');
+  let { id } = useParams();
+
+  const {proveedor,putproveedor}=props
+
+  useEffect(() => {
+    store.dispatch(getProveedor(id))
+    console.log(proveedor)
+  }, [id]);
+
+
+  useEffect(() => {
+      setNombre(proveedor?.proveedor?.nombre)
+    setDescripcion(proveedor?.proveedor?.descripcion)
+    setEmail(proveedor?.proveedor?.email)
+    setDireccion(proveedor?.proveedor?.direccion)
+    setCelular(proveedor?.proveedor?.numero_celular)
+    setCod_proveedor(proveedor?.proveedor?.cod_proveedor)
+  }, [proveedor]);
+
+  useEffect(() => {
+    alertify.set("notifier", "position", "bottom-rigth");
+    if(typeof putproveedor.error!='undefined'){
+      putproveedor.error===false?alertify.success("Se actualizó correctamente"):alertify.error("Ocurrió un error al intentar Actualizar")
+      setBtnSubmit(false)
+      props.putProveedor()
+    }
+  }, [putproveedor])
 
   const handleSubmit=(e)=>{
     e.preventDefault()
     setBtnSubmit(true)
-    const form = e.target
-    console.log(form)
-    //props.putUser(id,data)
+    const data = {
+      nombre:nombre,
+      descripcion:descripcion,
+      email:email,
+      direccion:direccion,
+      numero_celular:celular,
+      cod_proveedor:cod_proveedor
+    }
+    props.putProveedor(id,data)
   }
 
   return (<>
@@ -41,6 +78,7 @@ const FormProveedores=({data})=>{
               required
               onChange={(e)=>setCod_proveedor(e.target.value)}
               defaultValue={cod_proveedor}
+              disabled
             />
             <Input
               sty="col-md-12 col-lg-6"
@@ -105,4 +143,14 @@ const FormProveedores=({data})=>{
 </>)
 }
 
-export default FormProveedores;
+const mapStateToProps = (state) => ({
+    proveedor:state.ProveedorState,
+    putproveedor:state.putProveedorState
+})
+
+const mapDispatchToProps = {
+  putProveedor,getProveedor
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormProveedores);
+
