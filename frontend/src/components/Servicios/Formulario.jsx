@@ -1,55 +1,44 @@
-import React from 'react'
-import '../Servicios/Formulario.css'
-import { useForm } from 'react-hook-form';
-import '../../styles/LoginAndRegister.css'
-const Formulario = () => {
-
-  const { register, formState: { errors }, handleSubmit } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-  }
-
-  return (
-    <div className='contenedor-formulario'>
-      <form className='formulario' onSubmit={handleSubmit(onSubmit)}>
-        {/* <Row className="mb-2"> */}
+import React, { Component } from 'react';
+import '../Servicios/Formulario.css';
+import '../../styles/LoginAndRegister.css';
+import emailjs from 'emailjs-com';
+export default class Formulario extends Component {
+  
+  render() {
+    
+    function enviarEmail(e) {
+      e.preventDefault();
+      emailjs.sendForm('default_service', 'template_7tdxet2',e.target,'DZqEOZRy1PkVFLYw-').then(re => {
+        alert("Email enviado ");
+      }, (e) => {
+        alert(JSON.stringify(e));
+      }
+      );
+    }
+    return (
+      <div className='contenedor-formulario'>
+        <form className='formulario' onSubmit={enviarEmail}>
           <div >
-            {/* <label>Nombre</label> */}
-            <input
-              type="text"
-              {...register('nombre', { required: true })}
+            <input id="name"
+              type="text" name="name"
               placeholder="Nombre" />
-            {errors.nombre?.type === 'required' && <p>El compo nombre es requerido</p>}
           </div>
           <div>
-            {/* <label>Apellido</label> */}
-            <input type="text" {...register('apellido', { required: true })} placeholder="Apellido" />
-            {errors.apellido?.type === 'required' && <p>El apellido es compo es requerido</p>}
+            <input id="last_name" type="text" name="last_name" placeholder="Apellido" />
           </div>
-        {/* </Row> */}
-        <div>
-          {/* <label>Email</label> */}
-          <input type="text" placeholder='E-Mail' {...register('email', {
-            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
-          })} />
-          {errors.email?.type === 'pattern' && <p>El formato del email es incorrecto</p>}
-        </div>
-        <div>
-          {/* <label >Telefono</label> */}
-          <input type="text" {...register('telefono', { required: true })} placeholder="telefono" />
-          {errors.telefono?.type === 'required' && <p>El compo es requerido</p>}
-        </div>
-        <div>
-          {/* <label> Mensaje</label> */}
-          <textarea className='contenedor-mensaje' {...register('mensaje', { required: true })} rows="4" cols="40" placeholder="Mensaje"></textarea>
-          {errors.mensaje?.type === 'required' && <p>El compo es requerido</p>}
-        </div>
-        {/* <input className='envio-informacion' type="submit" value="Enviar" /> */}
-        <button className='envio-informacion' type='submit'>Enviar</button>
-      </form>
-    </div>
-  )
-}
+          <div>
+            <input id="email" type="text" placeholder='E-Mail' name="email" />
+          </div>
+          <div>
+            <input id="phone" type="text" name="phone" placeholder="telefono" />
+          </div>
+          <div>
+            <textarea name="message" id="message" className='contenedor-mensaje' rows="4" cols="40" placeholder="Mensaje"></textarea>
+          </div>
+          <button className='envio-informacion' type='submit'>Enviar</button>
+        </form>
+      </div>
 
-export default Formulario;
+    )
+  }
+}
