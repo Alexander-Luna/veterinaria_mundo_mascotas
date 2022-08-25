@@ -41,7 +41,7 @@ const Proveedores=(props)=>{
       email:email,
       direccion:direccion,
       numero_celular:celular,
-      cod_proveedor:cod_proveedor
+      ced_o_ruc:cod_proveedor
     }
     props.postProveedor(data)
   }
@@ -70,8 +70,8 @@ const Proveedores=(props)=>{
     alertify.set("notifier", "position", "bottom-rigth");
     if(typeof deleteproveedor.error!='undefined'){
       deleteproveedor.error===false?alertify.success("Se eliminó correctamente"):alertify.error("No se puede eliminar")
-      store.dispatch(getUsuarios())
-      props.deleteUsuario()
+      store.dispatch(getProveedors())
+      props.deleteProveedor()
     }
   }, [deleteproveedor])
 
@@ -104,7 +104,7 @@ const Proveedores=(props)=>{
                 <tr><td colSpan="8"><center>SIN DATOS..</center></td></tr>
                :<tr>
                <th scope="row">{index+1}</th>
-               <th>{e.cod_proveedor}</th>
+               <th>{e.ced_o_ruc}</th>
                <td>{e.nombre}</td>
                <td>{e.descripcion}</td>
                <td>{e.direccion}</td>
