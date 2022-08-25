@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('producto_proveedores', function (Blueprint $table) {
             $table->unsignedBigInteger('cod_producto');
-            $table->string('cod_proveedor');
+            $table->unsignedBigInteger('cod_proveedor');
             $table->foreign('cod_producto')
             ->references('cod_producto')->on('productos')->cascadeOnUpdate();
             $table->foreign('cod_proveedor')
