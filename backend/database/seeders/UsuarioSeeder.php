@@ -22,7 +22,7 @@ class UsuarioSeeder extends Seeder
                 'nombres' => 'Alexander',
                 'apellido' => 'Luna',
                 'cedula' => '0202433918',
-                'cod_rol' => 1,
+                'cod_rol' => 0,
                 'is_register' => 1,//1 REGISTRADO 0 REGISTRADO POR EL ADMINISTRADOR
                 'numero_celular' => '0985726434',
                 'email' => 'paulluna99@gmail.com',
@@ -32,8 +32,8 @@ class UsuarioSeeder extends Seeder
             [
                 'nombres' => 'Wilson',
                 'apellido' => 'Paredes',
-                'cedula' => '',
-                'cod_rol' => 1,
+                'cedula' => '0250388585',
+                'cod_rol' => 0,
                 'is_register' => 1,
                 'numero_celular' => '',
                 'email' => 'wilsonparedes@gmail.com',
@@ -67,7 +67,7 @@ class UsuarioSeeder extends Seeder
                 'nombres' => 'Admin',
                 'apellido' => 'Admin',
                 'cedula' => '0250366989',
-                'cod_rol' => 1,
+                'cod_rol' => 0,
                 'numero_celular' => '',
                 'is_register' => 1,
                 'email' => 'admin@gmail.com',

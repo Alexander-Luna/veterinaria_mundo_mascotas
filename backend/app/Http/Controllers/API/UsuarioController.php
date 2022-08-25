@@ -32,8 +32,20 @@ class UsuarioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $data = Usuario::create($request->all());
+    {   
+        $data=[
+            'nombres'=>$request->nombres,
+            'apellido'=>$request->apellido,
+            'cedula'=>$request->cedula,
+            'numero_celular'=>$request->celular,
+            'cod_rol'=>$request->cod_rol,
+            'direccion'=>$request->direccion,
+            'email'=>$request->email,
+            'is_register'=>false,
+            "password"=>bcrypt($request->password)
+        ];
+   
+        $data = Usuario::create($data);
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_CREATED,
@@ -69,7 +81,19 @@ class UsuarioController extends Controller
     public function update(Request $request,$id)
     {
         $data = Usuario::findOrFail($id);
-        $data->update($request->all());
+
+        $dat=[
+            'nombres'=>$request->nombres,
+            'apellido'=>$request->apellido,
+            'cedula'=>$request->cedula,
+            'numero_celular'=>$request->celular,
+            'cod_rol'=>$request->cod_rol,
+            'direccion'=>$request->direccion,
+            'email'=>$request->email,
+            'is_register'=>false
+        ];
+        isset($request->password)? $dat=["password"=>bcrypt($request->password)]:null;
+        $data->update($dat);
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_OK,
