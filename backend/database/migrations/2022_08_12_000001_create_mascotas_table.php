@@ -20,11 +20,11 @@ return new class extends Migration
             $table->string('raza')->nullable();
             $table->date('fecha_nacimiento')->nullable();
             $table->unsignedBigInteger('cod_especie');
-            $table->string('cedula_cliente');
+            $table->unsignedBigInteger('cod_user');
             $table->foreign('cod_especie')
             ->references('cod_especie')->on('especies')->cascadeOnUpdate();
-            $table->foreign('cedula_cliente')
-            ->references('cedula_cliente')->on('clientes')->cascadeOnUpdate();
+            $table->foreign('cod_user')
+            ->references('cod_user')->on('usuarios')->cascadeOnUpdate();
             $table->timestamps();
         });
     }

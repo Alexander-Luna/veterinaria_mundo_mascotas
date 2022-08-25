@@ -16,14 +16,10 @@ return new class extends Migration
         Schema::create('facturas', function (Blueprint $table) {
             $table->bigIncrements('cod_factura');
             $table->string('codigo');
-            $table->string('cedula_cliente');
-            $table->unsignedBigInteger('cod_producto');
-            $table->double('total_a_pagar',10,2);
+            $table->unsignedBigInteger('cod_user');
             $table->date('fecha');
-            $table->foreign('cedula_cliente')
-            ->references('cedula_cliente')->on('clientes')->cascadeOnUpdate();
-            $table->foreign('cod_producto')
-            ->references('cod_producto')->on('productos')->cascadeOnUpdate();
+            $table->foreign('cod_user')
+            ->references('cod_user')->on('usuarios')->cascadeOnUpdate();
             $table->timestamps();
         });
     }

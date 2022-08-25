@@ -23,6 +23,7 @@ class UsuarioSeeder extends Seeder
                 'apellido' => 'Luna',
                 'cedula' => '0202433918',
                 'cod_rol' => 1,
+                'is_register' => 1,//1 REGISTRADO 0 REGISTRADO POR EL ADMINISTRADOR
                 'numero_celular' => '0985726434',
                 'email' => 'paulluna99@gmail.com',
                 'direccion' => 'San Miguel de Bolivar',
@@ -33,6 +34,7 @@ class UsuarioSeeder extends Seeder
                 'apellido' => 'Paredes',
                 'cedula' => '',
                 'cod_rol' => 1,
+                'is_register' => 1,
                 'numero_celular' => '',
                 'email' => 'wilsonparedes@gmail.com',
                 'direccion' => 'Guaranda',
@@ -44,10 +46,22 @@ class UsuarioSeeder extends Seeder
                 'apellido' => 'Perez',
                 'cedula' => '0101010101',
                 'cod_rol' => 3,
+                'is_register' => 0,
                 'numero_celular' => '0911111111',
                 'email' => 'jperez@gmail.com',
                 'direccion' => 'Guaranda',
                 'password' => bcrypt('cliente')
+            ],
+            [
+                'nombres' => 'Luis',
+                'apellido' => 'Lopez',
+                'cedula' => '0201020101',
+                'cod_rol' => 2,
+                'is_register' => 1,
+                'numero_celular' => '0911111111',
+                'email' => 'luislopez@gmail.com',
+                'direccion' => 'Guaranda',
+                'password' => bcrypt('doctor')
             ],
             [
                 'nombres' => 'Admin',
@@ -55,6 +69,7 @@ class UsuarioSeeder extends Seeder
                 'cedula' => '0250366989',
                 'cod_rol' => 1,
                 'numero_celular' => '',
+                'is_register' => 1,
                 'email' => 'admin@gmail.com',
                 'direccion' => 'Guaranda',
                 'password' => bcrypt('admin')

@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('producto_clientes', function (Blueprint $table) {
+        Schema::create('factura_productos', function (Blueprint $table) {
             $table->unsignedBigInteger('cod_producto');
             $table->unsignedBigInteger('cod_user');
+            $table->double('total_a_pagar',10,2);
             $table->foreign('cod_user')
             ->references('cod_user')->on('usuarios')->cascadeOnUpdate();
             $table->foreign('cod_producto')
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('producto_clientes');
+        Schema::dropIfExists('factura_productos');
     }
 };
