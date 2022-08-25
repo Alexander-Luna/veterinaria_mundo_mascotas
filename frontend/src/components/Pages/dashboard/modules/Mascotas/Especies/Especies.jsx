@@ -1,12 +1,13 @@
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Link } from "react-router-dom";
 import { Button, Modal } from "react-bootstrap";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import Input from "../../molecules/input/Input";
 import alertify from "alertifyjs";
 import { deleteEspecie, getEspecies, postEspecie } from "../../../../../redux/actionCreators";
+import store from "../../../../../../redux/store";
 
-const Especies = () => {
+const Especies = (props) => {
   const { especies, postespecie, deleteespecie, match } = props
 
   const [show, setShow] = useState(false);
