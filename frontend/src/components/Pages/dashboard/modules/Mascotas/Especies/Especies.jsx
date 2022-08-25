@@ -4,8 +4,8 @@ import { Button, Modal } from "react-bootstrap";
 import {useEffect, useState} from "react";
 import Input from "../../molecules/input/Input";
 import alertify from "alertifyjs";
-import { deleteEspecie, getEspecies, postEspecie } from "../../../../../redux/actionCreators";
 import store from "../../../../../../redux/store";
+import {deleteEspecie, getEspecies, postEspecie} from "../../../../../../redux/actionCreators";
 
 const Especies = (props) => {
   const { especies, postespecie, deleteespecie, match } = props
