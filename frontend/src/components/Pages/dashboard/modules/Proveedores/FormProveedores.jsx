@@ -11,6 +11,7 @@ const FormProveedores=({data})=>{
   const [email, setEmail] = useState('');
   const [direccion, setDireccion] = useState('');
   const [celular, setCelular] = useState('');
+  const [cod_proveedor, setCod_proveedor] = useState('');
 
   const handleSubmit=(e)=>{
     e.preventDefault()
@@ -31,6 +32,16 @@ const FormProveedores=({data})=>{
       <div className="row">
         <form className={style.uform} onSubmit={handleSubmit.bind()}>
           <div className="row">
+            <Input
+              sty="col-md-12 col-lg-6"
+              id="cod_proveedor"
+              name="cod_proveedor"
+              type="text"
+              label="CI/RUC"
+              required
+              onChange={(e)=>setCod_proveedor(e.target.value)}
+              defaultValue={cod_proveedor}
+            />
             <Input
               sty="col-md-12 col-lg-6"
               id="name"

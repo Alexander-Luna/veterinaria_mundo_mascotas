@@ -65,7 +65,6 @@ const Usuarios=(props)=>{
       cod_rol:rol,
       password:password
     }
-    console.log(data)
     props.postUser(data)
   }
 
