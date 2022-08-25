@@ -190,7 +190,7 @@ export const getUsuario = (state = {}, action) => {
     }
     return {
       error: false,
-      usuario: action.user
+      usuario: action.usuario
     }
   }
   return state

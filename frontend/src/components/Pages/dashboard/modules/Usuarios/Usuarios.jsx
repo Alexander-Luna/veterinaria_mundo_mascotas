@@ -79,16 +79,16 @@ const Usuarios=(props)=>{
   const rols= [
     {
       label: "Administrador",
-      value: "1",
+      value: "0",
     },
     {
       label: "Vendedor/Veterinario",
-      value: "2",
+      value: "1",
     },
     {
       label: "Cliente",
-      value: "3",
-    },
+      value: "2",
+    }
   ]
 
   return <>
@@ -117,20 +117,20 @@ const Usuarios=(props)=>{
            <tbody>
            {Array.isArray(usuarios.usuarios) ? usuarios.usuarios.map((e, index) => {
              return(
-               <tr key={e.id}>
-                 <th scope="row">{e.id}</th>
+               <tr key={index}>
+                 <th scope="row">{index+1}</th>
                <td>{e.cedula}</td>
                <td>{e.nombres}</td>
                <td>{e.apellido}</td>
                <td>{e.email}</td>
                <td>{e.direccion}</td>
                <td>{e.numero_celular}</td>
-               <td>{e.cod_rol}</td>
+               <td>{e.cod_rol==0?'administrador':e.cod_rol==1?'Vendedor/Veterinario':'cliente'}</td>
                <td>
-               <Link to={`/usuarios/1`} className={global.icon} title="Editar">
+               <Link to={`/usuarios/${e.cod_user}`} className={global.icon} title="Editar">
                <i className="fas fa-user-edit"></i>
                </Link>
-               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':e.nombres,'id':e.ud})} className="delete"  title="Eliminar">
+               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':e.nombres,'id':e.cod_user})} className="delete"  title="Eliminar">
                <i className="fas fa-trash-alt"></i>
                </a>
                </td>

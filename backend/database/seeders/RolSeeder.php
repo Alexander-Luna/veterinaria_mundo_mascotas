@@ -18,12 +18,14 @@ class RolSeeder extends Seeder
         DB::table('rols')->truncate();
         DB::table('rols')->insert([
             [
+                'cod_rol'=>0,
                 'tipo' => 'Administrador'
             ],
-            [
+            [   'cod_rol'=>1,
                 'tipo' => 'Vendedor/Veterinario'
             ],
             [
+                'cod_rol'=>2,
                 'tipo' => 'Cliente'
             ]
         ]);
