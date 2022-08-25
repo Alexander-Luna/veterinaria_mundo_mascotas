@@ -70,8 +70,8 @@ const Proveedores=(props)=>{
     alertify.set("notifier", "position", "bottom-rigth");
     if(typeof deleteproveedor.error!='undefined'){
       deleteproveedor.error===false?alertify.success("Se eliminó correctamente"):alertify.error("No se puede eliminar")
-      store.dispatch(getUsuarios())
-      props.deleteUsuario()
+      store.dispatch(getProveedors())
+      props.deleteProveedor()
     }
   }, [deleteproveedor])
 
