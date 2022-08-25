@@ -1,7 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from '../../img/logopeque.png';
-
+import {MdCategory,
+  MdPointOfSale} from "react-icons/md";
+  import {GiSittingDog,GiSniffingDog,GiWolfHead} from "react-icons/gi";
 import {
   ProSidebar,
   Menu,
@@ -16,6 +18,8 @@ import {
   FaGem,
   FaList,
   FaGithub,
+  FaBox,
+  FaBoxOpen,
   FaRegLaughWink,
   FaHeart, FaUsers, FaAndroid, FaUser, FaSort, FaUserTie
 } from "react-icons/fa";
@@ -61,36 +65,55 @@ const Aside = ({toggled, handleToggleSidebar }) => {
               Clientes
             </NavLink>
           </MenuItem>
-          <MenuItem icon={<FaUsers />}>
-            {" "}
-            <NavLink to="/proveedores">
-              Proveedores
-            </NavLink>
-          </MenuItem>
-          <MenuItem icon={<FaSort />}>
-            {" "}
-            <NavLink to="/admin/productos">
-              Productos
-            </NavLink>
-          </MenuItem>
+         
         </Menu>
         <Menu iconShape="circle">
-          <SubMenu
-            title="Mascotas"
-            icon={<FaAndroid />}
+        <SubMenu
+            title="Inventario"
+            icon={<FaBoxOpen />}
             data-element={location.pathname}
           >
-            <MenuItem>
+              <MenuItem icon={<FaBox />}>
+              <NavLink exact to={"/admin/productos"}>
+                Productos
+              </NavLink>
+            </MenuItem>
+            <MenuItem icon={<MdCategory />}>
+              <NavLink exact to={"/categorias"}>
+                Categorias
+              </NavLink>
+            </MenuItem>
+            <MenuItem icon={<FaUsers />}>
+              <NavLink exact to={"/proveedores"}>
+                Proveedores
+              </NavLink>
+            </MenuItem>
+          </SubMenu>
+
+
+          <SubMenu
+            title="Mascotas"
+            icon={<GiSittingDog/>}
+            data-element={location.pathname}
+          >
+            <MenuItem icon={<GiWolfHead />}>
               <NavLink exact to={"/mascotas/especies"}>
                 Especies
               </NavLink>
             </MenuItem>
-            <MenuItem>
+            <MenuItem icon={<GiSniffingDog />}>
               <NavLink exact to={"/mascotas/mascota"}>
                 Mascota
               </NavLink>
             </MenuItem>
           </SubMenu>
+          <MenuItem icon={<MdPointOfSale/>}>
+            {" "}
+            <NavLink to="/vender">
+              Realizar Venta
+            </NavLink>
+          </MenuItem>
+
 {/*          <SubMenu
             prefix={<span className="badge gray">3</span>}
             title="withPrefix"

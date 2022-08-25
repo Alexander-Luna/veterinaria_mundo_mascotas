@@ -12,6 +12,7 @@ class Proveedor extends Model
     protected $primaryKey='cod_proveedor';
     protected $fillable = [
         'cod_proveedor',
+        'ced_o_ruc',
         'nombre',
         'descripcion',
         'direccion',

@@ -14,6 +14,7 @@ class Cita extends Model
         'fecha',
         'hora',
         'tipo',
+        'detalle',
         'created_at',
         'updated_at'
     ];
