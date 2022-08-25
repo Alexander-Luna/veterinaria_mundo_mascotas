@@ -22,7 +22,6 @@ const FormProveedores=(props)=>{
 
   useEffect(() => {
     store.dispatch(getProveedor(id))
-    console.log(proveedor)
   }, [id]);
 
 
@@ -32,7 +31,7 @@ const FormProveedores=(props)=>{
     setEmail(proveedor?.proveedor?.email)
     setDireccion(proveedor?.proveedor?.direccion)
     setCelular(proveedor?.proveedor?.numero_celular)
-    setCod_proveedor(proveedor?.proveedor?.cod_proveedor)
+    setCod_proveedor(proveedor?.proveedor?.ced_o_ruc)
   }, [proveedor]);
 
   useEffect(() => {
@@ -52,8 +51,7 @@ const FormProveedores=(props)=>{
       descripcion:descripcion,
       email:email,
       direccion:direccion,
-      numero_celular:celular,
-      cod_proveedor:cod_proveedor
+      numero_celular:celular
     }
     props.putProveedor(id,data)
   }
