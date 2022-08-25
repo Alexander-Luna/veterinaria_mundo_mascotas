@@ -45,7 +45,7 @@ class UsuarioSeeder extends Seeder
                 'nombres' => 'Juan',
                 'apellido' => 'Perez',
                 'cedula' => '0101010101',
-                'cod_rol' => 3,
+                'cod_rol' => 2,
                 'is_register' => 0,
                 'numero_celular' => '0911111111',
                 'email' => 'jperez@gmail.com',
