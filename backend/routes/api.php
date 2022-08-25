@@ -29,6 +29,20 @@ Route::controller(AuthController::class)->prefix('auth')->group(function () {
 });
 
 Route::middleware('auth:api')->group(function () {
+    Route::controller(UsuarioController::class)->prefix('usuario')->group(function () {
+        Route::get('/', 'index');
+        Route::post('/', 'store');
+        Route::get('/{id}', 'show');
+        Route::delete('/{id}', 'destroy');
+        Route::put('/{id}', 'update');
+    });
+    Route::controller(ProductoController::class)->prefix('producto')->group(function () {
+        Route::get('/', 'index');
+        Route::post('/', 'store');
+        Route::get('/{id}', 'show');
+        Route::delete('/{id}', 'destroy');
+        Route::put('/{id}', 'update');
+    });
     Route::controller(CategoriaController::class)->prefix('categoria')->group(function () {
         Route::get('/', 'index');
         Route::post('/', 'store');
@@ -69,7 +83,7 @@ Route::middleware('auth:api')->group(function () {
         Route::put('/{id}', 'update');
     });
 
-    Route::controller(Historia_ClinicaController::class)->prefix('historia-clinica')->group(function () {
+    Route::controller(Historia_ClinicaController::class)->prefix('historia_clinica')->group(function () {
         Route::get('/', 'index');
         Route::post('/', 'store');
         Route::get('/{id}', 'show');
@@ -85,13 +99,6 @@ Route::middleware('auth:api')->group(function () {
         Route::put('/{id}', 'update');
     });
 
-    Route::controller(ProductoController::class)->prefix('producto')->group(function () {
-        Route::get('/', 'index');
-        Route::post('/', 'store');
-        Route::get('/{id}', 'show');
-        Route::delete('/{id}', 'destroy');
-        Route::put('/{id}', 'update');
-    });
 
     Route::controller(ProveedorController::class)->prefix('proveedor')->group(function () {
         Route::get('/', 'index');
@@ -110,21 +117,6 @@ Route::middleware('auth:api')->group(function () {
     });
 
     Route::controller(RolController::class)->prefix('rol')->group(function () {
-        Route::get('/', 'index');
-        Route::post('/', 'store');
-        Route::get('/{id}', 'show');
-        Route::delete('/{id}', 'destroy');
-        Route::put('/{id}', 'update');
-    });
-
-    Route::controller(ProductoController::class)->prefix('producto')->group(function () {
-        Route::get('/', 'index');
-        Route::post('/', 'store');
-        Route::get('/{id}', 'show');
-        Route::delete('/{id}', 'destroy');
-        Route::put('/{id}', 'update');
-    });
-    Route::controller(UsuarioController::class)->prefix('usuario')->group(function () {
         Route::get('/', 'index');
         Route::post('/', 'store');
         Route::get('/{id}', 'show');
