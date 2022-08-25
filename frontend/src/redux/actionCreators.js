@@ -266,7 +266,7 @@ export const putUsuario = (id,dat = null) => (dispatch) => {
   }
 };
 
-export const getUser = (id=null) => (dispatch) => {
+export const getUsuario = (id=null) => (dispatch) => {
   const token = verifyToken();
   if(id===null){
     return dispatch({
