@@ -55,6 +55,8 @@ const Aside = ({ toggled, handleToggleSidebar }) => {
               dashboard
             </NavLink>
           </MenuItem>
+          {
+            JSON.parse(localStorage.getItem('user')).cod_rol!==2?<>
           <MenuItem icon={<FaUserTie />}>
             {" "}
             <NavLink to="/usuarios">
@@ -67,60 +69,64 @@ const Aside = ({ toggled, handleToggleSidebar }) => {
               Clientes
             </NavLink>
           </MenuItem>
-
+            </>:<></>}
         </Menu>
         <Menu iconShape="circle">
-          <SubMenu
-            title="Inventario"
-            icon={<FaBoxOpen />}
-            data-element={location.pathname}
-          >
-            <MenuItem icon={<FaBox />}>
-              <NavLink exact to={"/admin/productos"}>
-                Productos
-              </NavLink>
-            </MenuItem>
-            <MenuItem icon={<MdCategory />}>
-              <NavLink exact to={"/categorias"}>
-                Categorias
-              </NavLink>
-            </MenuItem>
-            <MenuItem icon={<FaUsers />}>
-              <NavLink exact to={"/proveedores"}>
-                Proveedores
-              </NavLink>
-            </MenuItem>
-            <MenuItem icon={<GiBoxUnpacking />}>
-              <NavLink exact to={"/pedidos"}>
-                Pedidos
-              </NavLink>
-            </MenuItem>
-          </SubMenu>
-
+          {JSON.parse(localStorage.getItem('user')).cod_rol !== 2 ?
+            <SubMenu
+              title="Inventario"
+              icon={<FaBoxOpen/>}
+              data-element={location.pathname}
+            >
+              <MenuItem icon={<FaBox/>}>
+                <NavLink exact to={"/admin/productos"}>
+                  Productos
+                </NavLink>
+              </MenuItem>
+              <MenuItem icon={<MdCategory/>}>
+                <NavLink exact to={"/categorias"}>
+                  Categorias
+                </NavLink>
+              </MenuItem>
+              <MenuItem icon={<FaUsers/>}>
+                <NavLink exact to={"/proveedores"}>
+                  Proveedores
+                </NavLink>
+              </MenuItem>
+              <MenuItem icon={<GiBoxUnpacking/>}>
+                <NavLink exact to={"/pedidos"}>
+                  Pedidos
+                </NavLink>
+              </MenuItem>
+            </SubMenu>
+          :<></>}
 
           <SubMenu
             title="Mascotas"
             icon={<GiSittingDog />}
             data-element={location.pathname}
           >
-            <MenuItem icon={<GiWolfHead />}>
-              <NavLink exact to={"/mascotas/especies"}>
-                Especies
-              </NavLink>
-            </MenuItem>
+            {JSON.parse(localStorage.getItem('user')).cod_rol !== 2 ?
+              <MenuItem icon={<GiWolfHead/>}>
+                <NavLink exact to={"/mascotas/especies"}>
+                  Especies
+                </NavLink>
+              </MenuItem>
+            :<></>}
             <MenuItem icon={<GiSniffingDog />}>
               <NavLink exact to={"/mascotas/mascota"}>
                 Mascota
               </NavLink>
             </MenuItem>
           </SubMenu>
+          {JSON.parse(localStorage.getItem('user')).cod_rol!==2?
           <MenuItem icon={<MdPointOfSale />}>
             {" "}
             <NavLink to="/vender">
               Realizar Venta
             </NavLink>
           </MenuItem>
-
+          :<></>}
           {/*          <SubMenu
             prefix={<span className="badge gray">3</span>}
             title="withPrefix"
