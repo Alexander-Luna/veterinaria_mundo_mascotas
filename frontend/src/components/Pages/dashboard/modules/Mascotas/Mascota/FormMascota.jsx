@@ -93,7 +93,6 @@ const FormMascota=(props)=>{
               name="codigo"
               type="text"
               label="Código de identificacion"
-              required
               onChange={(e)=>setCodigo(e.target.value)}
               defaultValue={codigo}
             />

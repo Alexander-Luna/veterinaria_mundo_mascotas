@@ -118,6 +118,11 @@ const Aside = ({ toggled, handleToggleSidebar }) => {
                 Mascota
               </NavLink>
             </MenuItem>
+            <MenuItem icon={<GiSniffingDog />}>
+              <NavLink exact to={"/mascotas/citas"}>
+                Citas
+              </NavLink>
+            </MenuItem>
           </SubMenu>
           {JSON.parse(localStorage.getItem('user')).cod_rol!==2?
           <MenuItem icon={<MdPointOfSale />}>

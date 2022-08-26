@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('citas', function (Blueprint $table) {
             $table->bigIncrements('cod_cita');
-            $table->timestamp('fecha')->nullable();
-            $table->timestamp('hora')->nullable();
+            $table->date('fecha')->nullable();
+            $table->time('hora')->nullable();
             $table->string('tipo');
             $table->string('detalle');
             $table->timestamps();

@@ -21,7 +21,6 @@ import Usuarios from "./Pages/dashboard/modules/Usuarios/Usuarios";
 import FormUsuarios from "./Pages/dashboard/modules/Usuarios/FormUsuarios";
 import Proveedores from "./Pages/dashboard/modules/Proveedores/Proveedores";
 import FormProveedores from "./Pages/dashboard/modules/Proveedores/FormProveedores";
-import Citas from "./Pages/dashboard/modules/Mascotas/Citas/Citas";
 import FormHistoriaClinica from "./Pages/dashboard/modules/Mascotas/HistoriaClinica/FormHistoriaClinica";
 import ResetPassword from "./Pages/ResetPassword";
 import Salir from "./Pages/dashboard/Salir";
@@ -31,6 +30,8 @@ import AdminProductos from "./Pages/dashboard/modules/Productos/AdminProductos";
 import FormProducto from "./Pages/dashboard/modules/Productos/FormProducto";
 import Mascota from "./Pages/dashboard/modules/Mascotas/Mascota/Mascota";
 import FormMascota from "./Pages/dashboard/modules/Mascotas/Mascota/FormMascota";
+import Citas from "./Pages/dashboard/modules/Mascotas/Citas/Citas";
+import FormCitas from "./Pages/dashboard/modules/Mascotas/Citas/FormCitas";
 
 
 
@@ -70,7 +71,8 @@ const App = () => {
         <Route exact path="/mascotas/especies" element={<Protected title="Especies"><Especies /></Protected>} />
         <Route exact path="/mascotas/:id/citas/historia" element={<Protected title="Historia Clinica"><FormHistoriaClinica /></Protected>} />
         <Route exact path="/mascotas/especies/:id" element={<Protected title="Especies"><FormEspecies /></Protected>} />
-        <Route exact path="/mascotas/:id/citas" element={<Protected title="Citas Mascota"><Citas /></Protected>} />
+        <Route exact path="/mascotas/citas" element={<Protected title="Citas Mascota"><Citas /></Protected>} />
+        <Route exact path="/mascotas/citas/:id" element={<Protected title="Citas Mascota"><FormCitas /></Protected>} />
 
 
         <Route exact path="/mascotas/mascota" element={<Protected title="Mascotas"><Mascota /></Protected>} />
