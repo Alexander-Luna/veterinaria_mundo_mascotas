@@ -1,14 +1,16 @@
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import { Link } from "react-router-dom";
-import { Button, Modal } from "react-bootstrap";
-import { useState } from "react";
+import {Link} from "react-router-dom";
+import {Button, Modal} from "react-bootstrap";
+import {useEffect, useState} from "react";
 import Input from "../molecules/input/Input";
 import alertify from "alertifyjs";
-import ima from '../../../../img/alimento_humedo.png'
+import {connect} from "react-redux";
+import store from "../../../../../redux/store";
 
-const AdminProductos = () => {
+const AdminProductos=(props)=>{
   const [show, setShow] = useState(false);
   const [btnSubmit, setBtnSubmit] = useState(false);
+  const {match,categorias,postcategoria,deletecategoria}=props
 
   const [nombre, setNombre] = useState('');
   const [codigo, setCodigo] = useState('');
@@ -20,119 +22,94 @@ const AdminProductos = () => {
   const [cod_categoria, setCod_categoria] = useState('');
   const [imagen, setImagen] = useState('');
 
+  useEffect(() => {
+    store.dispatch(getEspecies())
+  }, [match])
+
+
   const handleClose = () => setShow(false)
   const handleShow = () => {
     setShow(true)
   }
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    alertify.set("notifier", "position", "bottom-rigth");
+    if(typeof postcategoria.error!='undefined'){
+      postcategoria.error===false?alertify.success("Se creó correctamente"):alertify.error("Ocurrió un error al intentar Guardar")
+      setBtnSubmit(false)
+      setShow(false)
+      store.dispatch(getCategorias())
+      props.postCategoria()
+    }
+  }, [postcategoria])
+
+  useEffect(() => {
+    alertify.set("notifier", "position", "bottom-rigth");
+    if(typeof deletecategoria.error!='undefined'){
+      deletecategoria.error===false?alertify.success("Se eliminó correctamente"):alertify.error("No se puede eliminar")
+      store.dispatch(getCategorias())
+      props.deleteCategoria()
+    }
+  }, [deletecategoria])
+
+  const handleSubmit=(e)=>{
     e.preventDefault()
+    const data = {
+      descripcion:descripcion,
+      nombre:nombre
+    }
+    props.postCategoria(data)
   }
 
-  const handleDelete = (data) => {
-    alertify.confirm('Eliminar Producto', `¿Seguro de eliminar el Producto: ${data.name}?`, () => { }
+  const handleDelete=(data)=> {
+    alertify.confirm('Eliminar Categoria', `¿Seguro de eliminar la categoria: ${data.name}?`, () => {
+        props.deleteCategoria(data.id)
+      }
       , function () {
-      }).set('labels', { ok: 'Aceptar', cancel: 'Cancelar' });
+      }).set('labels', {ok: 'Aceptar', cancel: 'Cancelar'});
   }
 
   return <>
-    <div className="container-fluid">
-      <div className="card-header py-3 d-flex">
-        <h6 className="align-self-center col-11 m-0 font-weight-bold text-primary">Administrar Productos</h6>
-        <Button className="btn btn-primary" variant="primary" onClick={handleShow}>
-          Nuevo
-        </Button>
-      </div>
-      <div className="card-body">
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Imagen</th>
-              <th scope="col">Código</th>
-              <th scope="col">Fecha Caducidad</th>
-              <th scope="col">Descripción</th>
-              <th scope="col">Precio Compra</th>
-              <th scope="col">Precio Venta</th>
-              <th scope="col">Cantidad</th>
-              <th scope="col">Categoria</th>
-              <th scope="col">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>RECETA ORIGINAL DE POLLO</td>
-              <td>
-                <img src={ima} width="100" />
-              </td>
-              <td>11525</td>
-              <td>02/02/2023</td>
-              <td>Alimento completo y balanceado para nutrir a tu cachorro hasta el primer año de edad.</td>
-              <td>$20.00</td>
-              <td>$25.00</td>
-              <td>250</td>
-              <td>Comida Perros</td>
-              <td>
-                <Link to={`/admin/productos/1`} className={global.icon} title="Editar">
-                  <i className="fas fa-user-edit"></i>
-                </Link>
-                <a style={{ cursor: 'pointer' }} onClick={() => handleDelete({ 'name': 'Juan Perez', 'id': 1 })} className="delete" title="Eliminar">
-                  <i className="fas fa-trash-alt"></i>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>RECETA ORIGINAL DE POLLO</td>
-              <td>
-                <img src={ima} width="100" />
-              </td>
-              <td>11525</td>
-              <td>02/02/2023</td>
-              <td>Alimento completo y balanceado para nutrir a tu cachorro hasta el primer año de edad.</td>
-              <td>$20.00</td>
-              <td>$25.00</td>
-              <td>250</td>
-              <td>Comida Perros</td>
-              <td>
-                <Link to={`/admin/productos/1`} className={global.icon} title="Editar">
-                  <i className="fas fa-user-edit"></i>
-                </Link>
-                <a style={{ cursor: 'pointer' }} onClick={() => handleDelete({ 'name': 'Juan Perez', 'id': 1 })} className="delete" title="Eliminar">
-                  <i className="fas fa-trash-alt"></i>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>RECETA ORIGINAL DE POLLO</td>
-              <td>
-                <img src={ima} width="100" />
-              </td>
-              <td>11525</td>
-              <td>02/02/2023</td>
-              <td>Alimento completo y balanceado para nutrir a tu cachorro hasta el primer año de edad.</td>
-              <td>$20.00</td>
-              <td>$25.00</td>
-              <td>250</td>
-              <td>Comida Perros</td>
-              <td>
-                <Link to={`/admin/productos/1`} className={global.icon} title="Editar">
-                  <i className="fas fa-user-edit"></i>
-                </Link>
-                <a style={{ cursor: 'pointer' }} onClick={() => handleDelete({ 'name': 'Juan Perez', 'id': 1 })} className="delete" title="Eliminar">
-                  <i className="fas fa-trash-alt"></i>
-                </a>
-              </td>
-            </tr>
-
-
-          </tbody>
-        </table>
-      </div>
-    </div>
+   <div className="container-fluid">
+       <div className="card-header py-3 d-flex">
+           <h6 className="align-self-center col-11 m-0 font-weight-bold text-primary">Administrar Categorias</h6>
+           <Button className="btn btn-primary" variant="primary" onClick={handleShow}>
+             Nuevo
+           </Button>
+       </div>
+       <div className="card-body">
+         <table className="table">
+           <thead>
+           <tr>
+             <th scope="col">#</th>
+             <th scope="col">Nombre</th>
+             <th scope="col">Descripción</th>
+             <th scope="col">Acciones</th>
+           </tr>
+           </thead>
+           <tbody>
+           {Array.isArray(categorias.categorias) ? categorias.categorias.map((e, index) => {
+             return(
+               <tr key={index}>
+                 <th scope="row">{index+1}</th>
+               <td>{e.nombre}</td>
+                 <td>{e.descripcion}</td>
+               <td>
+               <Link to={`/categorias/${e.cod_categoria}`} className={global.icon} title="Editar">
+               <i className="fas fa-user-edit"></i>
+               </Link>
+               <a style={{cursor:'pointer'}} onClick={()=>handleDelete({'name':e.nombre,'id':e.cod_categoria})} className="delete"  title="Eliminar">
+               <i className="fas fa-trash-alt"></i>
+               </a>
+               </td>
+             </tr>
+             )
+           }) : <tr><td colSpan="8"><center>CARGANDO..</center></td></tr>
+           }
+           </tbody>
+         </table>
+       </div>
+   </div>
     <Modal
       show={show}
       onHide={handleClose}
@@ -140,7 +117,7 @@ const AdminProductos = () => {
       keyboard={false}
     >
       <Modal.Header closeButton>
-        <Modal.Title>Nuevo Producto</Modal.Title>
+        <Modal.Title>Nueva Categoria</Modal.Title>
       </Modal.Header>
       <form onSubmit={handleSubmit.bind()}>
         <Modal.Body>
@@ -151,91 +128,19 @@ const AdminProductos = () => {
             type="text"
             label="Nombre"
             required
-            onChange={(e) => setNombre(e.target.value)}
+            onChange={(e)=>setNombre(e.target.value)}
             defaultValue={nombre}
           />
-          <Input
-            sty="col-md-12"
-            id="codigo"
-            name="codigo"
-            type="text"
-            label="Codigo"
-            onChange={(e) => setCodigo(e.target.value)}
-            defaultValue={codigo}
-          />
-          <Input
-            sty="col-md-12"
-            id="fecha_caducidad"
-            name="fecha_caducidad"
-            type="date"
-            label="Fecha Caducidad"
-            required
-            onChange={(e) => fecha_caducidad(e.target.value)}
-            defaultValue={fecha_caducidad}
-          />
-
           <Input
             sty="col-md-12"
             id="descripcion"
             name="descripcion"
             type="text"
-            label="Descripción"
-            required
-            onChange={(e) => setDescripcion(e.target.value)}
+            label="descripcion"
+            onChange={(e)=>setDescripcion(e.target.value)}
             defaultValue={descripcion}
           />
 
-          <Input
-            sty="col-md-12"
-            id="precio_compra"
-            name="precio_compra"
-            type="text"
-            label="Precio Compra"
-            required
-            onChange={(e) => setPrecio_compra(e.target.value)}
-            defaultValue={precio_compra}
-          />
-
-          <Input
-            sty="col-md-12"
-            id="precio_venta"
-            name="precio_venta"
-            type="text"
-            label="Precio Venta"
-            required
-            onChange={(e) => setPrecio_venta(e.target.value)}
-            defaultValue={precio_venta}
-          />
-          <Input
-            sty="col-md-12"
-            id="cantidad"
-            name="cantidad"
-            type="text"
-            label="Cantidad"
-            required
-            onChange={(e) => setCantidad(e.target.value)}
-            defaultValue={cantidad}
-          />
-          <Input
-            sty="col-md-12"
-            id="cod_categoria"
-            name="cod_categoria"
-            type="text"
-            label="Categoria"
-            required
-            onChange={(e) => setCod_categoria(e.target.value)}
-            defaultValue={cod_categoria}
-          />
-          <Input
-            sty="col-md-12"
-            id="imagen"
-            name="imagen"
-            type="file"
-            label="Imagen"
-            required
-            onChange={(e) => setImagen(e.target.value)}
-            defaultValue={imagen}
-          />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -248,4 +153,16 @@ const AdminProductos = () => {
   </>
 }
 
-export default AdminProductos;
+const mapStateToProps = (state) => ({
+  categorias:state.CategoriasState,
+  postcategoria:state.postCategoriaState,
+  deletecategoria:state.deleteCategoriaState,
+})
+
+const mapDispatchToProps = {
+  postCategoria, deleteCategoria
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categoria)
+

@@ -3,7 +3,6 @@ import {useEffect, useState} from 'react'
 import style from './style.module.scss'
 import {connect} from "react-redux";
 import alertify from "alertifyjs";
-import {getEspecie, putEspecie} from "../../../../../../redux/actionCreators";
 import store from "../../../../../../redux/store";
 import Input from "../../molecules/input/Input";
 
