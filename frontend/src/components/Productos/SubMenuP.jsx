@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FaDog } from "react-icons/fa";
 import './SubMenup.css'
 import ContenedorAdultos from './ProductosAdultos/ContenedorAdultos';
+import ContenedorCachorros from './ProductosAdultos/ContenedorCachorros';
 
 const SubMenuP = () => {
   const servicios = [
@@ -45,7 +46,7 @@ const SubMenuP = () => {
         <div className='col text-center'>
           <p>{miServicio}</p>
           <p>
-            {miServicio === 'cachorros'}
+            {miServicio === 'cachorros' && <ContenedorCachorros />}
             {miServicio === 'adultos' && <ContenedorAdultos />}
             {miServicio === 'senior'}
           </p>
