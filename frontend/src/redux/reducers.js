@@ -29,7 +29,7 @@ import {
   DEL_RECETA, GET_RECETA, GET_RECETAS,
   POST_RECETA, PUT_RECETA,
   DEL_ROL, GET_ROL, GET_ROLS,
-  POST_ROL, PUT_ROL
+  POST_ROL, PUT_ROL, DEL_PRODUCTO, GET_PRODUCTOS, PUT_PRODUCTO, POST_PRODUCTO
 } from "./actions"
 
 export const postReducer = (state = {}, action) => {
@@ -1071,6 +1071,94 @@ export const getRol = (state = {}, action) => {
     return {
       error: false,
       rol: action.rol
+    }
+  }
+  return state
+}
+
+//productos
+
+export const postProducto = (state = {}, action) => {
+  if (action.type === POST_PRODUCTO) {
+    if (action.error === true) {
+      return {
+        error: true,
+        errors: action.errors
+      }
+    } else if (action.clean === true) {
+      return {}
+    }
+    return {
+      error: false
+    }
+  }
+  return state
+}
+
+export const getProductos = (state = {}, action) => {
+  if (action.type === GET_PRODUCTOS) {
+    if (action.error === true) {
+      return {
+        error: true,
+        errors: action.errors
+      }
+    }
+    return {
+      error: false,
+      productos: action.productos
+    }
+  }
+
+  return state
+}
+
+export const deleteProducto = (state = {}, action) => {
+  if (action.type === DEL_PRODUCTO) {
+    if (action.error === true) {
+      return {
+        error: true,
+        errors: action.errors
+      }
+    } else if (action.clean === true) {
+      return {}
+    }
+    return {
+      error: false
+    }
+  }
+  return state
+}
+
+export const putProducto = (state = {}, action) => {
+  if (action.type === PUT_PRODUCTO) {
+    if (action.error === true) {
+      return {
+        error: true,
+        errors: action.errors
+      }
+    } else if (action.clean === true) {
+      return {}
+    }
+    return {
+      error: false
+    }
+  }
+  return state
+}
+
+export const getProducto = (state = {}, action) => {
+  if (action.type === GET_PRODUCTO) {
+    if (action.error === true) {
+      return {
+        error: true,
+        errors: action.errors
+      }
+    } else if (action.clean === true) {
+      return {}
+    }
+    return {
+      error: false,
+      producto: action.producto
     }
   }
   return state

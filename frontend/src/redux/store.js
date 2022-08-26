@@ -73,6 +73,12 @@ import {
   deleteRol as deleteRolState,
   putRol as putRolState,
   getRol as RolState,
+
+  postProducto as postProductoState,
+  getProductos as ProductosState,
+  deleteProducto as deleteProductoState,
+  putProducto as putProductoState,
+  getProducto as ProductoState,
   /*
   NO BORRAR LA PsLANTILLA
   postPslantilla as postPslantillaState,
@@ -145,8 +151,11 @@ export default createStore(
     deleteRolState,
     putRolState,
     RolState,
-
-    
+    ProductosState,
+    deleteProductoState,
+    putProductoState,
+    ProductoState,
+    postProductoState
   }),
   composeWithDevTools(applyMiddleware(thunk))
 

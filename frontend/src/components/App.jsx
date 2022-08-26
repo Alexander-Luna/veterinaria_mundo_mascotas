@@ -25,12 +25,12 @@ import Proveedores from "./Pages/dashboard/modules/Proveedores/Proveedores";
 import FormProveedores from "./Pages/dashboard/modules/Proveedores/FormProveedores";
 import Citas from "./Pages/dashboard/modules/Mascotas/Citas/Citas";
 import FormHistoriaClinica from "./Pages/dashboard/modules/Mascotas/HistoriaClinica/FormHistoriaClinica";
-import FormProductos from "./Pages/dashboard/modules/Productos2/FormProductos";
-import AdminProductos from "./Pages/dashboard/modules/Productos2/AdminProductos";
 import ResetPassword from "./Pages/ResetPassword";
 import Salir from "./Pages/dashboard/Salir";
 import Categoria from "./Pages/dashboard/modules/Categoria/Categoria";
 import FormCategoria from "./Pages/dashboard/modules/Categoria/FormCategoria";
+import AdminProductos from "./Pages/dashboard/modules/Productos/AdminProductos";
+import FormProducto from "./Pages/dashboard/modules/Productos/FormProducto";
 
 
 
@@ -64,7 +64,7 @@ const App = () => {
         <Route exact path="/proveedores/:id" element={<Protected title="Proveedores"><FormProveedores /></Protected>} />
 
         <Route exact path="/admin/productos" element={<Protected title="Productos"><AdminProductos /></Protected>} />
-        <Route exact path="/admin/productos/:id" element={<Protected title="Productos"><FormProductos /></Protected>} />
+        <Route exact path="/admin/productos/:id" element={<Protected title="Productos"><FormProducto /></Protected>} />
 
 
         <Route exact path="/mascotas/especies" element={<Protected title="Especies"><Especies /></Protected>} />

@@ -9,7 +9,6 @@ export const GET_ALL_CONTACTOS = "ET_ALL_CONTACTOS"
 
 export const GET_POST = "GET_POST"
 export const GET_SERVICIO = 'GET_SERVICIO'
-export const GET_PRODUCTO = "GET_PRODUCTO"
 export const GET_CONTACTO = "GET_CONTACTO"
 
 //DASHBOARD
@@ -90,6 +89,13 @@ export const GET_ROL="GET_ROL"
 export const POST_ROL="POST_ROL"
 export const PUT_ROL="PUT_ROL"
 export const DEL_ROL="DEL_ROL"
+
+//PRODUCTOS
+export const GET_PRODUCTOS="GET_PRODUCTOS"
+export const GET_PRODUCTO="GET_PRODUCTO"
+export const POST_PRODUCTO="POST_PRODUCTO"
+export const PUT_PRODUCTO="PUT_PRODUCTO"
+export const DEL_PRODUCTO="DEL_PRODUCTO"
 
 //PLANTILLA
 /*
