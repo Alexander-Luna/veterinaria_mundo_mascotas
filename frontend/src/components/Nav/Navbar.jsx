@@ -89,13 +89,13 @@ function Navbar(props) {
           </NavLink>
         </div>
 
-        <div className='contenedor-cart'>
+        {/* <div className='contenedor-cart'>
           <NavLink to="/cart">
             <FaCartPlus />
           </NavLink>
 
           <span className='item-total'>0</span>
-        </div>
+        </div> */}
 
         <div className="menu__hamburguer">
           {/* <img src="assets/menu.svg" className="menu__img"> */}

@@ -42,7 +42,7 @@ const App = () => {
         <Route path="/servicios" element={<Public><Servicios /></Public>} />
         <Route path="/productos" element={<Public>< Productos /></Public>} />
         <Route path="/contactos" element={<Public><Contactos /></Public>} />
-        <Route path="/cart" element={<Public><Cart /></Public>} />
+        {/* <Route path="/cart" element={<Public><Cart /></Public>} /> */}
         <Route component={Page404} />
         <Route path="/login" element={<Public><Login /></Public>} />
         <Route path="/resetpassword" element={<Public><ResetPassword /></Public>} />
