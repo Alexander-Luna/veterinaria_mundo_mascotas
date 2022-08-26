@@ -1,11 +1,10 @@
 import React from 'react'
-import { useReducer, useState } from 'react'
+import { useReducer } from 'react'
 import ProductItem from './ProductItem'
 import { shoppingInitialState, shoppingReducer } from './ShoppingReducer'
 import './ShoppingCart.css'
 import CartItem from './CartItem'
 import { TYPES } from './ShoppingAction'
-import { useLocalStorage } from './useLocalStorage'
 
 const ShoppingCart = () => {
 
@@ -13,22 +12,9 @@ const ShoppingCart = () => {
 
   const { products, cart } = state;
 
-
   const addToCart = (id) => {
-    console.log(id)
-    const data = {
-      id
-    };
-    const resp = localStorage.getItem('@key')
-    if (resp === null) {
-      const d = Array();
-      d.push(data)
-      localStorage.setItem('@key', JSON.stringify(d))
-    } else {
-      const d = JSON.parse(resp)
-      d.push(data)
-      localStorage.setItem('@key', JSON.stringify(d))
-    }
+    // console.log(id)
+    dispatch({ type: TYPES.ADD_TO_CART, payload: id })
   }
 
   const delFromCart = (id, all = false) => {
@@ -46,11 +32,10 @@ const ShoppingCart = () => {
 
   return (
     <>
-
-      <div className='contenedor-productos-vet'>
+      <div className='contenedor-productos'>
         {/* <h2>Carrito de Compras</h2> */}
-        {/* <h3>Productos</h3> */}
-        <article className='box grid-responsive' onChange={(e)=>cart(e.target.value)}>
+        <h3>Productos</h3>
+        <article className='box grid-responsive'>
           {products.map((product) => (
             <ProductItem key={product.id} data={product} addToCart={addToCart} />
           ))}
@@ -65,8 +50,6 @@ const ShoppingCart = () => {
         </article>
 
       </div>
-
-
     </>
   )
 }

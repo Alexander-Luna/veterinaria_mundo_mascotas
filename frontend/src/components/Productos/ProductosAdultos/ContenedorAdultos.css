@@ -1,6 +1,7 @@
-.contenedor-equipo {
+.con-adultos {
+  display: flex;
   margin: 10px auto;
-  background-color: #f8f8f8;
   display: grid;
   grid-template-columns: auto auto auto;
 }
+

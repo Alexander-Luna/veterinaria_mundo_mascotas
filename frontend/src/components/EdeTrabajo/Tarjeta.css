@@ -45,15 +45,16 @@ button {
   color: #2f2d2e;
   font: bold;
   background-color: white;
-  border: 2px solid #00a9ba;
+  /* border: 2px solid #00a9ba; */
   padding: 0.6rem;
   border-radius: 6px;
-  transition-duration: 0.5s;
-  animation: ease-in-out;
+  /* transition-duration: 0.5s;
+  animation: ease-in-out; */
+  border: none;
 }
 
 button:hover {
-  background-image: linear-gradient(to left, #00a9ba, #00D2FF);
+  /* background-image: linear-gradient(to left, #00a9ba, #00D2FF); */
   /* transform: scale(1.2); */
   border: none;
   /* color: white; */

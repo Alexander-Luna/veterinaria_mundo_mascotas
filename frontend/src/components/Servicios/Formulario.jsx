@@ -25,13 +25,13 @@ export default class Formulario extends Component {
               placeholder="Nombre" required/>
           </div>
           <div>
-            <input id="last_name" type="text" name="last_name" placeholder="Apellido" />
+            <input id="last_name" type="text" name="last_name" placeholder="Apellido" required />
           </div>
           <div>
             <input id="email" type="email" placeholder='E-Mail' name="email" required/>
           </div>
           <div>
-            <input id="phone" type="text" name="phone" placeholder="telefono" required/>
+            <input id="phone" type="number" name="phone" placeholder="telefono" required/>
           </div>
           <div>
             <textarea name="message" id="message" className='contenedor-mensaje' rows="4" cols="40" placeholder="Mensaje" required></textarea>
