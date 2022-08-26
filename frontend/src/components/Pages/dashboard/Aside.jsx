@@ -55,7 +55,6 @@ const Aside = ({ toggled, handleToggleSidebar }) => {
               dashboard
             </NavLink>
           </MenuItem>
-          {/*{JSON.parse(localStorage.getItem('user')).cod_rol!==2?}*/}
           <MenuItem icon={<FaUserTie />}>
             {" "}
             <NavLink to="/usuarios">
