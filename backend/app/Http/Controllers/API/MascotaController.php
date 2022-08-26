@@ -17,6 +17,8 @@ class MascotaController extends Controller
     public function index()
     {
         $data = Mascota::all();
+
+        $data = Mascota::where("cod_user","=",1)->find(10);
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_OK,

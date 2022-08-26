@@ -16,7 +16,7 @@ class Mascota extends Model
         'raza',
         'fecha_nacimiento',
         'cod_especie',
-        'cedula_cliente',
+        'cod_user',
         'created_at',
         'updated_at'
     ];
