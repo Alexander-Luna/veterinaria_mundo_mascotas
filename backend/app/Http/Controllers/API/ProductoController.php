@@ -5,8 +5,10 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Producto;
 use App\Models\Producto_cliente;
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class ProductoController extends Controller
 {
@@ -18,6 +20,7 @@ class ProductoController extends Controller
     public function index()
     {
         $data = Producto::all();
+
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_OK,
@@ -35,7 +38,7 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $data = Producto::create($request->all());
-/*        $M=[
+        /*        $M=[
             "cod_producto"=>$data->cod_producto,
             "cod_proveedor"=>$data->cod_proveedor
         ];
@@ -75,7 +78,7 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $data = Producto::findOrFail($id);
         $data->update($request->all());

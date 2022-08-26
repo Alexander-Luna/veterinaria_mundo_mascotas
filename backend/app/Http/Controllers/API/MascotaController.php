@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Mascota;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class MascotaController extends Controller
 {
@@ -16,9 +17,11 @@ class MascotaController extends Controller
      */
     public function index()
     {
-        $data = Mascota::all();
-
-        $data = Mascota::where("cod_user","=",1)->find(10);
+        if ((Auth::user()->cod_rol) < 2) {
+            $data = Mascota::all();
+        } else {
+            $data = Mascota::where("cod_user", "=", Auth::user()->cod_user)->get();
+        }
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_OK,
@@ -68,7 +71,7 @@ class MascotaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $data = Mascota::findOrFail($id);
         $data->update($request->all());
