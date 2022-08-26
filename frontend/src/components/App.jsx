@@ -29,6 +29,8 @@ import FormProductos from "./Pages/dashboard/modules/Productos/FormProductos";
 import AdminProductos from "./Pages/dashboard/modules/Productos/AdminProductos";
 import ResetPassword from "./Pages/ResetPassword";
 import Salir from "./Pages/dashboard/Salir";
+import Categoria from "./Pages/dashboard/modules/Categoria/Categoria";
+import FormCategoria from "./Pages/dashboard/modules/Categoria/FormCategoria";
 
 
 
@@ -54,6 +56,9 @@ const App = () => {
 
         <Route exact path="/usuarios" element={<Protected title="Usuarios"><Usuarios /></Protected>} />
         <Route exact path="/usuarios/:id" element={<Protected title="Usuarios"><FormUsuarios /></Protected>} />
+
+        <Route exact path="/categorias" element={<Protected title="Categorias"><Categoria /></Protected>} />
+        <Route exact path="/categorias/:id" element={<Protected title="Categorias"><FormCategoria /></Protected>} />
 
         <Route exact path="/proveedores" element={<Protected title="Proveedores"><Proveedores /></Protected>} />
         <Route exact path="/proveedores/:id" element={<Protected title="Proveedores"><FormProveedores /></Protected>} />
