@@ -3,11 +3,10 @@ import {useEffect, useState} from 'react'
 import style from './style.module.scss'
 import Input from "../molecules/input/Input";
 import Select from "../molecules/Select";
-import {getUsuario, putUsuario as putUsuarioState} from "../../../../../redux/reducers";
 import {connect} from "react-redux";
-import {putUsuario} from "../../../../../redux/actionCreators";
 import store from "../../../../../redux/store";
 import alertify from "alertifyjs";
+import {getUsuario, putUsuario} from "../../../../../redux/actionCreators";
 
 
 const FormUsuarios=(props)=>{
@@ -25,7 +24,8 @@ const FormUsuarios=(props)=>{
   const{usuario,putusuario}=props
 
   useEffect(() => {
-    //store.dispatch(getUsuario(id))
+    store.dispatch(getUsuario(id))
+    console.log(usuario)
   }, [id])
 
   useEffect(() => {
@@ -52,7 +52,6 @@ const FormUsuarios=(props)=>{
       cod_rol:rol,
       password:password
     }
-    console.log(data)
     props.putUsuario(id,data)
   }
 
@@ -61,22 +60,22 @@ const FormUsuarios=(props)=>{
     if(typeof putusuario.error!='undefined'){
       putusuario.error===false?alertify.success("Se actualizó correctamente"):alertify.error("Ocurrió un error al intentar Actualizar")
       setBtnSubmit(false)
-      props.putUser()
+      props.putUsuario()
     }
   }, [putusuario])
 
   const rols= [
     {
       label: "Administrador",
-      value: "1",
+      value: "0",
     },
     {
       label: "Vendedor/Veterinario",
-      value: "2",
+      value: "1",
     },
     {
       label: "Cliente",
-      value: "3",
+      value: "2",
     },
   ]
 
@@ -100,6 +99,7 @@ const FormUsuarios=(props)=>{
               required
               onChange={(e)=>setCedula(e.target.value)}
               defaultValue={cedula}
+              disabled
             />
             <Input
               sty="col-md-12 col-lg-6"
@@ -188,7 +188,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  putUsuario
+  putUsuario, getUsuario
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormUsuarios);

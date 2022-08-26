@@ -28,6 +28,7 @@ import FormHistoriaClinica from "./Pages/dashboard/modules/Mascotas/HistoriaClin
 import FormProductos from "./Pages/dashboard/modules/Productos/FormProductos";
 import AdminProductos from "./Pages/dashboard/modules/Productos/AdminProductos";
 import ResetPassword from "./Pages/ResetPassword";
+import Salir from "./Pages/dashboard/Salir";
 
 
 
@@ -36,6 +37,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Public><Home /></Public>} />
+        <Route path="/salir" element={<Salir />} />
         <Route path="/nosotros" element={<Public><Nosotros /></Public>} />
         <Route path="/servicios" element={<Public><Servicios /></Public>} />
         <Route path="/productos" element={<Public>< Productos /></Public>} />

@@ -1,7 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from '../../img/logopeque.png';
-
+import {
+  MdCategory,
+  MdPointOfSale
+} from "react-icons/md";
+import { GiSittingDog, GiSniffingDog, GiWolfHead, GiBoxUnpacking } from "react-icons/gi";
 import {
   ProSidebar,
   Menu,
@@ -16,13 +20,15 @@ import {
   FaGem,
   FaList,
   FaGithub,
+  FaBox,
+  FaBoxOpen,
   FaRegLaughWink,
   FaHeart, FaUsers, FaAndroid, FaUser, FaSort, FaUserTie
 } from "react-icons/fa";
 
 import { useLocation } from "react-router-dom";
 
-const Aside = ({toggled, handleToggleSidebar }) => {
+const Aside = ({ toggled, handleToggleSidebar }) => {
   const location = useLocation();
 
   return (
@@ -61,37 +67,61 @@ const Aside = ({toggled, handleToggleSidebar }) => {
               Clientes
             </NavLink>
           </MenuItem>
-          <MenuItem icon={<FaUsers />}>
-            {" "}
-            <NavLink to="/proveedores">
-              Proveedores
-            </NavLink>
-          </MenuItem>
-          <MenuItem icon={<FaSort />}>
-            {" "}
-            <NavLink to="/admin/productos">
-              Productos
-            </NavLink>
-          </MenuItem>
+
         </Menu>
         <Menu iconShape="circle">
           <SubMenu
-            title="Mascotas"
-            icon={<FaAndroid />}
+            title="Inventario"
+            icon={<FaBoxOpen />}
             data-element={location.pathname}
           >
-            <MenuItem>
+            <MenuItem icon={<FaBox />}>
+              <NavLink exact to={"/admin/productos"}>
+                Productos
+              </NavLink>
+            </MenuItem>
+            <MenuItem icon={<MdCategory />}>
+              <NavLink exact to={"/categorias"}>
+                Categorias
+              </NavLink>
+            </MenuItem>
+            <MenuItem icon={<FaUsers />}>
+              <NavLink exact to={"/proveedores"}>
+                Proveedores
+              </NavLink>
+            </MenuItem>
+            <MenuItem icon={<GiBoxUnpacking />}>
+              <NavLink exact to={"/pedidos"}>
+                Pedidos
+              </NavLink>
+            </MenuItem>
+          </SubMenu>
+
+
+          <SubMenu
+            title="Mascotas"
+            icon={<GiSittingDog />}
+            data-element={location.pathname}
+          >
+            <MenuItem icon={<GiWolfHead />}>
               <NavLink exact to={"/mascotas/especies"}>
                 Especies
               </NavLink>
             </MenuItem>
-            <MenuItem>
+            <MenuItem icon={<GiSniffingDog />}>
               <NavLink exact to={"/mascotas/mascota"}>
                 Mascota
               </NavLink>
             </MenuItem>
           </SubMenu>
-{/*          <SubMenu
+          <MenuItem icon={<MdPointOfSale />}>
+            {" "}
+            <NavLink to="/vender">
+              Realizar Venta
+            </NavLink>
+          </MenuItem>
+
+          {/*          <SubMenu
             prefix={<span className="badge gray">3</span>}
             title="withPrefix"
             icon={<FaHeart />}
@@ -105,7 +135,7 @@ const Aside = ({toggled, handleToggleSidebar }) => {
             <MenuItem>submenu 2</MenuItem>
             <MenuItem>submenu 3</MenuItem>
           </SubMenu>*/}
-{/*          <SubMenu
+          {/*          <SubMenu
             title="multiLevel"
             icon={<FaList />}
           >
@@ -138,7 +168,7 @@ const Aside = ({toggled, handleToggleSidebar }) => {
             padding: "20px 24px"
           }}
         >
-         <span> Mundo Mascotas </span>
+          <span> Mundo Mascotas </span>
         </div>
       </SidebarFooter>
     </ProSidebar>

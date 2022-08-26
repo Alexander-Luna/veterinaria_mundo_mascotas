@@ -18,7 +18,7 @@ return new class extends Migration
             $table->double('total_a_pagar',10,2);
             $table->timestamp('fecha_pedido');
             $table->timestamp('fecha_entrega')->nullable();
-            $table->string('cod_proveedor');
+            $table->unsignedBigInteger('cod_proveedor');
             $table->unsignedBigInteger('cod_producto');
             $table->foreign('cod_producto')
             ->references('cod_producto')->on('productos')->cascadeOnUpdate();

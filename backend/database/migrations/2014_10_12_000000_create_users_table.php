@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('cedula',10)->nullable()->unique();
             $table->string('numero_celular',13)->nullable();
             $table->unsignedBigInteger('cod_rol');
-            $table->unsignedBigInteger('is_register');
+            $table->boolean('is_register');
             $table->string('direccion')->nullable();
             $table->string('email')->unique();
             $table->foreign('cod_rol')
