@@ -16,8 +16,6 @@ import Cliente from "./Pages/dashboard/modules/Cliente/Cliente";
 import FormCliente from "./Pages/dashboard/modules/Cliente/FormCliente";
 import Especies from "./Pages/dashboard/modules/Mascotas/Especies/Especies";
 import FormEspecies from "./Pages/dashboard/modules/Mascotas/Especies/FormEspecies";
-import Mascota from "./Pages/dashboard/modules/Mascotas/Mascota/Mascota";
-import FormMascota from "./Pages/dashboard/modules/Mascotas/Mascota/FormMascota";
 import Cart from "./Pages/Cart";
 import Usuarios from "./Pages/dashboard/modules/Usuarios/Usuarios";
 import FormUsuarios from "./Pages/dashboard/modules/Usuarios/FormUsuarios";
@@ -31,6 +29,8 @@ import Categoria from "./Pages/dashboard/modules/Categoria/Categoria";
 import FormCategoria from "./Pages/dashboard/modules/Categoria/FormCategoria";
 import AdminProductos from "./Pages/dashboard/modules/Productos/AdminProductos";
 import FormProducto from "./Pages/dashboard/modules/Productos/FormProducto";
+import Mascota from "./Pages/dashboard/modules/Mascotas/Mascota/Mascota";
+import FormMascota from "./Pages/dashboard/modules/Mascotas/Mascota/FormMascota";
 
 
 
