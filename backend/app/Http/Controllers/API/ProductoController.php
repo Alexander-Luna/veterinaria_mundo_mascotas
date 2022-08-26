@@ -41,6 +41,7 @@ class ProductoController extends Controller
         ];
         Producto_cliente::create($M);
 */
+
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_CREATED,
