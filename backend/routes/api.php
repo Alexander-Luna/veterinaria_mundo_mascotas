@@ -7,6 +7,7 @@ use App\Http\Controllers\API\ClienteController;
 use App\Http\Controllers\API\EspecieController;
 use App\Http\Controllers\API\FacturaController;
 use App\Http\Controllers\API\Historia_ClinicaController;
+use App\Http\Controllers\API\ImgController;
 use App\Http\Controllers\API\MascotaController;
 use App\Http\Controllers\API\ProductoController;
 use App\Http\Controllers\API\ProveedorController;
@@ -42,6 +43,13 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/{id}', 'show');
         Route::delete('/{id}', 'destroy');
         Route::put('/{id}', 'update');
+    });
+    Route::controller(ImgController::class)->prefix('imagen')->group(function () {
+      //  Route::get('/', 'index');
+        Route::post('/', 'uploadAvatar');
+        Route::get('/{id}', 'viewImage');/*
+        Route::delete('/{id}', 'destroy');
+        Route::put('/{id}', 'update');*/
     });
     Route::controller(CategoriaController::class)->prefix('categoria')->group(function () {
         Route::get('/', 'index');
