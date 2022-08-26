@@ -54,6 +54,30 @@ class UsuarioController extends Controller
         ], Response::HTTP_CREATED);
     }
 
+
+    public function storeClient(Request $request)
+    {   
+        $data=[
+            'nombres'=>$request->nombres,
+            'apellido'=>$request->apellido,
+            'cedula'=>$request->cedula,
+            'numero_celular'=>$request->celular,
+            'cod_rol'=>2,
+            'direccion'=>$request->direccion,
+            'email'=>$request->email,
+            'is_register'=>true,
+            "password"=>bcrypt($request->password)
+        ];
+   
+        $data = Usuario::create($data);
+        return response()->json([
+            'errors' => false,
+            'code' => Response::HTTP_CREATED,
+            'status' => '201 Created',
+            'data' => $data
+        ], Response::HTTP_CREATED);
+    }
+
     /**
      * Display the specified resource.
      *

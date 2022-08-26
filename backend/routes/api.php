@@ -29,6 +29,10 @@ Route::controller(AuthController::class)->prefix('auth')->group(function () {
     });
 });
 
+Route::controller(UsuarioController::class)->prefix('cliente')->group(function () {
+    Route::post('/', 'storeClient');
+});
+
 Route::middleware('auth:api')->group(function () {
     Route::controller(UsuarioController::class)->prefix('usuario')->group(function () {
         Route::get('/', 'index');
@@ -69,7 +73,6 @@ Route::middleware('auth:api')->group(function () {
 
     Route::controller(ClienteController::class)->prefix('cliente')->group(function () {
         Route::get('/', 'index');
-        Route::post('/', 'store');
         Route::get('/{id}', 'show');
         Route::delete('/{id}', 'destroy');
         Route::put('/{id}', 'update');

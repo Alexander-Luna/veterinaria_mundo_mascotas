@@ -69,7 +69,7 @@ const App = () => {
 
 
         <Route exact path="/mascotas/especies" element={<Protected title="Especies"><Especies /></Protected>} />
-        <Route exact path="/mascotas/:id/citas/historia" element={<Protected title="Historia Clinica"><FormHistoriaClinica /></Protected>} />
+        <Route exact path="/mascotas/:id/historia" element={<Protected title="Historia Clinica"><FormHistoriaClinica /></Protected>} />
         <Route exact path="/mascotas/especies/:id" element={<Protected title="Especies"><FormEspecies /></Protected>} />
         <Route exact path="/mascotas/citas" element={<Protected title="Citas Mascota"><Citas /></Protected>} />
         <Route exact path="/mascotas/citas/:id" element={<Protected title="Citas Mascota"><FormCitas /></Protected>} />
