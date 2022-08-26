@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import alertify from "alertifyjs";
 import store from "../../../../../../redux/store";
 import Input from "../../molecules/input/Input";
+import {getEspecie, putEspecie} from "../../../../../../redux/actionCreators";
 
 
 const FormEspecies=(props)=>{
