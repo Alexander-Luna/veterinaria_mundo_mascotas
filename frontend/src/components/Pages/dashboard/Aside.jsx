@@ -63,12 +63,12 @@ const Aside = ({ toggled, handleToggleSidebar }) => {
               Usuarios
             </NavLink>
           </MenuItem>
-          <MenuItem icon={<FaUser />}>
+          {/*<MenuItem icon={<FaUser />}>
             {" "}
             <NavLink to="/clientes">
               Clientes
             </NavLink>
-          </MenuItem>
+          </MenuItem>*/}
             </>:<></>}
         </Menu>
         <Menu iconShape="circle">
@@ -93,11 +93,11 @@ const Aside = ({ toggled, handleToggleSidebar }) => {
                   Proveedores
                 </NavLink>
               </MenuItem>
-              <MenuItem icon={<GiBoxUnpacking/>}>
+              {/*<MenuItem icon={<GiBoxUnpacking/>}>
                 <NavLink exact to={"/pedidos"}>
                   Pedidos
                 </NavLink>
-              </MenuItem>
+              </MenuItem>*/}
             </SubMenu>
           :<></>}
 
@@ -118,15 +118,20 @@ const Aside = ({ toggled, handleToggleSidebar }) => {
                 Mascota
               </NavLink>
             </MenuItem>
+            <MenuItem icon={<GiSniffingDog />}>
+              <NavLink exact to={"/mascotas/citas"}>
+                Citas
+              </NavLink>
+            </MenuItem>
           </SubMenu>
-          {JSON.parse(localStorage.getItem('user')).cod_rol!==2?
+     {/*     {JSON.parse(localStorage.getItem('user')).cod_rol!==2?
           <MenuItem icon={<MdPointOfSale />}>
             {" "}
             <NavLink to="/vender">
               Realizar Venta
             </NavLink>
           </MenuItem>
-          :<></>}
+          :<></>}*/}
           {/*          <SubMenu
             prefix={<span className="badge gray">3</span>}
             title="withPrefix"

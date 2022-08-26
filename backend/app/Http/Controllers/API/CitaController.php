@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cita;
+use App\Models\Mascota_cita;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -16,7 +17,7 @@ class CitaController extends Controller
      */
     public function index()
     {
-        $data = Cita::all();
+        $data =\DB::select("select c.*,m.* from mascota_citas as mc join citas as c on c.cod_cita=mc.cod_cita join mascotas as m on mc.cod_mascota=m.cod_mascota where m.cod_user='".\Auth::user()->cod_user."'");
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_OK,
@@ -32,8 +33,20 @@ class CitaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $data = Cita::create($request->all());
+    {   
+         $dat=[
+            'fecha'=>$request->fecha,
+            'hora'=>$request->hora,
+            'tipo'=>$request->tipo,
+            'detalle'=>$request->detalle
+        ];
+         $data = Cita::create($dat);
+
+       $d=[
+        'cod_mascota'=>$request->cod_mascota,
+        'cod_cita'=>$data->cod_cita
+        ];
+        Mascota_cita::create($d);
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_CREATED,
@@ -51,11 +64,13 @@ class CitaController extends Controller
     public function show($id)
     {
         $data = Cita::findOrFail($id);
+
+        $data =\DB::select("select c.*,m.* from mascota_citas as mc join citas as c on c.cod_cita=mc.cod_cita join mascotas as m on mc.cod_mascota=m.cod_mascota where c.cod_cita='".$id."' limit 1");
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_OK,
             'status' => '200 OK',
-            'data' => $data
+            'data' => $data[0]
         ], Response::HTTP_OK,);
     }
 

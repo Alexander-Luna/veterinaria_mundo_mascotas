@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Especie;
 use App\Models\Mascota;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -19,8 +20,16 @@ class MascotaController extends Controller
     {
         if ((Auth::user()->cod_rol) < 2) {
             $data = Mascota::all();
+            foreach ($data as $value) {
+                $especie=Especie::find($value->cod_especie);
+                $value['especie']=$especie->nombre_especie;
+            }
         } else {
             $data = Mascota::where("cod_user", "=", Auth::user()->cod_user)->get();
+            foreach ($data as $value) {
+                $especie=Especie::find($value->cod_especie);
+                $value['especie']=$especie->nombre_especie;
+            }
         }
         return response()->json([
             'errors' => false,
@@ -37,8 +46,17 @@ class MascotaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $data = Mascota::create($request->all());
+    {   
+        $data=[
+            'codigo'=>$request->codigo,
+            'nombre'=>$request->nombre,
+            'raza'=>$request->raza,
+            'fecha_nacimiento'=>$request->fecha_nacimiento,
+            'cod_especie'=>$request->cod_especie,
+            'cod_user'=>Auth::user()->cod_user
+        ];
+        $data = Mascota::create($data);
+
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_CREATED,
@@ -74,7 +92,14 @@ class MascotaController extends Controller
     public function update(Request $request, $id)
     {
         $data = Mascota::findOrFail($id);
-        $data->update($request->all());
+        $dat=[
+            'codigo'=>$request->codigo,
+            'nombre'=>$request->nombre,
+            'raza'=>$request->raza,
+            'fecha_nacimiento'=>$request->fecha_nacimiento,
+            'cod_especie'=>$request->cod_especie
+        ];
+        $data->update($dat);
         return response()->json([
             'errors' => false,
             'code' => Response::HTTP_OK,
