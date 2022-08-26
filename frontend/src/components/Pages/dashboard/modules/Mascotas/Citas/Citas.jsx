@@ -8,7 +8,6 @@ import store from "../../../../../../redux/store";
 import Input from "../../molecules/input/Input";
 import {deleteCita, getCitas, getMascotas, postCita} from "../../../../../../redux/actionCreators";
 import Select from "../../molecules/Select";
-import {postCita as postCitaState} from "../../../../../../redux/reducers";
 
 const Citas=(props)=>{
   const [show, setShow] = useState(false);

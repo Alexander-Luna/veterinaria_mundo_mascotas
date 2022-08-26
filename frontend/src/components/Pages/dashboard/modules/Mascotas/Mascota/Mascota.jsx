@@ -124,9 +124,6 @@ const Mascota=(props)=>{
                    <Link to={`/mascotas/mascota/${e.cod_mascota}`} className={global.icon} title="Editar">
                      <i className="fas fa-user-edit"></i>
                    </Link>
-                   <Link to={`/mascotas/${e.cod_mascota}/citas`} className={global.icon} title="Citas">
-                     <i className="fas fa-notes-medical"></i>
-                   </Link>
                    <Link to={`/mascotas/${e.cod_mascota}/historia`} className={global.icon} title="Historia Clinica">
                      <i className="fas fa-notes-medical"></i>
                    </Link>
